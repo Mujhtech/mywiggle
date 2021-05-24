@@ -36,7 +36,8 @@
       <div class="row h-100">
         <div class="col-12 my-auto">
           <div class="masthead-content text-white py-5 py-md-0">
-            <h1 class="mb-3">Coming Soon!</h1>
+            <h1 class="mb-3">MyWiggle</h1>
+	    <h4>Coming Soon!</h4>
           </div>
         </div>
       </div>
