@@ -38,14 +38,14 @@ Design and Developed by: Gentechtree
     var registerDependencies = function() {
             var PluginJsConfig = {
                 "js_dependencies": {
-                    "asyncloader.js": "js/vendor/asyncloader.js",
-                    "asyncloader": "js/asyncloader.min.js?ver=1.0",
-                    "circle-progress": "js/circle-progress.min.js?ver=1.0",
-                    "isotope.pkgd": "js/isotope.pkgd.min.js?ver=1.0",
-                    "jquery.countTo": "js/jquery.countTo.min.js?ver=1.0",
-                    "jquery.magnific-popup": "js/jquery.magnific-popup.min.js?ver=1.0",
-                    "owl.carousel": "js/owl.carousel.min.js?ver=1.0",
-                    "slick": "js/slick.min.js?ver=1.0"
+                    "asyncloader.js": "assets/frontend/user/js/vendor/asyncloader.js",
+                    "asyncloader": "assets/frontend/user/js/asyncloader.min.js?ver=1.0",
+                    "circle-progress": "assets/frontend/user/js/circle-progress.min.js?ver=1.0",
+                    "isotope.pkgd": "assets/frontend/user/js/isotope.pkgd.min.js?ver=1.0",
+                    "jquery.countTo": "assets/frontend/user/js/jquery.countTo.min.js?ver=1.0",
+                    "jquery.magnific-popup": "assets/frontend/user/js/jquery.magnific-popup.min.js?ver=1.0",
+                    "owl.carousel": "assets/frontend/user/js/owl.carousel.min.js?ver=1.0",
+                    "slick": "assets/frontend/user/js/slick.min.js?ver=1.0"
                 }
             };
             if (null != PluginJsConfig && null != PluginJsConfig.js_dependencies) {
