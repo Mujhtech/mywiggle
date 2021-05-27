@@ -17,6 +17,34 @@ Route::get('/', function () {
     return view('index');
 });
 
+
+Route::group(['prefix' => 'auth'], function () {
+    
+	Route::get('/login', function () {
+	    return view('user.auth.login');
+	})->name('auth.login');
+
+	Route::get('/register', function () {
+	    return view('user.auth.register');
+	})->name('auth.register');
+
+	Route::get('/forgot-password', function () {
+	    return view('user.auth.recover');
+	})->name('auth.recover');
+
+});
+
+Route::group(['middleware' => ['web'], 'prefix' => 'user'], function () {
+    
+	Route::get('/', function () {
+	    return view('user.index');
+	});
+
+
+
+});
+
+
 Route::group(['middleware' => ['web'], 'prefix' => 'user'], function () {
     
 	Route::get('/', function () {
