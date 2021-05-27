@@ -16,3 +16,13 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('index');
 });
+
+Route::group(['middleware' => ['web'], 'prefix' => 'user'], function () {
+    
+	Route::get('/', function () {
+	    return view('user.index');
+	});
+
+
+
+});
