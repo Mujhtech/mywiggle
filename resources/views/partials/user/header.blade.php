@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>@yield('title', 'MyWiggle')</title>
     <!-- Favicon -->
-    <link rel="shortcut icon" href="{{ asset('assets/frontend/user/images/favicon.png') }}">
+    <link rel="shortcut icon" href="https://ui-avatars.com/api/?name=MyWiggle&color=E50916&background=000000">
 
     <link rel="stylesheet" href="{{ asset('assets/fontawesome/css/all.min.css') }}" />
     <link rel="stylesheet" href="{{ asset('assets/fontawesome/css/fontawesome.min.css') }}" />
@@ -45,7 +45,7 @@
                     <div class="col-lg-12">
                         <nav class="navbar navbar-expand-lg navbar-light">
                             <a class="navbar-brand" href="#">
-                                <img class="img-fluid logo" src="images/logo-1.png" alt="streamlab-image">
+                                <img class="img-fluid logo" src="https://ui-avatars.com/api/?name=MyWiggle&color=E50916&background=000000" alt="logo">
                             </a>
                             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                                 <div id="gen-menu-contain" class="gen-menu-contain">
