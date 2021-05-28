@@ -40,6 +40,24 @@ Route::group(['middleware' => ['web'], 'prefix' => 'user'], function () {
 	    return view('user.index');
 	});
 
+	Route::get('/video/123', function () {
+	    return view('user.single');
+	})->name('web.single');
+
+
+	Route::get('/page/123', function () {
+	    return view('user.page');
+	})->name('web.page');
+
+	Route::get('/category/123', function () {
+	    return view('user.category');
+	})->name('web.category');
+
+
+	Route::get('/search/123', function () {
+	    return view('user.search');
+	})->name('web.search');
+
 
 
 });
