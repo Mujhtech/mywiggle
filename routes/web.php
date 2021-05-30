@@ -54,7 +54,7 @@ Route::group(['middleware' => ['web'], 'prefix' => 'user'], function () {
 	})->name('web.category');
 
 
-	Route::get('/search/123', function () {
+	Route::get('/search', function () {
 	    return view('user.search');
 	})->name('web.search');
 

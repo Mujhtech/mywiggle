@@ -36,12 +36,17 @@
         </div>
     </div>-->
     <!--=========== Loader =============-->
-
+    
     <!--========== Header ==============-->
     <header id="gen-header" class="gen-header-style-1 gen-has-sticky">
         <div class="gen-bottom-header">
             <div class="container">
                 <div class="row">
+                    <div class="col-lg-12 col-md-12 col-xs-12">
+                        <a href="#">
+                            <img src="https://via.placeholder.com/728x90?text=Visit+MyWiggle.com+Now+to+place+your+ads" alt="">
+                        </a>
+                    </div>
                     <div class="col-lg-12">
                         <nav class="navbar navbar-expand-lg navbar-light">
                             <a class="navbar-brand" href="#">
@@ -51,23 +56,23 @@
                                 <div id="gen-menu-contain" class="gen-menu-contain">
                                     <ul id="gen-main-menu" class="navbar-nav ml-auto">
                                         <li class="menu-item active">
-                                            <a href="#">Home</a>
+                                            <a href="{{ url('/') }}">Home</a>
                                         </li>
                                         <li class="menu-item">
-                                            <a href="#">About Us</a>
+                                            <a href="{{ route('web.page') }}">About Us</a>
                                         </li>
                                         <li class="menu-item">
-                                            <a href="#">Terms & Condition</a>
+                                            <a href="{{ route('web.page') }}">Terms & Condition</a>
                                         </li>
                                         <li class="menu-item">
                                             <a href="#">Categories</a>
                                             <i class="fa fa-chevron-down gen-submenu-icon"></i>
                                             <ul class="sub-menu">
                                                 <li class="menu-item">
-                                                    <a href="#">Action</a>
+                                                    <a href="{{ route('web.category') }}">Action</a>
                                                 </li>
                                                 <li class="menu-item">
-                                                    <a href="#">Gaming</a>
+                                                    <a href="{{ route('web.category') }}">Gaming</a>
                                                 </li>
                                             </ul>
                                         </li>
@@ -78,7 +83,7 @@
                                 <div class="gen-menu-search-block">
                                     <a href="javascript:void(0)" id="gen-seacrh-btn"><i class="fa fa-search"></i></a>
                                     <div class="gen-search-form">
-                                        <form role="search" method="get" class="search-form" action="#">
+                                        <form role="search" method="get" class="search-form" action="{{ route('web.search') }}">
                                             <label>
                                                 <span class="screen-reader-text"></span>
                                                 <input type="search" class="search-field" placeholder="Search …"
@@ -115,7 +120,7 @@
                                     </div>
                                 </div>
                                 <div class="gen-btn-container">
-                                    <a href="register.html" class="gen-button">
+                                    <a href="{{ route('auth.register') }}" class="gen-button">
                                         <div class="gen-button-block">
                                             <span class="gen-button-line-left"></span>
                                             <span class="gen-button-text">Register</span>

@@ -80,7 +80,9 @@
         <a class="top" id="top" href="#top"> <i class="ion-ios-arrow-up"></i> </a>
     </div>
     <!-- Back-to-Top end -->
-
+    <script type="text/javascript">
+        var APP_URL = "{{ url('/') }}";
+    </script>
     <!-- js-min -->
     <script src="{{ asset('assets/frontend/user/js/jquery-3.6.0.min.js') }}"></script>
     <script src="{{ asset('assets/frontend/user/js/asyncloader.min.js') }}"></script>
