@@ -28,15 +28,15 @@
                                 <div class="menu-explore-container">
                                     <ul class="menu">
                                         <li class="menu-item">
-                                            <a href="index.html" aria-current="page">Home</a>
+                                            <a href="{{ url('/') }}" aria-current="page">Home</a>
                                         </li>
-                                        <li class="menu-item"><a href="movies-pagination.html">Movies</a></li>
-                                        <li class="menu-item"><a href="tv-shows-pagination.html">Tv Shows</a></li>
-                                        <li class="menu-item"><a href="video-pagination.html">Videos</a></li>
-                                        <li class="menu-item"><a href="#">Actors</a></li>
-                                        <li class="menu-item"><a href="#">Basketball</a></li>
-                                        <li class="menu-item"><a href="#">Celebrity</a></li>
-                                        <li class="menu-item"><a href="#">Cross</a></li>
+                                        <li class="menu-item"><a href="{{ route('web.category') }}">Movies</a></li>
+                                        <li class="menu-item"><a href="{{ route('web.category') }}l">Tv Shows</a></li>
+                                        <li class="menu-item"><a href="{{ route('web.category') }}">Videos</a></li>
+                                        <li class="menu-item"><a href="{{ route('web.category') }}">Actors</a></li>
+                                        <li class="menu-item"><a href="{{ route('web.category') }}">Basketball</a></li>
+                                        <li class="menu-item"><a href="{{ route('web.category') }}">Celebrity</a></li>
+                                        <li class="menu-item"><a href="{{ route('web.category') }}">Cross</a></li>
                                     </ul>
                                 </div>
                             </div>

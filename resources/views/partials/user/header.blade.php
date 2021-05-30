@@ -42,14 +42,14 @@
         <div class="gen-bottom-header">
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-12 col-md-12 col-xs-12">
+                    <div class="col-lg-12 col-md-12 col-xs-12 offset-lg-2 offset-md-3">
                         <a href="#">
-                            <img src="https://via.placeholder.com/728x90?text=Visit+MyWiggle.com+Now+to+place+your+ads" alt="">
+                            <img src="https://via.placeholder.com/728x90?text=Visit+MyWiggle.com+Now+to+place+your+ads" alt="Ads">
                         </a>
                     </div>
                     <div class="col-lg-12">
                         <nav class="navbar navbar-expand-lg navbar-light">
-                            <a class="navbar-brand" href="#">
+                            <a class="navbar-brand" href="{{ url('/') }}">
                                 <img class="img-fluid logo" src="https://ui-avatars.com/api/?name=MyWiggle&color=E50916&background=000000" alt="logo">
                             </a>
                             <div class="collapse navbar-collapse" id="navbarSupportedContent">
