@@ -161,7 +161,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-xl-6 col-lg-6 col-md-6">
-                    <h4 class="gen-heading-title">Trending Videos</h4>
+                    <h4 class="gen-heading-title">Sponsored Videos</h4>
                 </div>
                 <div class="col-xl-6 col-lg-6 col-md-6 d-none d-md-inline-block">
                     <div class="gen-movie-action">
@@ -454,7 +454,7 @@
                                                     <ul>
                                                         <li>3 weeks</li>
                                                         <li>
-                                                            <a href="horror.html"><span>Horror</span></a>
+                                                            <a href="{{ route('web.category') }}"><span>Horror</span></a>
                                                         </li>
                                                     </ul>
                                                 </div>
@@ -1200,7 +1200,7 @@
                                                     <ul>
                                                         <li>3 weeks</li>
                                                         <li>
-                                                            <a href="horror.html"><span>Horror</span></a>
+                                                            <a href="{{ route('web.category') }}"><span>Horror</span></a>
                                                         </li>
                                                     </ul>
                                                 </div>
@@ -1653,7 +1653,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-xl-6 col-lg-6 col-md-6">
-                    <h4 class="gen-heading-title">All Time Hits Videos</h4>
+                    <h4 class="gen-heading-title">Popular Videos</h4>
                 </div>
                 <div class="col-xl-6 col-lg-6 col-md-6 d-none d-md-inline-block">
                     <div class="gen-movie-action">
@@ -1731,7 +1731,7 @@
                                                     <ul>
                                                         <li>3 years</li>
                                                         <li>
-                                                            <a href="horror.html"><span>Horror</span></a>
+                                                            <a href="{{ route('web.category') }}"><span>Horror</span></a>
                                                         </li>
                                                     </ul>
                                                 </div>
@@ -2131,7 +2131,7 @@
                                                     <ul>
                                                         <li>2 years</li>
                                                         <li>
-                                                            <a href="horror.html"><span>Horror</span></a>
+                                                            <a href="{{ route('web.category') }}"><span>Horror</span></a>
                                                         </li>
                                                         <li>
                                                             <i class="fas fa-eye">
@@ -2169,7 +2169,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-xl-6 col-lg-6 col-md-6">
-                    <h4 class="gen-heading-title">Most Liked Videos</h4>
+                    <h4 class="gen-heading-title">Shot Films</h4>
                 </div>
                 <div class="col-xl-6 col-lg-6 col-md-6 d-none d-md-inline-block">
                     <div class="gen-movie-action">
@@ -2462,7 +2462,7 @@
                                                     <ul>
                                                         <li>2 years</li>
                                                         <li>
-                                                            <a href="horror.html"><span>Horror</span></a>
+                                                            <a href="{{ route('web.category') }}"><span>Horror</span></a>
                                                         </li>
                                                     </ul>
                                                 </div>

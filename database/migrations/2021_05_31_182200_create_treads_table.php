@@ -21,6 +21,10 @@ class CreateTreadsTable extends Migration
             $table->foreignId('category_id')->constrained('categories');
             $table->foreignId('user_id')->constrained('users');
             $table->integer('status')->default(0);
+            $table->integer('likes')->default(0);
+            $table->integer('unlike')->default(0);
+            $table->boolean('is_sponsored')->default(false);
+            $table->boolean('is_trending')->default(false);
             $table->timestamps();
         });
     }

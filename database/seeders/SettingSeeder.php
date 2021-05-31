@@ -17,8 +17,40 @@ class SettingSeeder extends Seeder
         //
         $sss = [
             [
-                "name" => "Mujeeb Muhideen",
-                "value" => 'admin@myschool.com',
+                "name" => "app-name",
+                "value" => 'MyWiggle',
+            ],
+            [
+                "name" => "app-description",
+                "value" => 'MyWiggle',
+            ],
+            [
+                "name" => "app-logo",
+                "value" => null,
+            ],
+            [
+                "name" => "facebook-link",
+                "value" => null,
+            ],
+            [
+                "name" => "twitter-link",
+                "value" => null,
+            ],
+            [
+                "name" => "instagram-link",
+                "value" => null,
+            ],
+            [
+                "name" => "skype-link",
+                "value" => null,
+            ],
+            [
+                "name" => "android-link",
+                "value" => null,
+            ],
+            [
+                "name" => "ios-link",
+                "value" => null,
             ],
         ];
 
