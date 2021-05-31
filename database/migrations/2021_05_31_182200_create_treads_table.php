@@ -23,6 +23,7 @@ class CreateTreadsTable extends Migration
             $table->integer('status')->default(0);
             $table->integer('likes')->default(0);
             $table->integer('unlike')->default(0);
+            $table->integer('views')->default(0);
             $table->boolean('is_sponsored')->default(false);
             $table->boolean('is_trending')->default(false);
             $table->timestamps();
