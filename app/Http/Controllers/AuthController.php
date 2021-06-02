@@ -11,7 +11,7 @@ class AuthController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function login(Request $request)
     {
         //
     }
@@ -21,7 +21,7 @@ class AuthController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function register(Request $request)
     {
         //
     }
@@ -32,7 +32,7 @@ class AuthController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function recover(Request $request)
     {
         //
     }

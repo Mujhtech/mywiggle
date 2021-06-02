@@ -32,6 +32,8 @@ Route::group(['prefix' => 'auth'], function () {
 	    return view('user.auth.recover');
 	})->name('auth.recover');
 
+	Route::post('/login', 'AuthController@login')->name('auth.login.post');
+
 });
 
 Route::group(['middleware' => ['web'], 'prefix' => 'frontend'], function () {
@@ -63,16 +65,16 @@ Route::group(['middleware' => ['web'], 'prefix' => 'frontend'], function () {
 });
 
 
-Route::group(['middleware' => ['auth'], 'prefix' => 'user'], function () {
+Route::group(['prefix' => 'user', 'middleware' => ['auth']], function () {
     
 	Route::get('/', function () {
-	    return view('user.account');
+	    return view('user.dashboard');
 	})->name('user.dashboard');
 
 });
 
 
-Route::group(['middleware' => ['web'], 'prefix' => 'user'], function () {
+Route::group(['middleware' => ['web'], 'prefix' => 'admin'], function () {
     
 	Route::get('/', function () {
 	    return view('user.index');
