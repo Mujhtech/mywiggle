@@ -23,6 +23,8 @@ class UserSeeder extends Seeder
                 "role_id" => "1",
                 "phone_number" => "0707686576",
                 "password" => "12345678",
+                "referred_by" => "1",
+                "referral_code" => "857878"
             ],
         ];
 

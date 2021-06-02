@@ -16,10 +16,12 @@ class CreateUsersTable extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->foreignId('role_id')->constrained('roles');
+            $table->foreignId('referred_by')->constrained('users');
             $table->string('fullname');
             $table->string('username')->unique();
             $table->string('phone_number');
             $table->string('email')->unique();
+            $table->string('referral_code');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->boolean('is_block')->default(false);

@@ -74,6 +74,7 @@ class AuthController extends Controller
         $user->is_verified = 1;
         $user->last_login = Carbon::now();
         $user->email_verified_at = Carbon::now();
+        $user->referral_code = substr(time(), 0, 2).substr(time(), 4, 6).substr(time(), 7, 9);
 
         if($user->save()){
 
@@ -104,9 +105,19 @@ class AuthController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function referral($code)
     {
         //
+        if(!User::where('referral_code', $code)->exists()){
+
+            return redirect()->route('auth.register')->with('error', 'Referral code does not exist');
+
+        } else {
+
+            return view('user.auth.register', $referral_code = $code);
+
+        }
+
     }
 
     /**
