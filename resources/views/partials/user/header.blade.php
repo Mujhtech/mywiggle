@@ -119,12 +119,21 @@
                                     </div>
                                 </div>
                                 <div class="gen-btn-container">
+                                    @if(Auth::check())
+                                    <a href="{{ route('auth.logout') }}" class="gen-button">
+                                        <div class="gen-button-block">
+                                            <span class="gen-button-line-left"></span>
+                                            <span class="gen-button-text">Logout</span>
+                                        </div>
+                                    </a>
+                                    @else
                                     <a href="{{ route('auth.register') }}" class="gen-button">
                                         <div class="gen-button-block">
                                             <span class="gen-button-line-left"></span>
                                             <span class="gen-button-text">Register</span>
                                         </div>
                                     </a>
+                                    @endif
                                 </div>
                             </div>
                             <button class="navbar-toggler" type="button" data-toggle="collapse"
