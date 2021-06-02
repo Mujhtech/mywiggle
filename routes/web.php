@@ -33,6 +33,8 @@ Route::group(['prefix' => 'auth'], function () {
 	})->name('auth.recover');
 
 	Route::post('/login', 'AuthController@login')->name('auth.login.post');
+	Route::post('/register', 'AuthController@register')->name('auth.register.post');
+	Route::post('/forgot-password', 'AuthController@recover')->name('auth.recover.post');
 
 });
 

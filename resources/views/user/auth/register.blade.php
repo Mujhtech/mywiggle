@@ -10,10 +10,9 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="text-center">
-                        <form id="pms_register-form" class="pms-form" method="POST">
+                        <form id="pms_register-form" action="{{ route('auth.register.post') }}" class="pms-form" method="POST">
+                            @csrf
                             <h4>Register</h4>
-                            <input type="hidden" id="pmstkn" name="pmstkn" value="59b502f483"><input type="hidden"
-                                name="_wp_http_referer" value="/register/">
                             <ul class="pms-form-fields-wrapper pl-0">
                                 <li class="pms-field pms-user-login-field ">
                                     <label for="pms_user_login">Username *</label>
