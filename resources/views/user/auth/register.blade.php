@@ -14,12 +14,12 @@
                             @csrf
                             <h4>Register</h4>
                             <ul class="pms-form-fields-wrapper pl-0">
-
+                                @if(isset($referral_code) && !empty($referral_code))
                                 <li class="pms-field pms-user-login-field ">
                                     <label for="pms_user_login">Referral Code </label>
                                     <input id="pms_user_login" name="referral_code" type="text" value="{{old('referral_code') ? old('referral_code') : ''}}">
                                 </li>
-
+                                @endif
                                 <li class="pms-field pms-user-login-field ">
                                     <label for="pms_user_login">Username </label>
                                     <input id="pms_user_login" name="username" type="text" value="{{old('username') ? old('username') : ''}}">

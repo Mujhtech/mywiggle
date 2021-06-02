@@ -32,7 +32,7 @@ class AuthController extends Controller
         if(Auth::validate($credentials) == true) {
 
             $userLogin = User::where('username', $request->id)->orWhere('email', $request->id)->first();
-            $userLogin->last_login = Carbon::now;
+            $userLogin->last_login = Carbon::now();
             $userLogin->save();
 
             $user = Auth::getLastAttempted();
@@ -64,7 +64,26 @@ class AuthController extends Controller
             'pass2' => 'required|string|max:120|min:8|same:pass1',
         ]);
 
+        $user = new User;
+        $user->username = $request->username;
+        $user->fullname = $request->fullname;
+        $user->email = $request->email;
+        $user->phone_number = $request->phone_number;
+        $user->password = $request->pass1;
+        $user->role_id = 1;
+        $user->is_verified = 1;
+        $user->last_login = Carbon::now();
+        $user->email_verified_at = Carbon::now();
 
+        if($user->save()){
+
+            return redirect()->route('auth.login')->with('success', 'Welcome to our platform, please login to continue');
+
+        } else {
+
+            return redirect()->back()->with('error', 'Something went wrong');
+
+        }
 
     }
 

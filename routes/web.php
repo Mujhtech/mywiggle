@@ -18,7 +18,7 @@ Route::get('/', function () {
 });
 
 
-Route::group(['prefix' => 'auth'], function () {
+Route::group(['middleware' => ['web', 'guest'], 'prefix' => 'auth'], function () {
     
 	Route::get('/login', function () {
 	    return view('user.auth.login');
@@ -69,7 +69,7 @@ Route::group(['middleware' => ['web'], 'prefix' => 'frontend'], function () {
 
 Route::group(['prefix' => 'user', 'middleware' => ['auth']], function () {
     
-	Route::get('/', function () {
+	Route::get('/dashboard', function () {
 	    return view('user.dashboard');
 	})->name('user.dashboard');
 
