@@ -34,7 +34,7 @@ Route::group(['prefix' => 'auth'], function () {
 
 });
 
-Route::group(['middleware' => ['web'], 'prefix' => 'user'], function () {
+Route::group(['middleware' => ['web'], 'prefix' => 'frontend'], function () {
     
 	Route::get('/', function () {
 	    return view('user.index');
@@ -59,6 +59,15 @@ Route::group(['middleware' => ['web'], 'prefix' => 'user'], function () {
 	})->name('web.search');
 
 
+
+});
+
+
+Route::group(['middleware' => ['auth'], 'prefix' => 'user'], function () {
+    
+	Route::get('/', function () {
+	    return view('user.account');
+	})->name('user.dashboard');
 
 });
 
