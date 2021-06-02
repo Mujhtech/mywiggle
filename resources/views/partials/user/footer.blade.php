@@ -30,13 +30,9 @@
                                         <li class="menu-item">
                                             <a href="{{ url('/') }}" aria-current="page">Home</a>
                                         </li>
-                                        <li class="menu-item"><a href="{{ route('web.category') }}">Movies</a></li>
-                                        <li class="menu-item"><a href="{{ route('web.category') }}l">Tv Shows</a></li>
-                                        <li class="menu-item"><a href="{{ route('web.category') }}">Videos</a></li>
-                                        <li class="menu-item"><a href="{{ route('web.category') }}">Actors</a></li>
-                                        <li class="menu-item"><a href="{{ route('web.category') }}">Basketball</a></li>
-                                        <li class="menu-item"><a href="{{ route('web.category') }}">Celebrity</a></li>
-                                        <li class="menu-item"><a href="{{ route('web.category') }}">Cross</a></li>
+                                        @foreach($cat as $cc)
+                                        <li class="menu-item"><a href="{{ route('web.category', $cc->slug) }}">{{ $cc->name }}</a></li>
+                                        @endforeach
                                     </ul>
                                 </div>
                             </div>

@@ -59,21 +59,20 @@
                                             <a href="{{ url('/') }}">Home</a>
                                         </li>
                                         <li class="menu-item">
-                                            <a href="{{ route('web.page') }}">About Us</a>
+                                            <a href="{{ route('web.page', 'about-us') }}">About Us</a>
                                         </li>
                                         <li class="menu-item">
-                                            <a href="{{ route('web.page') }}">Terms & Condition</a>
+                                            <a href="{{ route('web.page', 'terms-and-condition') }}">Terms & Condition</a>
                                         </li>
                                         <li class="menu-item">
                                             <a href="#">Categories</a>
                                             <i class="fa fa-chevron-down gen-submenu-icon"></i>
                                             <ul class="sub-menu">
+                                                @foreach($cat as $cc)
                                                 <li class="menu-item">
-                                                    <a href="{{ route('web.category') }}">Action</a>
+                                                    <a href="{{ route('web.category', $cc->slug) }}">{{ $cc->name}}</a>
                                                 </li>
-                                                <li class="menu-item">
-                                                    <a href="{{ route('web.category') }}">Gaming</a>
-                                                </li>
+                                                @endforeach
                                             </ul>
                                         </li>
                                     </ul>

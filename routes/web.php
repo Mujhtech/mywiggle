@@ -40,31 +40,19 @@ Route::group(['middleware' => ['web', 'guest'], 'prefix' => 'auth'], function ()
 
 });
 
+Route::get('/logout', 'AuthController@logout')->name('auth.logout');
+
 Route::group(['middleware' => ['web'], 'prefix' => 'frontend'], function () {
     
-	Route::get('/', function () {
-	    return view('user.index');
-	});
+	Route::get('/', 'FrontendController@index')->name('web.index');
 
-	Route::get('/video/123', function () {
-	    return view('user.single');
-	})->name('web.single');
+	Route::get('/video/{slug}', 'FrontendController@single')->name('web.single');
 
+	Route::get('/page/{slug}', 'FrontendController@page')->name('web.page');
 
-	Route::get('/page/123', function () {
-	    return view('user.page');
-	})->name('web.page');
+	Route::get('/category/{slug}', 'FrontendController@category')->name('web.category');
 
-	Route::get('/category/123', function () {
-	    return view('user.category');
-	})->name('web.category');
-
-
-	Route::get('/search', function () {
-	    return view('user.search');
-	})->name('web.search');
-
-
+	Route::get('/search', 'FrontendController@search')->name('web.search');
 
 });
 
