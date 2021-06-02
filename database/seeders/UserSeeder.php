@@ -18,8 +18,10 @@ class UserSeeder extends Seeder
         $users = [
             [
                 "fullname" => "Mujeeb Muhideen",
-                "email" => 'admin@myschool.com',
+                "email" => 'admin@mywiggle.com',
+                "username" => "Mujhtech",
                 "role_id" => "1",
+                "phone_number" => "0707686576",
                 "password" => "12345678",
             ],
         ];

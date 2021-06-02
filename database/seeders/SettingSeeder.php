@@ -67,7 +67,7 @@ class SettingSeeder extends Seeder
     		if( !$existing->isEmpty() ){
     			continue;
     		}
-           User::create($ss);
+           Setting::create($ss);
     	}
     }
 }

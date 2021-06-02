@@ -17,14 +17,15 @@ class CreateUsersTable extends Migration
             $table->id();
             $table->foreignId('role_id')->constrained('roles');
             $table->string('fullname');
-            $table->string('username');
+            $table->string('username')->unique();
+            $table->string('phone_number');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->boolean('is_block')->default(false);
             $table->boolean('is_verified')->default(false);
             $table->integer('point_earn')->default(0);
-            $table->timestamp('last_login');
+            $table->timestamp('last_login')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });
