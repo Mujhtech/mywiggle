@@ -9,16 +9,22 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="text-center">
-                        <form name="pms_login" id="pms_login" action="{{ route('auth.login.post') }}" method="post">
+                        <form id="pms_login" action="{{ route('auth.login.post') }}" method="post">
                             @csrf
                             <h4>Sign In</h4>
                             <p class="login-username">
                                 <label for="user_login">Username or Email Address</label>
-                                <input type="text" name="id" class="input" value="" size="20">
+                                <input type="text" name="id" class="input" value="{{old('id') ? old('id') : ''}}">
+                                @if($errors->has('id'))
+                                <small>{!!  $errors->get('id')[0] !!}</small>
+                                @endif
                             </p>
                             <p class="login-password">
                                 <label for="user_pass">Password</label>
-                                <input type="password" name="password" class="input" value="" size="20">
+                                <input type="password" name="password" class="input" value="">
+                                @if($errors->has('password'))
+                                <small>{!!  $errors->get('password')[0] !!}</small>
+                                @endif
                             </p>
                             <p class="login-remember">
                                 <label>
