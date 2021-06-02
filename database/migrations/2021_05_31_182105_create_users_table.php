@@ -23,7 +23,7 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->boolean('is_block')->default(false);
             $table->boolean('is_verified')->default(false);
-            $table->interger('point_earn')->default(0);
+            $table->integer('point_earn')->default(0);
             $table->timestamp('last_login');
             $table->rememberToken();
             $table->timestamps();

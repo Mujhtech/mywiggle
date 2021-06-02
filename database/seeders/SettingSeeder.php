@@ -29,6 +29,14 @@ class SettingSeeder extends Seeder
                 "value" => null,
             ],
             [
+                "name" => "enable-ads",
+                "value" => null,
+            ],
+            [
+                "name" => "enable-loader",
+                "value" => null,
+            ],
+            [
                 "name" => "facebook-link",
                 "value" => null,
             ],
