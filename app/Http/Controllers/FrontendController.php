@@ -80,5 +80,15 @@ class FrontendController extends Controller
 
     }
 
+
+    public function allvideo()
+    {
+        //
+        $data['all'] = Tread::paginate(20);
+
+        return view('user.all', $data);
+
+    }
+
     
 }

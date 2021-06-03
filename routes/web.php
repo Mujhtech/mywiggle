@@ -46,6 +46,8 @@ Route::group(['middleware' => ['web'], 'prefix' => 'frontend'], function () {
     
 	Route::get('/', 'FrontendController@index')->name('web.index');
 
+	Route::get('/all-video', 'FrontendController@allvideo')->name('web.all');
+
 	Route::get('/video/{slug}', 'FrontendController@single')->name('web.single');
 
 	Route::get('/page/{slug}', 'FrontendController@page')->name('web.page');

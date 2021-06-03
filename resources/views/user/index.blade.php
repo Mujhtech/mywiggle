@@ -166,7 +166,7 @@
                 <div class="col-xl-6 col-lg-6 col-md-6 d-none d-md-inline-block">
                     <div class="gen-movie-action">
                         <div class="gen-btn-container text-right">
-                            <a href="tv-shows-pagination.html" class="gen-button gen-button-flat">
+                            <a href="{{ route('web.all') }}" class="gen-button gen-button-flat">
                                 <span class="text">More Videos</span>
                             </a>
                         </div>
@@ -272,7 +272,7 @@
                 <div class="col-xl-6 col-lg-6 col-md-6 d-none d-md-inline-block">
                     <div class="gen-movie-action">
                         <div class="gen-btn-container text-right">
-                            <a href="tv-shows-pagination.html" class="gen-button gen-button-flat">
+                            <a href="{{ route('web.all') }}" class="gen-button gen-button-flat">
                                 <span class="text">More Videos</span>
                             </a>
                         </div>
@@ -379,7 +379,7 @@
                 <div class="col-xl-6 col-lg-6 col-md-6 d-none d-md-inline-block">
                     <div class="gen-movie-action">
                         <div class="gen-btn-container text-right">
-                            <a href="tv-shows-pagination.html" class="gen-button gen-button-flat">
+                            <a href="{{ route('web.all') }}" class="gen-button gen-button-flat">
                                 <span class="text">More Videos</span>
                             </a>
                         </div>
@@ -614,7 +614,7 @@
                 <div class="col-xl-6 col-lg-6 col-md-6 d-none d-md-inline-block">
                     <div class="gen-movie-action">
                         <div class="gen-btn-container text-right">
-                            <a href="tv-shows-pagination.html" class="gen-button gen-button-flat">
+                            <a href="{{ route('web.all') }}" class="gen-button gen-button-flat">
                                 <span class="text">More Videos</span>
                             </a>
                         </div>

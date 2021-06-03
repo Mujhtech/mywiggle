@@ -4,15 +4,9 @@
 	<div class="container">
 		<br>
 		<div class="row">
-			<div class="col-lg-12 col-md-12 col-xs-12">
-				<h4>Search result: {{ $id }}</h4>
-			</div>
-		</div>
-		<br>
-		<div class="row">
-			@if(count($search) > 0)
+			@if(count($all) > 0)
 
-			@foreach($search as $sh)
+			@foreach($all as $sh)
 			<div class="col-lg-3 col-md-6 col-xs-12">
 				<div class="item">
 					<div
