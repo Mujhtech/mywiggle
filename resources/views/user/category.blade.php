@@ -1,18 +1,20 @@
 @extends('layout.user')
+@section('title', $title)
+
 @section('content')
 <section class="gen-section-padding-2">
 	<div class="container">
 		<br>
 		<div class="row">
 			<div class="col-lg-12 col-md-12 col-xs-12">
-				<h4>Category: 1234</h4>
+				<h4>Category: {{ $title }}</h4>
 			</div>
 		</div>
 		<br>
 		<div class="row">
-			@if(count($search) > 0)
+			@if(count($cat) > 0)
 
-			@foreach($search as $sh)
+			@foreach($cat as $sh)
 			<div class="col-lg-3 col-md-6 col-xs-12">
 				<div class="item">
 					<div
@@ -74,7 +76,7 @@
 											<ul>
                                                 <li>{{ $sh->created_at->diffForHumans() }}</li>
                                                 <li>
-                                                    <a href="{{ route('web.category', $sh->category->slug) }}"><span>{{ $sh->category->title }}</span></a>
+                                                    <a href="{{ route('web.category', $sh->category->slug) }}"><span>{{ $sh->category->name }}</span></a>
                                                 </li>
                                             </ul>
 										</div>

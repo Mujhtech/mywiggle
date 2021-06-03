@@ -242,7 +242,7 @@
                                                     <ul>
                                                         <li>{{ $sp->created_at->diffForHumans() }}</li>
                                                         <li>
-                                                            <a href="{{ route('web.category', $sp->category->slug) }}"><span>{{ $sp->category->title }}</span></a>
+                                                            <a href="{{ route('web.category', $sp->category->slug) }}"><span>{{ $sp->category->name }}</span></a>
                                                         </li>
                                                     </ul>
                                                 </div>
@@ -348,7 +348,7 @@
                                                     <ul>
                                                         <li>{{ $td->created_at->diffForHumans() }}</li>
                                                         <li>
-                                                            <a href="{{ route('web.category', $td->category->slug) }}"><span>{{ $td->category->title }}</span></a>
+                                                            <a href="{{ route('web.category', $td->category->slug) }}"><span>{{ $td->category->name }}</span></a>
                                                         </li>
                                                     </ul>
                                                 </div>
@@ -455,7 +455,7 @@
                                                     <ul>
                                                         <li>{{ $pp->created_at->diffForHumans() }}</li>
                                                         <li>
-                                                            <a href="{{ route('web.category', $pp->category->slug) }}"><span>{{ $pp->category->title }}</span></a>
+                                                            <a href="{{ route('web.category', $pp->category->slug) }}"><span>{{ $pp->category->name }}</span></a>
                                                         </li>
                                                     </ul>
                                                 </div>
@@ -690,7 +690,7 @@
                                                     <ul>
                                                         <li>{{ $ss->created_at->diffForHumans() }}</li>
                                                         <li>
-                                                            <a href="{{ route('web.category', $ss->category->slug) }}"><span>{{ $ss->category->title }}</span></a>
+                                                            <a href="{{ route('web.category', $ss->category->slug) }}"><span>{{ $ss->category->name }}</span></a>
                                                         </li>
                                                     </ul>
                                                 </div>

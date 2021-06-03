@@ -68,7 +68,7 @@
 											<ul>
                                                 <li>{{ $sh->created_at->diffForHumans() }}</li>
                                                 <li>
-                                                    <a href="{{ route('web.category', $sh->category->slug) }}"><span>{{ $sh->category->title }}</span></a>
+                                                    <a href="{{ route('web.category', $sh->category->slug) }}"><span>{{ $sh->category->name }}</span></a>
                                                 </li>
                                             </ul>
 										</div>

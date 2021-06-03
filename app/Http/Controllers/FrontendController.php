@@ -56,8 +56,10 @@ class FrontendController extends Controller
     {
         //
         if(Category::where('slug', $slug)->exists()){
+            $cat = Category::where('slug', $slug)->first();
 
-            $data['categories'] = Category::where('slug', $slug)->first();
+            $data['title'] = $cat->name;
+            $data['cat'] = Tread::where('category_id', $slug)->paginate(20);
 
             return view('user.category', $data);
 
@@ -74,7 +76,7 @@ class FrontendController extends Controller
     {
         //
         $data['id'] = $request['s'];
-        $data['search'] = Tread::where('title','LIKE','%'.$id.'%')->where('status', 1)->where('is_tread', 1)->orderBy('created_at', 'DESC')->get();
+        $data['search'] = Tread::where('title','LIKE','%'.$request['s'].'%')->where('status', 1)->orderBy('created_at', 'DESC')->paginate(20);
 
         return view('user.search', $data);
 
