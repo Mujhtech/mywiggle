@@ -85,7 +85,7 @@
                                                     <ul class="gen-meta-after-title">
                                                         <li>2 weeks</li>
                                                         <li>
-                                                            <a href="{{ route('web.category') }}"><span>Animation</span></a>
+                                                            <a href="{{ route('web.category', 'jhsdkkhd') }}"><span>Animation</span></a>
                                                         </li>
                                                         <li>
                                                             <i class="fas fa-eye">
@@ -131,7 +131,7 @@
                                                     <ul class="gen-meta-after-title">
                                                         <li>2 years</li>
                                                         <li>
-                                                            <a href="{{ route('web.category') }}"><span>Action</span></a>
+                                                            <a href="{{ route('web.category', 'jhsdkkhd') }}"><span>Action</span></a>
                                                         </li>
                                                         <li>
                                                             <i class="fas fa-eye">
@@ -179,76 +179,8 @@
                         <div class="owl-carousel owl-loaded owl-drag" data-dots="false" data-nav="true"
                             data-desk_num="4" data-lap_num="3" data-tab_num="2" data-mob_num="1" data-mob_sm="1"
                             data-autoplay="false" data-loop="false" data-margin="30">
-                            <div class="item">
-                                <div
-                                    class="movie type-movie status-publish has-post-thumbnail hentry movie_genre-action movie_genre-adventure movie_genre-drama">
-                                    <div class="gen-carousel-movies-style-2 movie-grid style-2">
-                                        <div class="gen-movie-contain">
-                                            <div class="gen-movie-img">
-                                                <img src="http://gentechtree.com/themes/streamlab/red-html/images/background/asset-41.jpg"
-                                                    alt="owl-carousel-video-image">
-                                                <div class="gen-movie-add">
-                                                    <div class="wpulike wpulike-heart">
-                                                        <div class="wp_ulike_general_class wp_ulike_is_not_liked">
-                                                            <button type="button"
-                                                                class="wp_ulike_btn wp_ulike_put_image"></button>
-                                                        </div>
-                                                    </div>
-                                                    <ul class="menu bottomRight">
-                                                        <li class="share top">
-                                                            <i class="fa fa-share-alt"></i>
-                                                            <ul class="submenu">
-                                                                <li><a href="#" class="facebook"><i
-                                                                            class="fab fa-facebook-f"></i></a>
-                                                                </li>
-                                                                <li><a href="#" class="facebook"><i
-                                                                            class="fab fa-instagram"></i></a>
-                                                                </li>
-                                                                <li><a href="#" class="facebook"><i
-                                                                            class="fab fa-twitter"></i></a></li>
-                                                            </ul>
-                                                        </li>
-                                                    </ul>
-                                                    <div class="movie-actions--link_add-to-playlist dropdown">
-                                                        <a class="dropdown-toggle" href="#" data-toggle="dropdown"><i
-                                                                class="fa fa-plus"></i></a>
-                                                        <div class="dropdown-menu mCustomScrollbar">
-                                                            <div class="mCustomScrollBox">
-                                                                <div class="mCSB_container">
-                                                                    <a class="login-link" href="register.html">Sign in
-                                                                        to add this
-                                                                        movie to a
-                                                                        playlist.</a>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="gen-movie-action">
-                                                    <a href="{{ route('web.single') }}" class="gen-button">
-                                                        <i class="fa fa-play"></i>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <div class="gen-info-contain">
-                                                <div class="gen-movie-info">
-                                                    <h3><a href="{{ route('web.single') }}">sefozie world</a>
-                                                    </h3>
-                                                </div>
-                                                <div class="gen-movie-meta-holder">
-                                                    <ul>
-                                                        <li>3 weeks</li>
-                                                        <li>
-                                                            <a href="adventure.html"><span>Adventure</span></a>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- #post-## -->
-                            </div>
+                            
+                            @foreach($sponsored as $sp)
 
                             <div class="item">
                                 <div
@@ -296,21 +228,21 @@
                                                     </div>
                                                 </div>
                                                 <div class="gen-movie-action">
-                                                    <a href="{{ route('web.single') }}" class="gen-button">
+                                                    <a href="{{ route('web.single', $sp->slug) }}" class="gen-button">
                                                         <i class="fa fa-play"></i>
                                                     </a>
                                                 </div>
                                             </div>
                                             <div class="gen-info-contain">
                                                 <div class="gen-movie-info">
-                                                    <h3><a href="{{ route('web.single') }}">war hands</a>
+                                                    <h3><a href="{{ route('web.single', $sp->slug) }}">{{ $sp->title }}</a>
                                                     </h3>
                                                 </div>
                                                 <div class="gen-movie-meta-holder">
                                                     <ul>
-                                                        <li>3 weeks</li>
+                                                        <li>{{ $sp->created_at->diffForHumans() }}</li>
                                                         <li>
-                                                            <a href="{{ route('web.category') }}"><span>Animation</span></a>
+                                                            <a href="{{ route('web.category', $sp->category->slug) }}"><span>{{ $sp->category->title }}</span></a>
                                                         </li>
                                                     </ul>
                                                 </div>
@@ -321,579 +253,7 @@
                                 <!-- #post-## -->
                             </div>
 
-
-                            <div class="item">
-                                <div
-                                    class="movie type-movie status-publish has-post-thumbnail hentry movie_genre-action movie_genre-adventure movie_genre-drama">
-                                    <div class="gen-carousel-movies-style-2 movie-grid style-2">
-                                        <div class="gen-movie-contain">
-                                            <div class="gen-movie-img">
-                                                <img src="http://gentechtree.com/themes/streamlab/red-html/images/background/asset-41.jpg"
-                                                    alt="owl-carousel-video-image">
-                                                <div class="gen-movie-add">
-                                                    <div class="wpulike wpulike-heart">
-                                                        <div class="wp_ulike_general_class wp_ulike_is_not_liked">
-                                                            <button type="button"
-                                                                class="wp_ulike_btn wp_ulike_put_image"></button>
-                                                        </div>
-                                                    </div>
-                                                    <ul class="menu bottomRight">
-                                                        <li class="share top">
-                                                            <i class="fa fa-share-alt"></i>
-                                                            <ul class="submenu">
-                                                                <li><a href="#" class="facebook"><i
-                                                                            class="fab fa-facebook-f"></i></a>
-                                                                </li>
-                                                                <li><a href="#" class="facebook"><i
-                                                                            class="fab fa-instagram"></i></a>
-                                                                </li>
-                                                                <li><a href="#" class="facebook"><i
-                                                                            class="fab fa-twitter"></i></a></li>
-                                                            </ul>
-                                                        </li>
-                                                    </ul>
-                                                    <div class="movie-actions--link_add-to-playlist dropdown">
-                                                        <a class="dropdown-toggle" href="#" data-toggle="dropdown"><i
-                                                                class="fa fa-plus"></i></a>
-                                                        <div class="dropdown-menu mCustomScrollbar">
-                                                            <div class="mCustomScrollBox">
-                                                                <div class="mCSB_container">
-                                                                    <a class="login-link" href="register.html">Sign in
-                                                                        to add this
-                                                                        movie to a
-                                                                        playlist.</a>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="gen-movie-action">
-                                                    <a href="{{ route('web.single') }}" class="gen-button">
-                                                        <i class="fa fa-play"></i>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <div class="gen-info-contain">
-                                                <div class="gen-movie-info">
-                                                    <h3><a href="{{ route('web.single') }}">MGX-fighter</a>
-                                                    </h3>
-                                                </div>
-                                                <div class="gen-movie-meta-holder">
-                                                    <ul>
-                                                        <li>3 weeks</li>
-                                                        <li>
-                                                            <a href="adventure.html"><span>Adventure</span></a>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- #post-## -->
-                            </div>
-
-
-                            <div class="item">
-                                <div
-                                    class="movie type-movie status-publish has-post-thumbnail hentry movie_genre-action movie_genre-adventure movie_genre-drama">
-                                    <div class="gen-carousel-movies-style-2 movie-grid style-2">
-                                        <div class="gen-movie-contain">
-                                            <div class="gen-movie-img">
-                                                <img src="http://gentechtree.com/themes/streamlab/red-html/images/background/asset-41.jpg"
-                                                    alt="owl-carousel-video-image">
-                                                <div class="gen-movie-add">
-                                                    <div class="wpulike wpulike-heart">
-                                                        <div class="wp_ulike_general_class wp_ulike_is_not_liked">
-                                                            <button type="button"
-                                                                class="wp_ulike_btn wp_ulike_put_image"></button>
-                                                        </div>
-                                                    </div>
-                                                    <ul class="menu bottomRight">
-                                                        <li class="share top">
-                                                            <i class="fa fa-share-alt"></i>
-                                                            <ul class="submenu">
-                                                                <li><a href="#" class="facebook"><i
-                                                                            class="fab fa-facebook-f"></i></a>
-                                                                </li>
-                                                                <li><a href="#" class="facebook"><i
-                                                                            class="fab fa-instagram"></i></a>
-                                                                </li>
-                                                                <li><a href="#" class="facebook"><i
-                                                                            class="fab fa-twitter"></i></a></li>
-                                                            </ul>
-                                                        </li>
-                                                    </ul>
-                                                    <div class="movie-actions--link_add-to-playlist dropdown">
-                                                        <a class="dropdown-toggle" href="#" data-toggle="dropdown"><i
-                                                                class="fa fa-plus"></i></a>
-                                                        <div class="dropdown-menu mCustomScrollbar">
-                                                            <div class="mCustomScrollBox">
-                                                                <div class="mCSB_container">
-                                                                    <a class="login-link" href="register.html">Sign in
-                                                                        to add this
-                                                                        movie to a
-                                                                        playlist.</a>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="gen-movie-action">
-                                                    <a href="{{ route('web.single') }}" class="gen-button">
-                                                        <i class="fa fa-play"></i>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <div class="gen-info-contain">
-                                                <div class="gen-movie-info">
-                                                    <h3><a href="{{ route('web.single') }}">voho the skull land</a>
-                                                    </h3>
-                                                </div>
-                                                <div class="gen-movie-meta-holder">
-                                                    <ul>
-                                                        <li>3 weeks</li>
-                                                        <li>
-                                                            <a href="{{ route('web.category') }}"><span>Horror</span></a>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- #post-## -->
-                            </div>
-
-
-                            <div class="item">
-                                <div
-                                    class="movie type-movie status-publish has-post-thumbnail hentry movie_genre-action movie_genre-adventure movie_genre-drama">
-                                    <div class="gen-carousel-movies-style-2 movie-grid style-2">
-                                        <div class="gen-movie-contain">
-                                            <div class="gen-movie-img">
-                                                <img src="http://gentechtree.com/themes/streamlab/red-html/images/background/asset-41.jpg"
-                                                    alt="owl-carousel-video-image">
-                                                <div class="gen-movie-add">
-                                                    <div class="wpulike wpulike-heart">
-                                                        <div class="wp_ulike_general_class wp_ulike_is_not_liked">
-                                                            <button type="button"
-                                                                class="wp_ulike_btn wp_ulike_put_image"></button>
-                                                        </div>
-                                                    </div>
-                                                    <ul class="menu bottomRight">
-                                                        <li class="share top">
-                                                            <i class="fa fa-share-alt"></i>
-                                                            <ul class="submenu">
-                                                                <li><a href="#" class="facebook"><i
-                                                                            class="fab fa-facebook-f"></i></a>
-                                                                </li>
-                                                                <li><a href="#" class="facebook"><i
-                                                                            class="fab fa-instagram"></i></a>
-                                                                </li>
-                                                                <li><a href="#" class="facebook"><i
-                                                                            class="fab fa-twitter"></i></a></li>
-                                                            </ul>
-                                                        </li>
-                                                    </ul>
-                                                    <div class="movie-actions--link_add-to-playlist dropdown">
-                                                        <a class="dropdown-toggle" href="#" data-toggle="dropdown"><i
-                                                                class="fa fa-plus"></i></a>
-                                                        <div class="dropdown-menu mCustomScrollbar">
-                                                            <div class="mCustomScrollBox">
-                                                                <div class="mCSB_container">
-                                                                    <a class="login-link" href="register.html">Sign in
-                                                                        to add this
-                                                                        movie to a
-                                                                        playlist.</a>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="gen-movie-action">
-                                                    <a href="{{ route('web.single') }}" class="gen-button">
-                                                        <i class="fa fa-play"></i>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <div class="gen-info-contain">
-                                                <div class="gen-movie-info">
-                                                    <h3><a href="{{ route('web.single') }}">Bigfoot Silva</a>
-                                                    </h3>
-                                                </div>
-                                                <div class="gen-movie-meta-holder">
-                                                    <ul>
-                                                        <li>2 years</li>
-                                                        <li>
-                                                            <a href="{{ route('web.category') }}"><span>Action</span></a>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- #post-## -->
-                            </div>
-
-
-                            <div class="item">
-                                <div
-                                    class="movie type-movie status-publish has-post-thumbnail hentry movie_genre-action movie_genre-adventure movie_genre-drama">
-                                    <div class="gen-carousel-movies-style-2 movie-grid style-2">
-                                        <div class="gen-movie-contain">
-                                            <div class="gen-movie-img">
-                                                <img src="http://gentechtree.com/themes/streamlab/red-html/images/background/asset-41.jpg"
-                                                    alt="owl-carousel-video-image">
-                                                <div class="gen-movie-add">
-                                                    <div class="wpulike wpulike-heart">
-                                                        <div class="wp_ulike_general_class wp_ulike_is_not_liked">
-                                                            <button type="button"
-                                                                class="wp_ulike_btn wp_ulike_put_image"></button>
-                                                        </div>
-                                                    </div>
-                                                    <ul class="menu bottomRight">
-                                                        <li class="share top">
-                                                            <i class="fa fa-share-alt"></i>
-                                                            <ul class="submenu">
-                                                                <li><a href="#" class="facebook"><i
-                                                                            class="fab fa-facebook-f"></i></a>
-                                                                </li>
-                                                                <li><a href="#" class="facebook"><i
-                                                                            class="fab fa-instagram"></i></a>
-                                                                </li>
-                                                                <li><a href="#" class="facebook"><i
-                                                                            class="fab fa-twitter"></i></a></li>
-                                                            </ul>
-                                                        </li>
-                                                    </ul>
-                                                    <div class="movie-actions--link_add-to-playlist dropdown">
-                                                        <a class="dropdown-toggle" href="#" data-toggle="dropdown"><i
-                                                                class="fa fa-plus"></i></a>
-                                                        <div class="dropdown-menu mCustomScrollbar">
-                                                            <div class="mCustomScrollBox">
-                                                                <div class="mCSB_container">
-                                                                    <a class="login-link" href="register.html">Sign in
-                                                                        to add this
-                                                                        movie to a
-                                                                        playlist.</a>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="gen-movie-action">
-                                                    <a href="{{ route('web.single') }}" class="gen-button">
-                                                        <i class="fa fa-play"></i>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <div class="gen-info-contain">
-                                                <div class="gen-movie-info">
-                                                    <h3><a href="{{ route('web.single') }}">Robot War</a>
-                                                    </h3>
-                                                </div>
-                                                <div class="gen-movie-meta-holder">
-                                                    <ul>
-                                                        <li>2 years</li>
-                                                        <li>
-                                                            <a href="tennis.html"><span>Tennis</span></a>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- #post-## -->
-                            </div>
-
-
-                            <div class="item">
-                                <div
-                                    class="movie type-movie status-publish has-post-thumbnail hentry movie_genre-action movie_genre-adventure movie_genre-drama">
-                                    <div class="gen-carousel-movies-style-2 movie-grid style-2">
-                                        <div class="gen-movie-contain">
-                                            <div class="gen-movie-img">
-                                                <img src="http://gentechtree.com/themes/streamlab/red-html/images/background/asset-41.jpg" alt="owl-carousel-video-image">
-                                                <div class="gen-movie-add">
-                                                    <div class="wpulike wpulike-heart">
-                                                        <div class="wp_ulike_general_class wp_ulike_is_not_liked">
-                                                            <button type="button"
-                                                                class="wp_ulike_btn wp_ulike_put_image"></button>
-                                                        </div>
-                                                    </div>
-                                                    <ul class="menu bottomRight">
-                                                        <li class="share top">
-                                                            <i class="fa fa-share-alt"></i>
-                                                            <ul class="submenu">
-                                                                <li><a href="#" class="facebook"><i
-                                                                            class="fab fa-facebook-f"></i></a>
-                                                                </li>
-                                                                <li><a href="#" class="facebook"><i
-                                                                            class="fab fa-instagram"></i></a>
-                                                                </li>
-                                                                <li><a href="#" class="facebook"><i
-                                                                            class="fab fa-twitter"></i></a></li>
-                                                            </ul>
-                                                        </li>
-                                                    </ul>
-                                                    <div class="movie-actions--link_add-to-playlist dropdown">
-                                                        <a class="dropdown-toggle" href="#" data-toggle="dropdown"><i
-                                                                class="fa fa-plus"></i></a>
-                                                        <div class="dropdown-menu mCustomScrollbar">
-                                                            <div class="mCustomScrollBox">
-                                                                <div class="mCSB_container">
-                                                                    <a class="login-link" href="register.html">Sign in
-                                                                        to add this
-                                                                        movie to a
-                                                                        playlist.</a>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="gen-movie-action">
-                                                    <a href="{{ route('web.single') }}" class="gen-button">
-                                                        <i class="fa fa-play"></i>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <div class="gen-info-contain">
-                                                <div class="gen-movie-info">
-                                                    <h3><a href="{{ route('web.single') }}">nature world</a></h3>
-                                                </div>
-                                                <div class="gen-movie-meta-holder">
-                                                    <ul>
-                                                        <li>2 years</li>
-                                                        <li>
-                                                            <a href="traveling.html"><span>Traveling</span></a>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- #post-## -->
-                            </div>
-
-
-                            <div class="item">
-                                <div
-                                    class="movie type-movie status-publish has-post-thumbnail hentry movie_genre-action movie_genre-adventure movie_genre-drama">
-                                    <div class="gen-carousel-movies-style-2 movie-grid style-2">
-                                        <div class="gen-movie-contain">
-                                            <div class="gen-movie-img">
-                                                <img src="http://gentechtree.com/themes/streamlab/red-html/images/background/asset-5.jpeg"
-                                                    alt="owl-carousel-video-image">
-                                                <div class="gen-movie-add">
-                                                    <div class="wpulike wpulike-heart">
-                                                        <div class="wp_ulike_general_class wp_ulike_is_not_liked">
-                                                            <button type="button"
-                                                                class="wp_ulike_btn wp_ulike_put_image"></button>
-                                                        </div>
-                                                    </div>
-                                                    <ul class="menu bottomRight">
-                                                        <li class="share top">
-                                                            <i class="fa fa-share-alt"></i>
-                                                            <ul class="submenu">
-                                                                <li><a href="#" class="facebook"><i
-                                                                            class="fab fa-facebook-f"></i></a>
-                                                                </li>
-                                                                <li><a href="#" class="facebook"><i
-                                                                            class="fab fa-instagram"></i></a>
-                                                                </li>
-                                                                <li><a href="#" class="facebook"><i
-                                                                            class="fab fa-twitter"></i></a></li>
-                                                            </ul>
-                                                        </li>
-                                                    </ul>
-                                                    <div class="movie-actions--link_add-to-playlist dropdown">
-                                                        <a class="dropdown-toggle" href="#" data-toggle="dropdown"><i
-                                                                class="fa fa-plus"></i></a>
-                                                        <div class="dropdown-menu mCustomScrollbar">
-                                                            <div class="mCustomScrollBox">
-                                                                <div class="mCSB_container">
-                                                                    <a class="login-link" href="register.html">Sign in
-                                                                        to add this
-                                                                        movie to a
-                                                                        playlist.</a>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="gen-movie-action">
-                                                    <a href="{{ route('web.single') }}" class="gen-button">
-                                                        <i class="fa fa-play"></i>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <div class="gen-info-contain">
-                                                <div class="gen-movie-info">
-                                                    <h3><a href="{{ route('web.single') }}">AI:world</a>
-                                                    </h3>
-                                                </div>
-                                                <div class="gen-movie-meta-holder">
-                                                    <ul>
-                                                        <li>2 years</li>
-                                                        <li>
-                                                            <a href="{{ route('web.category') }}"><span>cricket</span></a>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- #post-## -->
-                            </div>
-
-
-                            <div class="item">
-                                <div
-                                    class="movie type-movie status-publish has-post-thumbnail hentry movie_genre-action movie_genre-adventure movie_genre-drama">
-                                    <div class="gen-carousel-movies-style-2 movie-grid style-2">
-                                        <div class="gen-movie-contain">
-                                            <div class="gen-movie-img">
-                                                <img src="http://gentechtree.com/themes/streamlab/red-html/images/background/asset-5.jpeg"
-                                                    alt="owl-carousel-video-image">
-                                                <div class="gen-movie-add">
-                                                    <div class="wpulike wpulike-heart">
-                                                        <div class="wp_ulike_general_class wp_ulike_is_not_liked">
-                                                            <button type="button"
-                                                                class="wp_ulike_btn wp_ulike_put_image"></button>
-                                                        </div>
-                                                    </div>
-                                                    <ul class="menu bottomRight">
-                                                        <li class="share top">
-                                                            <i class="fa fa-share-alt"></i>
-                                                            <ul class="submenu">
-                                                                <li><a href="#" class="facebook"><i
-                                                                            class="fab fa-facebook-f"></i></a>
-                                                                </li>
-                                                                <li><a href="#" class="facebook"><i
-                                                                            class="fab fa-instagram"></i></a>
-                                                                </li>
-                                                                <li><a href="#" class="facebook"><i
-                                                                            class="fab fa-twitter"></i></a></li>
-                                                            </ul>
-                                                        </li>
-                                                    </ul>
-                                                    <div class="movie-actions--link_add-to-playlist dropdown">
-                                                        <a class="dropdown-toggle" href="#" data-toggle="dropdown"><i
-                                                                class="fa fa-plus"></i></a>
-                                                        <div class="dropdown-menu mCustomScrollbar">
-                                                            <div class="mCustomScrollBox">
-                                                                <div class="mCSB_container">
-                                                                    <a class="login-link" href="register.html">Sign in
-                                                                        to add this
-                                                                        movie to a
-                                                                        playlist.</a>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="gen-movie-action">
-                                                    <a href="{{ route('web.single') }}" class="gen-button">
-                                                        <i class="fa fa-play"></i>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <div class="gen-info-contain">
-                                                <div class="gen-movie-info">
-                                                    <h3><a href="{{ route('web.single') }}">Horse Ride</a>
-                                                    </h3>
-                                                </div>
-                                                <div class="gen-movie-meta-holder">
-                                                    <ul>
-                                                        <li>2 years</li>
-                                                        <li>
-                                                            <a href="{{ route('web.category') }}"><span>Action</span></a>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- #post-## -->
-                            </div>
-
-
-                            <div class="item">
-                                <div
-                                    class="movie type-movie status-publish has-post-thumbnail hentry movie_genre-action movie_genre-adventure movie_genre-drama">
-                                    <div class="gen-carousel-movies-style-2 movie-grid style-2">
-                                        <div class="gen-movie-contain">
-                                            <div class="gen-movie-img">
-                                                <img src="http://gentechtree.com/themes/streamlab/red-html/images/background/asset-5.jpeg"
-                                                    alt="owl-carousel-video-image">
-                                                <div class="gen-movie-add">
-                                                    <div class="wpulike wpulike-heart">
-                                                        <div class="wp_ulike_general_class wp_ulike_is_not_liked">
-                                                            <button type="button"
-                                                                class="wp_ulike_btn wp_ulike_put_image"></button>
-                                                        </div>
-                                                    </div>
-                                                    <ul class="menu bottomRight">
-                                                        <li class="share top">
-                                                            <i class="fa fa-share-alt"></i>
-                                                            <ul class="submenu">
-                                                                <li><a href="#" class="facebook"><i
-                                                                            class="fab fa-facebook-f"></i></a>
-                                                                </li>
-                                                                <li><a href="#" class="facebook"><i
-                                                                            class="fab fa-instagram"></i></a>
-                                                                </li>
-                                                                <li><a href="#" class="facebook"><i
-                                                                            class="fab fa-twitter"></i></a></li>
-                                                            </ul>
-                                                        </li>
-                                                    </ul>
-                                                    <div class="movie-actions--link_add-to-playlist dropdown">
-                                                        <a class="dropdown-toggle" href="#" data-toggle="dropdown"><i
-                                                                class="fa fa-plus"></i></a>
-                                                        <div class="dropdown-menu mCustomScrollbar">
-                                                            <div class="mCustomScrollBox">
-                                                                <div class="mCSB_container">
-                                                                    <a class="login-link" href="register.html">Sign in
-                                                                        to add this
-                                                                        movie to a
-                                                                        playlist.</a>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="gen-movie-action">
-                                                    <a href="{{ route('web.single') }}" class="gen-button">
-                                                        <i class="fa fa-play"></i>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <div class="gen-info-contain">
-                                                <div class="gen-movie-info">
-                                                    <h3><a href="{{ route('web.single') }}">Big Machine</a>
-                                                    </h3>
-                                                </div>
-                                                <div class="gen-movie-meta-holder">
-                                                    <ul>
-                                                        <li>2 years</li>
-                                                        <li>
-                                                            <a href="traveling.html"><span>Traveling</span></a>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- #post-## -->
-                            </div>
+                            @endforeach
                         </div>
                     </div>
                 </div>
@@ -925,76 +285,8 @@
                         <div class="owl-carousel owl-loaded owl-drag" data-dots="false" data-nav="true"
                             data-desk_num="4" data-lap_num="3" data-tab_num="2" data-mob_num="1" data-mob_sm="1"
                             data-autoplay="false" data-loop="false" data-margin="30">
-                            <div class="item">
-                                <div
-                                    class="movie type-movie status-publish has-post-thumbnail hentry movie_genre-action movie_genre-adventure movie_genre-drama">
-                                    <div class="gen-carousel-movies-style-2 movie-grid style-2">
-                                        <div class="gen-movie-contain">
-                                            <div class="gen-movie-img">
-                                                <img src="http://gentechtree.com/themes/streamlab/red-html/images/background/asset-41.jpg"
-                                                    alt="owl-carousel-video-image">
-                                                <div class="gen-movie-add">
-                                                    <div class="wpulike wpulike-heart">
-                                                        <div class="wp_ulike_general_class wp_ulike_is_not_liked">
-                                                            <button type="button"
-                                                                class="wp_ulike_btn wp_ulike_put_image"></button>
-                                                        </div>
-                                                    </div>
-                                                    <ul class="menu bottomRight">
-                                                        <li class="share top">
-                                                            <i class="fa fa-share-alt"></i>
-                                                            <ul class="submenu">
-                                                                <li><a href="#" class="facebook"><i
-                                                                            class="fab fa-facebook-f"></i></a>
-                                                                </li>
-                                                                <li><a href="#" class="facebook"><i
-                                                                            class="fab fa-instagram"></i></a>
-                                                                </li>
-                                                                <li><a href="#" class="facebook"><i
-                                                                            class="fab fa-twitter"></i></a></li>
-                                                            </ul>
-                                                        </li>
-                                                    </ul>
-                                                    <div class="movie-actions--link_add-to-playlist dropdown">
-                                                        <a class="dropdown-toggle" href="#" data-toggle="dropdown"><i
-                                                                class="fa fa-plus"></i></a>
-                                                        <div class="dropdown-menu mCustomScrollbar">
-                                                            <div class="mCustomScrollBox">
-                                                                <div class="mCSB_container">
-                                                                    <a class="login-link" href="register.html">Sign in
-                                                                        to add this
-                                                                        movie to a
-                                                                        playlist.</a>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="gen-movie-action">
-                                                    <a href="{{ route('web.single') }}" class="gen-button">
-                                                        <i class="fa fa-play"></i>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <div class="gen-info-contain">
-                                                <div class="gen-movie-info">
-                                                    <h3><a href="{{ route('web.single') }}">sefozie world</a>
-                                                    </h3>
-                                                </div>
-                                                <div class="gen-movie-meta-holder">
-                                                    <ul>
-                                                        <li>3 weeks</li>
-                                                        <li>
-                                                            <a href="adventure.html"><span>Adventure</span></a>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- #post-## -->
-                            </div>
+
+                            @foreach($trending as $td)
 
                             <div class="item">
                                 <div
@@ -1042,21 +334,21 @@
                                                     </div>
                                                 </div>
                                                 <div class="gen-movie-action">
-                                                    <a href="{{ route('web.single') }}" class="gen-button">
+                                                    <a href="{{ route('web.single', $td->slug) }}" class="gen-button">
                                                         <i class="fa fa-play"></i>
                                                     </a>
                                                 </div>
                                             </div>
                                             <div class="gen-info-contain">
                                                 <div class="gen-movie-info">
-                                                    <h3><a href="{{ route('web.single') }}">war hands</a>
+                                                    <h3><a href="{{ route('web.single', $td->slug) }}">{{ $td->title }}</a>
                                                     </h3>
                                                 </div>
                                                 <div class="gen-movie-meta-holder">
                                                     <ul>
-                                                        <li>3 weeks</li>
+                                                        <li>{{ $td->created_at->diffForHumans() }}</li>
                                                         <li>
-                                                            <a href="{{ route('web.category') }}"><span>Animation</span></a>
+                                                            <a href="{{ route('web.category', $td->category->slug) }}"><span>{{ $td->category->title }}</span></a>
                                                         </li>
                                                     </ul>
                                                 </div>
@@ -1067,579 +359,8 @@
                                 <!-- #post-## -->
                             </div>
 
+                            @endforeach
 
-                            <div class="item">
-                                <div
-                                    class="movie type-movie status-publish has-post-thumbnail hentry movie_genre-action movie_genre-adventure movie_genre-drama">
-                                    <div class="gen-carousel-movies-style-2 movie-grid style-2">
-                                        <div class="gen-movie-contain">
-                                            <div class="gen-movie-img">
-                                                <img src="http://gentechtree.com/themes/streamlab/red-html/images/background/asset-41.jpg"
-                                                    alt="owl-carousel-video-image">
-                                                <div class="gen-movie-add">
-                                                    <div class="wpulike wpulike-heart">
-                                                        <div class="wp_ulike_general_class wp_ulike_is_not_liked">
-                                                            <button type="button"
-                                                                class="wp_ulike_btn wp_ulike_put_image"></button>
-                                                        </div>
-                                                    </div>
-                                                    <ul class="menu bottomRight">
-                                                        <li class="share top">
-                                                            <i class="fa fa-share-alt"></i>
-                                                            <ul class="submenu">
-                                                                <li><a href="#" class="facebook"><i
-                                                                            class="fab fa-facebook-f"></i></a>
-                                                                </li>
-                                                                <li><a href="#" class="facebook"><i
-                                                                            class="fab fa-instagram"></i></a>
-                                                                </li>
-                                                                <li><a href="#" class="facebook"><i
-                                                                            class="fab fa-twitter"></i></a></li>
-                                                            </ul>
-                                                        </li>
-                                                    </ul>
-                                                    <div class="movie-actions--link_add-to-playlist dropdown">
-                                                        <a class="dropdown-toggle" href="#" data-toggle="dropdown"><i
-                                                                class="fa fa-plus"></i></a>
-                                                        <div class="dropdown-menu mCustomScrollbar">
-                                                            <div class="mCustomScrollBox">
-                                                                <div class="mCSB_container">
-                                                                    <a class="login-link" href="register.html">Sign in
-                                                                        to add this
-                                                                        movie to a
-                                                                        playlist.</a>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="gen-movie-action">
-                                                    <a href="{{ route('web.single') }}" class="gen-button">
-                                                        <i class="fa fa-play"></i>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <div class="gen-info-contain">
-                                                <div class="gen-movie-info">
-                                                    <h3><a href="{{ route('web.single') }}">MGX-fighter</a>
-                                                    </h3>
-                                                </div>
-                                                <div class="gen-movie-meta-holder">
-                                                    <ul>
-                                                        <li>3 weeks</li>
-                                                        <li>
-                                                            <a href="adventure.html"><span>Adventure</span></a>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- #post-## -->
-                            </div>
-
-
-                            <div class="item">
-                                <div
-                                    class="movie type-movie status-publish has-post-thumbnail hentry movie_genre-action movie_genre-adventure movie_genre-drama">
-                                    <div class="gen-carousel-movies-style-2 movie-grid style-2">
-                                        <div class="gen-movie-contain">
-                                            <div class="gen-movie-img">
-                                                <img src="http://gentechtree.com/themes/streamlab/red-html/images/background/asset-41.jpg"
-                                                    alt="owl-carousel-video-image">
-                                                <div class="gen-movie-add">
-                                                    <div class="wpulike wpulike-heart">
-                                                        <div class="wp_ulike_general_class wp_ulike_is_not_liked">
-                                                            <button type="button"
-                                                                class="wp_ulike_btn wp_ulike_put_image"></button>
-                                                        </div>
-                                                    </div>
-                                                    <ul class="menu bottomRight">
-                                                        <li class="share top">
-                                                            <i class="fa fa-share-alt"></i>
-                                                            <ul class="submenu">
-                                                                <li><a href="#" class="facebook"><i
-                                                                            class="fab fa-facebook-f"></i></a>
-                                                                </li>
-                                                                <li><a href="#" class="facebook"><i
-                                                                            class="fab fa-instagram"></i></a>
-                                                                </li>
-                                                                <li><a href="#" class="facebook"><i
-                                                                            class="fab fa-twitter"></i></a></li>
-                                                            </ul>
-                                                        </li>
-                                                    </ul>
-                                                    <div class="movie-actions--link_add-to-playlist dropdown">
-                                                        <a class="dropdown-toggle" href="#" data-toggle="dropdown"><i
-                                                                class="fa fa-plus"></i></a>
-                                                        <div class="dropdown-menu mCustomScrollbar">
-                                                            <div class="mCustomScrollBox">
-                                                                <div class="mCSB_container">
-                                                                    <a class="login-link" href="register.html">Sign in
-                                                                        to add this
-                                                                        movie to a
-                                                                        playlist.</a>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="gen-movie-action">
-                                                    <a href="{{ route('web.single') }}" class="gen-button">
-                                                        <i class="fa fa-play"></i>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <div class="gen-info-contain">
-                                                <div class="gen-movie-info">
-                                                    <h3><a href="{{ route('web.single') }}">voho the skull land</a>
-                                                    </h3>
-                                                </div>
-                                                <div class="gen-movie-meta-holder">
-                                                    <ul>
-                                                        <li>3 weeks</li>
-                                                        <li>
-                                                            <a href="{{ route('web.category') }}"><span>Horror</span></a>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- #post-## -->
-                            </div>
-
-
-                            <div class="item">
-                                <div
-                                    class="movie type-movie status-publish has-post-thumbnail hentry movie_genre-action movie_genre-adventure movie_genre-drama">
-                                    <div class="gen-carousel-movies-style-2 movie-grid style-2">
-                                        <div class="gen-movie-contain">
-                                            <div class="gen-movie-img">
-                                                <img src="http://gentechtree.com/themes/streamlab/red-html/images/background/asset-41.jpg"
-                                                    alt="owl-carousel-video-image">
-                                                <div class="gen-movie-add">
-                                                    <div class="wpulike wpulike-heart">
-                                                        <div class="wp_ulike_general_class wp_ulike_is_not_liked">
-                                                            <button type="button"
-                                                                class="wp_ulike_btn wp_ulike_put_image"></button>
-                                                        </div>
-                                                    </div>
-                                                    <ul class="menu bottomRight">
-                                                        <li class="share top">
-                                                            <i class="fa fa-share-alt"></i>
-                                                            <ul class="submenu">
-                                                                <li><a href="#" class="facebook"><i
-                                                                            class="fab fa-facebook-f"></i></a>
-                                                                </li>
-                                                                <li><a href="#" class="facebook"><i
-                                                                            class="fab fa-instagram"></i></a>
-                                                                </li>
-                                                                <li><a href="#" class="facebook"><i
-                                                                            class="fab fa-twitter"></i></a></li>
-                                                            </ul>
-                                                        </li>
-                                                    </ul>
-                                                    <div class="movie-actions--link_add-to-playlist dropdown">
-                                                        <a class="dropdown-toggle" href="#" data-toggle="dropdown"><i
-                                                                class="fa fa-plus"></i></a>
-                                                        <div class="dropdown-menu mCustomScrollbar">
-                                                            <div class="mCustomScrollBox">
-                                                                <div class="mCSB_container">
-                                                                    <a class="login-link" href="register.html">Sign in
-                                                                        to add this
-                                                                        movie to a
-                                                                        playlist.</a>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="gen-movie-action">
-                                                    <a href="{{ route('web.single') }}" class="gen-button">
-                                                        <i class="fa fa-play"></i>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <div class="gen-info-contain">
-                                                <div class="gen-movie-info">
-                                                    <h3><a href="{{ route('web.single') }}">Bigfoot Silva</a>
-                                                    </h3>
-                                                </div>
-                                                <div class="gen-movie-meta-holder">
-                                                    <ul>
-                                                        <li>2 years</li>
-                                                        <li>
-                                                            <a href="{{ route('web.category') }}"><span>Action</span></a>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- #post-## -->
-                            </div>
-
-
-                            <div class="item">
-                                <div
-                                    class="movie type-movie status-publish has-post-thumbnail hentry movie_genre-action movie_genre-adventure movie_genre-drama">
-                                    <div class="gen-carousel-movies-style-2 movie-grid style-2">
-                                        <div class="gen-movie-contain">
-                                            <div class="gen-movie-img">
-                                                <img src="http://gentechtree.com/themes/streamlab/red-html/images/background/asset-41.jpg"
-                                                    alt="owl-carousel-video-image">
-                                                <div class="gen-movie-add">
-                                                    <div class="wpulike wpulike-heart">
-                                                        <div class="wp_ulike_general_class wp_ulike_is_not_liked">
-                                                            <button type="button"
-                                                                class="wp_ulike_btn wp_ulike_put_image"></button>
-                                                        </div>
-                                                    </div>
-                                                    <ul class="menu bottomRight">
-                                                        <li class="share top">
-                                                            <i class="fa fa-share-alt"></i>
-                                                            <ul class="submenu">
-                                                                <li><a href="#" class="facebook"><i
-                                                                            class="fab fa-facebook-f"></i></a>
-                                                                </li>
-                                                                <li><a href="#" class="facebook"><i
-                                                                            class="fab fa-instagram"></i></a>
-                                                                </li>
-                                                                <li><a href="#" class="facebook"><i
-                                                                            class="fab fa-twitter"></i></a></li>
-                                                            </ul>
-                                                        </li>
-                                                    </ul>
-                                                    <div class="movie-actions--link_add-to-playlist dropdown">
-                                                        <a class="dropdown-toggle" href="#" data-toggle="dropdown"><i
-                                                                class="fa fa-plus"></i></a>
-                                                        <div class="dropdown-menu mCustomScrollbar">
-                                                            <div class="mCustomScrollBox">
-                                                                <div class="mCSB_container">
-                                                                    <a class="login-link" href="register.html">Sign in
-                                                                        to add this
-                                                                        movie to a
-                                                                        playlist.</a>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="gen-movie-action">
-                                                    <a href="{{ route('web.single') }}" class="gen-button">
-                                                        <i class="fa fa-play"></i>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <div class="gen-info-contain">
-                                                <div class="gen-movie-info">
-                                                    <h3><a href="{{ route('web.single') }}">Robot War</a>
-                                                    </h3>
-                                                </div>
-                                                <div class="gen-movie-meta-holder">
-                                                    <ul>
-                                                        <li>2 years</li>
-                                                        <li>
-                                                            <a href="tennis.html"><span>Tennis</span></a>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- #post-## -->
-                            </div>
-
-
-                            <div class="item">
-                                <div
-                                    class="movie type-movie status-publish has-post-thumbnail hentry movie_genre-action movie_genre-adventure movie_genre-drama">
-                                    <div class="gen-carousel-movies-style-2 movie-grid style-2">
-                                        <div class="gen-movie-contain">
-                                            <div class="gen-movie-img">
-                                                <img src="http://gentechtree.com/themes/streamlab/red-html/images/background/asset-41.jpg" alt="owl-carousel-video-image">
-                                                <div class="gen-movie-add">
-                                                    <div class="wpulike wpulike-heart">
-                                                        <div class="wp_ulike_general_class wp_ulike_is_not_liked">
-                                                            <button type="button"
-                                                                class="wp_ulike_btn wp_ulike_put_image"></button>
-                                                        </div>
-                                                    </div>
-                                                    <ul class="menu bottomRight">
-                                                        <li class="share top">
-                                                            <i class="fa fa-share-alt"></i>
-                                                            <ul class="submenu">
-                                                                <li><a href="#" class="facebook"><i
-                                                                            class="fab fa-facebook-f"></i></a>
-                                                                </li>
-                                                                <li><a href="#" class="facebook"><i
-                                                                            class="fab fa-instagram"></i></a>
-                                                                </li>
-                                                                <li><a href="#" class="facebook"><i
-                                                                            class="fab fa-twitter"></i></a></li>
-                                                            </ul>
-                                                        </li>
-                                                    </ul>
-                                                    <div class="movie-actions--link_add-to-playlist dropdown">
-                                                        <a class="dropdown-toggle" href="#" data-toggle="dropdown"><i
-                                                                class="fa fa-plus"></i></a>
-                                                        <div class="dropdown-menu mCustomScrollbar">
-                                                            <div class="mCustomScrollBox">
-                                                                <div class="mCSB_container">
-                                                                    <a class="login-link" href="register.html">Sign in
-                                                                        to add this
-                                                                        movie to a
-                                                                        playlist.</a>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="gen-movie-action">
-                                                    <a href="{{ route('web.single') }}" class="gen-button">
-                                                        <i class="fa fa-play"></i>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <div class="gen-info-contain">
-                                                <div class="gen-movie-info">
-                                                    <h3><a href="{{ route('web.single') }}">nature world</a></h3>
-                                                </div>
-                                                <div class="gen-movie-meta-holder">
-                                                    <ul>
-                                                        <li>2 years</li>
-                                                        <li>
-                                                            <a href="traveling.html"><span>Traveling</span></a>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- #post-## -->
-                            </div>
-
-
-                            <div class="item">
-                                <div
-                                    class="movie type-movie status-publish has-post-thumbnail hentry movie_genre-action movie_genre-adventure movie_genre-drama">
-                                    <div class="gen-carousel-movies-style-2 movie-grid style-2">
-                                        <div class="gen-movie-contain">
-                                            <div class="gen-movie-img">
-                                                <img src="http://gentechtree.com/themes/streamlab/red-html/images/background/asset-5.jpeg"
-                                                    alt="owl-carousel-video-image">
-                                                <div class="gen-movie-add">
-                                                    <div class="wpulike wpulike-heart">
-                                                        <div class="wp_ulike_general_class wp_ulike_is_not_liked">
-                                                            <button type="button"
-                                                                class="wp_ulike_btn wp_ulike_put_image"></button>
-                                                        </div>
-                                                    </div>
-                                                    <ul class="menu bottomRight">
-                                                        <li class="share top">
-                                                            <i class="fa fa-share-alt"></i>
-                                                            <ul class="submenu">
-                                                                <li><a href="#" class="facebook"><i
-                                                                            class="fab fa-facebook-f"></i></a>
-                                                                </li>
-                                                                <li><a href="#" class="facebook"><i
-                                                                            class="fab fa-instagram"></i></a>
-                                                                </li>
-                                                                <li><a href="#" class="facebook"><i
-                                                                            class="fab fa-twitter"></i></a></li>
-                                                            </ul>
-                                                        </li>
-                                                    </ul>
-                                                    <div class="movie-actions--link_add-to-playlist dropdown">
-                                                        <a class="dropdown-toggle" href="#" data-toggle="dropdown"><i
-                                                                class="fa fa-plus"></i></a>
-                                                        <div class="dropdown-menu mCustomScrollbar">
-                                                            <div class="mCustomScrollBox">
-                                                                <div class="mCSB_container">
-                                                                    <a class="login-link" href="register.html">Sign in
-                                                                        to add this
-                                                                        movie to a
-                                                                        playlist.</a>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="gen-movie-action">
-                                                    <a href="{{ route('web.single') }}" class="gen-button">
-                                                        <i class="fa fa-play"></i>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <div class="gen-info-contain">
-                                                <div class="gen-movie-info">
-                                                    <h3><a href="{{ route('web.single') }}">AI:world</a>
-                                                    </h3>
-                                                </div>
-                                                <div class="gen-movie-meta-holder">
-                                                    <ul>
-                                                        <li>2 years</li>
-                                                        <li>
-                                                            <a href="{{ route('web.category') }}"><span>cricket</span></a>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- #post-## -->
-                            </div>
-
-
-                            <div class="item">
-                                <div
-                                    class="movie type-movie status-publish has-post-thumbnail hentry movie_genre-action movie_genre-adventure movie_genre-drama">
-                                    <div class="gen-carousel-movies-style-2 movie-grid style-2">
-                                        <div class="gen-movie-contain">
-                                            <div class="gen-movie-img">
-                                                <img src="http://gentechtree.com/themes/streamlab/red-html/images/background/asset-5.jpeg"
-                                                    alt="owl-carousel-video-image">
-                                                <div class="gen-movie-add">
-                                                    <div class="wpulike wpulike-heart">
-                                                        <div class="wp_ulike_general_class wp_ulike_is_not_liked">
-                                                            <button type="button"
-                                                                class="wp_ulike_btn wp_ulike_put_image"></button>
-                                                        </div>
-                                                    </div>
-                                                    <ul class="menu bottomRight">
-                                                        <li class="share top">
-                                                            <i class="fa fa-share-alt"></i>
-                                                            <ul class="submenu">
-                                                                <li><a href="#" class="facebook"><i
-                                                                            class="fab fa-facebook-f"></i></a>
-                                                                </li>
-                                                                <li><a href="#" class="facebook"><i
-                                                                            class="fab fa-instagram"></i></a>
-                                                                </li>
-                                                                <li><a href="#" class="facebook"><i
-                                                                            class="fab fa-twitter"></i></a></li>
-                                                            </ul>
-                                                        </li>
-                                                    </ul>
-                                                    <div class="movie-actions--link_add-to-playlist dropdown">
-                                                        <a class="dropdown-toggle" href="#" data-toggle="dropdown"><i
-                                                                class="fa fa-plus"></i></a>
-                                                        <div class="dropdown-menu mCustomScrollbar">
-                                                            <div class="mCustomScrollBox">
-                                                                <div class="mCSB_container">
-                                                                    <a class="login-link" href="register.html">Sign in
-                                                                        to add this
-                                                                        movie to a
-                                                                        playlist.</a>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="gen-movie-action">
-                                                    <a href="{{ route('web.single') }}" class="gen-button">
-                                                        <i class="fa fa-play"></i>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <div class="gen-info-contain">
-                                                <div class="gen-movie-info">
-                                                    <h3><a href="{{ route('web.single') }}">Horse Ride</a>
-                                                    </h3>
-                                                </div>
-                                                <div class="gen-movie-meta-holder">
-                                                    <ul>
-                                                        <li>2 years</li>
-                                                        <li>
-                                                            <a href="{{ route('web.category') }}"><span>Action</span></a>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- #post-## -->
-                            </div>
-
-
-                            <div class="item">
-                                <div
-                                    class="movie type-movie status-publish has-post-thumbnail hentry movie_genre-action movie_genre-adventure movie_genre-drama">
-                                    <div class="gen-carousel-movies-style-2 movie-grid style-2">
-                                        <div class="gen-movie-contain">
-                                            <div class="gen-movie-img">
-                                                <img src="http://gentechtree.com/themes/streamlab/red-html/images/background/asset-5.jpeg"
-                                                    alt="owl-carousel-video-image">
-                                                <div class="gen-movie-add">
-                                                    <div class="wpulike wpulike-heart">
-                                                        <div class="wp_ulike_general_class wp_ulike_is_not_liked">
-                                                            <button type="button"
-                                                                class="wp_ulike_btn wp_ulike_put_image"></button>
-                                                        </div>
-                                                    </div>
-                                                    <ul class="menu bottomRight">
-                                                        <li class="share top">
-                                                            <i class="fa fa-share-alt"></i>
-                                                            <ul class="submenu">
-                                                                <li><a href="#" class="facebook"><i
-                                                                            class="fab fa-facebook-f"></i></a>
-                                                                </li>
-                                                                <li><a href="#" class="facebook"><i
-                                                                            class="fab fa-instagram"></i></a>
-                                                                </li>
-                                                                <li><a href="#" class="facebook"><i
-                                                                            class="fab fa-twitter"></i></a></li>
-                                                            </ul>
-                                                        </li>
-                                                    </ul>
-                                                    <div class="movie-actions--link_add-to-playlist dropdown">
-                                                        <a class="dropdown-toggle" href="#" data-toggle="dropdown"><i
-                                                                class="fa fa-plus"></i></a>
-                                                        <div class="dropdown-menu mCustomScrollbar">
-                                                            <div class="mCustomScrollBox">
-                                                                <div class="mCSB_container">
-                                                                    <a class="login-link" href="register.html">Sign in
-                                                                        to add this
-                                                                        movie to a
-                                                                        playlist.</a>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="gen-movie-action">
-                                                    <a href="{{ route('web.single') }}" class="gen-button">
-                                                        <i class="fa fa-play"></i>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <div class="gen-info-contain">
-                                                <div class="gen-movie-info">
-                                                    <h3><a href="{{ route('web.single') }}">Big Machine</a>
-                                                    </h3>
-                                                </div>
-                                                <div class="gen-movie-meta-holder">
-                                                    <ul>
-                                                        <li>2 years</li>
-                                                        <li>
-                                                            <a href="traveling.html"><span>Traveling</span></a>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- #post-## -->
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -1671,13 +392,16 @@
                         <div class="owl-carousel owl-loaded owl-drag" data-dots="false" data-nav="true"
                             data-desk_num="4" data-lap_num="3" data-tab_num="2" data-mob_num="1" data-mob_sm="1"
                             data-autoplay="false" data-loop="false" data-margin="30">
+
+                            @foreach($popular as $pp)
+
                             <div class="item">
                                 <div
                                     class="movie type-movie status-publish has-post-thumbnail hentry movie_genre-action movie_genre-adventure movie_genre-drama">
                                     <div class="gen-carousel-movies-style-2 movie-grid style-2">
                                         <div class="gen-movie-contain">
                                             <div class="gen-movie-img">
-                                                <img src="http://gentechtree.com/themes/streamlab/red-html/images/background/asset-5.jpeg"
+                                                <img src="http://gentechtree.com/themes/streamlab/red-html/images/background/asset-41.jpg"
                                                     alt="owl-carousel-video-image">
                                                 <div class="gen-movie-add">
                                                     <div class="wpulike wpulike-heart">
@@ -1717,21 +441,21 @@
                                                     </div>
                                                 </div>
                                                 <div class="gen-movie-action">
-                                                    <a href="{{ route('web.single') }}" class="gen-button">
+                                                    <a href="{{ route('web.single', $pp->slug) }}" class="gen-button">
                                                         <i class="fa fa-play"></i>
                                                     </a>
                                                 </div>
                                             </div>
                                             <div class="gen-info-contain">
                                                 <div class="gen-movie-info">
-                                                    <h3><a href="{{ route('web.single') }}">skull’s world</a>
+                                                    <h3><a href="{{ route('web.single', $pp->slug) }}">{{ $pp->title }}</a>
                                                     </h3>
                                                 </div>
                                                 <div class="gen-movie-meta-holder">
                                                     <ul>
-                                                        <li>3 years</li>
+                                                        <li>{{ $pp->created_at->diffForHumans() }}</li>
                                                         <li>
-                                                            <a href="{{ route('web.category') }}"><span>Horror</span></a>
+                                                            <a href="{{ route('web.category', $pp->category->slug) }}"><span>{{ $pp->category->title }}</span></a>
                                                         </li>
                                                     </ul>
                                                 </div>
@@ -1742,292 +466,8 @@
                                 <!-- #post-## -->
                             </div>
 
-                            <div class="item">
-                                <div
-                                    class="movie type-movie status-publish has-post-thumbnail hentry movie_genre-action movie_genre-adventure movie_genre-drama">
-                                    <div class="gen-carousel-movies-style-2 movie-grid style-2">
-                                        <div class="gen-movie-contain">
-                                            <div class="gen-movie-img">
-                                                <img src="http://gentechtree.com/themes/streamlab/red-html/images/background/asset-5.jpeg"
-                                                    alt="owl-carousel-video-image">
-                                                <div class="gen-movie-add">
-                                                    <div class="wpulike wpulike-heart">
-                                                        <div class="wp_ulike_general_class wp_ulike_is_not_liked">
-                                                            <button type="button"
-                                                                class="wp_ulike_btn wp_ulike_put_image"></button>
-                                                        </div>
-                                                    </div>
-                                                    <ul class="menu bottomRight">
-                                                        <li class="share top">
-                                                            <i class="fa fa-share-alt"></i>
-                                                            <ul class="submenu">
-                                                                <li><a href="#" class="facebook"><i
-                                                                            class="fab fa-facebook-f"></i></a>
-                                                                </li>
-                                                                <li><a href="#" class="facebook"><i
-                                                                            class="fab fa-instagram"></i></a>
-                                                                </li>
-                                                                <li><a href="#" class="facebook"><i
-                                                                            class="fab fa-twitter"></i></a></li>
-                                                            </ul>
-                                                        </li>
-                                                    </ul>
-                                                    <div class="movie-actions--link_add-to-playlist dropdown">
-                                                        <a class="dropdown-toggle" href="#" data-toggle="dropdown"><i
-                                                                class="fa fa-plus"></i></a>
-                                                        <div class="dropdown-menu mCustomScrollbar">
-                                                            <div class="mCustomScrollBox">
-                                                                <div class="mCSB_container">
-                                                                    <a class="login-link" href="register.html">Sign in
-                                                                        to add this
-                                                                        movie to a
-                                                                        playlist.</a>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="gen-movie-action">
-                                                    <a href="{{ route('web.single') }}" class="gen-button">
-                                                        <i class="fa fa-play"></i>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <div class="gen-info-contain">
-                                                <div class="gen-movie-info">
-                                                    <h3><a href="{{ route('web.single') }}">AKX-Gun</a>
-                                                    </h3>
-                                                </div>
-                                                <div class="gen-movie-meta-holder">
-                                                    <ul>
-                                                        <li>2 years</li>
-                                                        <li>
-                                                            <a href="adventure.html"><span>Games</span></a>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- #post-## -->
-                            </div>
+                            @endforeach
 
-
-                            <div class="item">
-                                <div
-                                    class="movie type-movie status-publish has-post-thumbnail hentry movie_genre-action movie_genre-adventure movie_genre-drama">
-                                    <div class="gen-carousel-movies-style-2 movie-grid style-2">
-                                        <div class="gen-movie-contain">
-                                            <div class="gen-movie-img">
-                                                <img src="http://gentechtree.com/themes/streamlab/red-html/images/background/asset-5.jpeg"
-                                                    alt="owl-carousel-video-image">
-                                                <div class="gen-movie-add">
-                                                    <div class="wpulike wpulike-heart">
-                                                        <div class="wp_ulike_general_class wp_ulike_is_not_liked">
-                                                            <button type="button"
-                                                                class="wp_ulike_btn wp_ulike_put_image"></button>
-                                                        </div>
-                                                    </div>
-                                                    <ul class="menu bottomRight">
-                                                        <li class="share top">
-                                                            <i class="fa fa-share-alt"></i>
-                                                            <ul class="submenu">
-                                                                <li><a href="#" class="facebook"><i
-                                                                            class="fab fa-facebook-f"></i></a>
-                                                                </li>
-                                                                <li><a href="#" class="facebook"><i
-                                                                            class="fab fa-instagram"></i></a>
-                                                                </li>
-                                                                <li><a href="#" class="facebook"><i
-                                                                            class="fab fa-twitter"></i></a></li>
-                                                            </ul>
-                                                        </li>
-                                                    </ul>
-                                                    <div class="movie-actions--link_add-to-playlist dropdown">
-                                                        <a class="dropdown-toggle" href="#" data-toggle="dropdown"><i
-                                                                class="fa fa-plus"></i></a>
-                                                        <div class="dropdown-menu mCustomScrollbar">
-                                                            <div class="mCustomScrollBox">
-                                                                <div class="mCSB_container">
-                                                                    <a class="login-link" href="register.html">Sign in
-                                                                        to add this
-                                                                        movie to a
-                                                                        playlist.</a>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="gen-movie-action">
-                                                    <a href="{{ route('web.single') }}" class="gen-button">
-                                                        <i class="fa fa-play"></i>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <div class="gen-info-contain">
-                                                <div class="gen-movie-info">
-                                                    <h3><a href="{{ route('web.single') }}">cycle rider</a>
-                                                    </h3>
-                                                </div>
-                                                <div class="gen-movie-meta-holder">
-                                                    <ul>
-                                                        <li>2 years</li>
-                                                        <li>
-                                                            <a href="adventure.html"><span>Games</span></a>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- #post-## -->
-                            </div>
-
-
-                            <div class="item">
-                                <div
-                                    class="movie type-movie status-publish has-post-thumbnail hentry movie_genre-action movie_genre-adventure movie_genre-drama">
-                                    <div class="gen-carousel-movies-style-2 movie-grid style-2">
-                                        <div class="gen-movie-contain">
-                                            <div class="gen-movie-img">
-                                                <img src="http://gentechtree.com/themes/streamlab/red-html/images/background/asset-5.jpeg"
-                                                    alt="owl-carousel-video-image">
-                                                <div class="gen-movie-add">
-                                                    <div class="wpulike wpulike-heart">
-                                                        <div class="wp_ulike_general_class wp_ulike_is_not_liked">
-                                                            <button type="button"
-                                                                class="wp_ulike_btn wp_ulike_put_image"></button>
-                                                        </div>
-                                                    </div>
-                                                    <ul class="menu bottomRight">
-                                                        <li class="share top">
-                                                            <i class="fa fa-share-alt"></i>
-                                                            <ul class="submenu">
-                                                                <li><a href="#" class="facebook"><i
-                                                                            class="fab fa-facebook-f"></i></a>
-                                                                </li>
-                                                                <li><a href="#" class="facebook"><i
-                                                                            class="fab fa-instagram"></i></a>
-                                                                </li>
-                                                                <li><a href="#" class="facebook"><i
-                                                                            class="fab fa-twitter"></i></a></li>
-                                                            </ul>
-                                                        </li>
-                                                    </ul>
-                                                    <div class="movie-actions--link_add-to-playlist dropdown">
-                                                        <a class="dropdown-toggle" href="#" data-toggle="dropdown"><i
-                                                                class="fa fa-plus"></i></a>
-                                                        <div class="dropdown-menu mCustomScrollbar">
-                                                            <div class="mCustomScrollBox">
-                                                                <div class="mCSB_container">
-                                                                    <a class="login-link" href="register.html">Sign in
-                                                                        to add this
-                                                                        movie to a
-                                                                        playlist.</a>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="gen-movie-action">
-                                                    <a href="{{ route('web.single') }}" class="gen-button">
-                                                        <i class="fa fa-play"></i>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <div class="gen-info-contain">
-                                                <div class="gen-movie-info">
-                                                    <h3><a href="{{ route('web.single') }}">childhood</a>
-                                                    </h3>
-                                                </div>
-                                                <div class="gen-movie-meta-holder">
-                                                    <ul>
-                                                        <li>2 years</li>
-                                                        <li>
-                                                            <a href="tennis.html"><span>Tennis</span></a>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- #post-## -->
-                            </div>
-
-
-                            <div class="item">
-                                <div
-                                    class="movie type-movie status-publish has-post-thumbnail hentry movie_genre-action movie_genre-adventure movie_genre-drama">
-                                    <div class="gen-carousel-movies-style-2 movie-grid style-2">
-                                        <div class="gen-movie-contain">
-                                            <div class="gen-movie-img">
-                                                <img src="http://gentechtree.com/themes/streamlab/red-html/images/background/asset-5.jpeg"
-                                                    alt="owl-carousel-video-image">
-                                                <div class="gen-movie-add">
-                                                    <div class="wpulike wpulike-heart">
-                                                        <div class="wp_ulike_general_class wp_ulike_is_not_liked">
-                                                            <button type="button"
-                                                                class="wp_ulike_btn wp_ulike_put_image"></button>
-                                                        </div>
-                                                    </div>
-                                                    <ul class="menu bottomRight">
-                                                        <li class="share top">
-                                                            <i class="fa fa-share-alt"></i>
-                                                            <ul class="submenu">
-                                                                <li><a href="#" class="facebook"><i
-                                                                            class="fab fa-facebook-f"></i></a>
-                                                                </li>
-                                                                <li><a href="#" class="facebook"><i
-                                                                            class="fab fa-instagram"></i></a>
-                                                                </li>
-                                                                <li><a href="#" class="facebook"><i
-                                                                            class="fab fa-twitter"></i></a></li>
-                                                            </ul>
-                                                        </li>
-                                                    </ul>
-                                                    <div class="movie-actions--link_add-to-playlist dropdown">
-                                                        <a class="dropdown-toggle" href="#" data-toggle="dropdown"><i
-                                                                class="fa fa-plus"></i></a>
-                                                        <div class="dropdown-menu mCustomScrollbar">
-                                                            <div class="mCustomScrollBox">
-                                                                <div class="mCSB_container">
-                                                                    <a class="login-link" href="register.html">Sign in
-                                                                        to add this
-                                                                        movie to a
-                                                                        playlist.</a>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="gen-movie-action">
-                                                    <a href="{{ route('web.single') }}" class="gen-button">
-                                                        <i class="fa fa-play"></i>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <div class="gen-info-contain">
-                                                <div class="gen-movie-info">
-                                                    <h3><a href="{{ route('web.single') }}">train life</a>
-                                                    </h3>
-                                                </div>
-                                                <div class="gen-movie-meta-holder">
-                                                    <ul>
-                                                        <li>2 years</li>
-                                                        <li>
-                                                            <a href="{{ route('web.category') }}"><span>Action</span></a>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- #post-## -->
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -2071,7 +511,7 @@
                                                 </div>
                                                 <div class="gen-movie-action">
                                                     <div class="gen-btn-container button-1">
-                                                        <a href="{{ route('web.single') }}" class="gen-button">
+                                                        <a href="{{ route('web.single', 'jhsdkkhd') }}" class="gen-button">
                                                             <i aria-hidden="true" class="ion ion-play"></i> <span
                                                                 class="text">play now</span>
                                                         </a>
@@ -2094,7 +534,7 @@
                                                     <ul>
                                                         <li>2 years</li>
                                                         <li>
-                                                            <a href="{{ route('web.category') }}"><span>Action</span></a>
+                                                            <a href="{{ route('web.category', 'jhsdkkhd') }}"><span>Action</span></a>
                                                         </li>
                                                         <li>
                                                             <i class="fas fa-eye">
@@ -2108,7 +548,7 @@
                                                 </div>
                                                 <div class="gen-movie-action">
                                                     <div class="gen-btn-container button-1">
-                                                        <a href="{{ route('web.single') }}" class="gen-button">
+                                                        <a href="{{ route('web.single', 'jhsdkkhd') }}" class="gen-button">
                                                             <i aria-hidden="true" class="ion ion-play"></i> <span
                                                                 class="text">play now</span>
                                                         </a>
@@ -2131,7 +571,7 @@
                                                     <ul>
                                                         <li>2 years</li>
                                                         <li>
-                                                            <a href="{{ route('web.category') }}"><span>Horror</span></a>
+                                                            <a href="{{ route('web.category', 'jhsdkkhd') }}"><span>Horror</span></a>
                                                         </li>
                                                         <li>
                                                             <i class="fas fa-eye">
@@ -2145,7 +585,7 @@
                                                 </div>
                                                 <div class="gen-movie-action">
                                                     <div class="gen-btn-container button-1">
-                                                        <a href="{{ route('web.single') }}" class="gen-button">
+                                                        <a href="{{ route('web.single', 'jhsdkkhd') }}" class="gen-button">
                                                             <i aria-hidden="true" class="ion ion-play"></i> <span
                                                                 class="text">play now</span>
                                                         </a>
@@ -2187,13 +627,16 @@
                         <div class="owl-carousel owl-loaded owl-drag" data-dots="false" data-nav="true"
                             data-desk_num="4" data-lap_num="3" data-tab_num="2" data-mob_num="1" data-mob_sm="1"
                             data-autoplay="false" data-loop="false" data-margin="30">
+
+                            @foreach($short_skit as $ss)
+
                             <div class="item">
                                 <div
                                     class="movie type-movie status-publish has-post-thumbnail hentry movie_genre-action movie_genre-adventure movie_genre-drama">
                                     <div class="gen-carousel-movies-style-2 movie-grid style-2">
                                         <div class="gen-movie-contain">
                                             <div class="gen-movie-img">
-                                                <img src="http://gentechtree.com/themes/streamlab/red-html/images/background/asset-5.jpeg"
+                                                <img src="http://gentechtree.com/themes/streamlab/red-html/images/background/asset-41.jpg"
                                                     alt="owl-carousel-video-image">
                                                 <div class="gen-movie-add">
                                                     <div class="wpulike wpulike-heart">
@@ -2233,21 +676,21 @@
                                                     </div>
                                                 </div>
                                                 <div class="gen-movie-action">
-                                                    <a href="{{ route('web.single') }}" class="gen-button">
+                                                    <a href="{{ route('web.single', $ss->slug) }}" class="gen-button">
                                                         <i class="fa fa-play"></i>
                                                     </a>
                                                 </div>
                                             </div>
                                             <div class="gen-info-contain">
                                                 <div class="gen-movie-info">
-                                                    <h3><a href="{{ route('web.single') }}">Moto3 2014 Biggest crashes</a>
+                                                    <h3><a href="{{ route('web.single', $ss->slug) }}">{{ $ss->title }}</a>
                                                     </h3>
                                                 </div>
                                                 <div class="gen-movie-meta-holder">
                                                     <ul>
-                                                        <li>2 years</li>
+                                                        <li>{{ $ss->created_at->diffForHumans() }}</li>
                                                         <li>
-                                                            <a href="{{ route('web.category') }}"><span>Moto-Gp</span></a>
+                                                            <a href="{{ route('web.category', $ss->category->slug) }}"><span>{{ $ss->category->title }}</span></a>
                                                         </li>
                                                     </ul>
                                                 </div>
@@ -2258,292 +701,8 @@
                                 <!-- #post-## -->
                             </div>
 
-                            <div class="item">
-                                <div
-                                    class="movie type-movie status-publish has-post-thumbnail hentry movie_genre-action movie_genre-adventure movie_genre-drama">
-                                    <div class="gen-carousel-movies-style-2 movie-grid style-2">
-                                        <div class="gen-movie-contain">
-                                            <div class="gen-movie-img">
-                                                <img src="http://gentechtree.com/themes/streamlab/red-html/images/background/asset-5.jpeg"
-                                                    alt="owl-carousel-video-image">
-                                                <div class="gen-movie-add">
-                                                    <div class="wpulike wpulike-heart">
-                                                        <div class="wp_ulike_general_class wp_ulike_is_not_liked">
-                                                            <button type="button"
-                                                                class="wp_ulike_btn wp_ulike_put_image"></button>
-                                                        </div>
-                                                    </div>
-                                                    <ul class="menu bottomRight">
-                                                        <li class="share top">
-                                                            <i class="fa fa-share-alt"></i>
-                                                            <ul class="submenu">
-                                                                <li><a href="#" class="facebook"><i
-                                                                            class="fab fa-facebook-f"></i></a>
-                                                                </li>
-                                                                <li><a href="#" class="facebook"><i
-                                                                            class="fab fa-instagram"></i></a>
-                                                                </li>
-                                                                <li><a href="#" class="facebook"><i
-                                                                            class="fab fa-twitter"></i></a></li>
-                                                            </ul>
-                                                        </li>
-                                                    </ul>
-                                                    <div class="movie-actions--link_add-to-playlist dropdown">
-                                                        <a class="dropdown-toggle" href="#" data-toggle="dropdown"><i
-                                                                class="fa fa-plus"></i></a>
-                                                        <div class="dropdown-menu mCustomScrollbar">
-                                                            <div class="mCustomScrollBox">
-                                                                <div class="mCSB_container">
-                                                                    <a class="login-link" href="register.html">Sign in
-                                                                        to add this
-                                                                        movie to a
-                                                                        playlist.</a>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="gen-movie-action">
-                                                    <a href="{{ route('web.single') }}" class="gen-button">
-                                                        <i class="fa fa-play"></i>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <div class="gen-info-contain">
-                                                <div class="gen-movie-info">
-                                                    <h3><a href="{{ route('web.single') }}">train ride</a>
-                                                    </h3>
-                                                </div>
-                                                <div class="gen-movie-meta-holder">
-                                                    <ul>
-                                                        <li>2 years</li>
-                                                        <li>
-                                                            <a href="{{ route('web.category') }}"><span>Action</span></a>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- #post-## -->
-                            </div>
+                            @endforeach
 
-
-                            <div class="item">
-                                <div
-                                    class="movie type-movie status-publish has-post-thumbnail hentry movie_genre-action movie_genre-adventure movie_genre-drama">
-                                    <div class="gen-carousel-movies-style-2 movie-grid style-2">
-                                        <div class="gen-movie-contain">
-                                            <div class="gen-movie-img">
-                                                <img src="http://gentechtree.com/themes/streamlab/red-html/images/background/asset-5.jpeg"
-                                                    alt="owl-carousel-video-image">
-                                                <div class="gen-movie-add">
-                                                    <div class="wpulike wpulike-heart">
-                                                        <div class="wp_ulike_general_class wp_ulike_is_not_liked">
-                                                            <button type="button"
-                                                                class="wp_ulike_btn wp_ulike_put_image"></button>
-                                                        </div>
-                                                    </div>
-                                                    <ul class="menu bottomRight">
-                                                        <li class="share top">
-                                                            <i class="fa fa-share-alt"></i>
-                                                            <ul class="submenu">
-                                                                <li><a href="#" class="facebook"><i
-                                                                            class="fab fa-facebook-f"></i></a>
-                                                                </li>
-                                                                <li><a href="#" class="facebook"><i
-                                                                            class="fab fa-instagram"></i></a>
-                                                                </li>
-                                                                <li><a href="#" class="facebook"><i
-                                                                            class="fab fa-twitter"></i></a></li>
-                                                            </ul>
-                                                        </li>
-                                                    </ul>
-                                                    <div class="movie-actions--link_add-to-playlist dropdown">
-                                                        <a class="dropdown-toggle" href="#" data-toggle="dropdown"><i
-                                                                class="fa fa-plus"></i></a>
-                                                        <div class="dropdown-menu mCustomScrollbar">
-                                                            <div class="mCustomScrollBox">
-                                                                <div class="mCSB_container">
-                                                                    <a class="login-link" href="register.html">Sign in
-                                                                        to add this
-                                                                        movie to a
-                                                                        playlist.</a>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="gen-movie-action">
-                                                    <a href="{{ route('web.single') }}" class="gen-button">
-                                                        <i class="fa fa-play"></i>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <div class="gen-info-contain">
-                                                <div class="gen-movie-info">
-                                                    <h3><a href="{{ route('web.single') }}">Fast&Curious</a>
-                                                    </h3>
-                                                </div>
-                                                <div class="gen-movie-meta-holder">
-                                                    <ul>
-                                                        <li>2 years</li>
-                                                        <li>
-                                                            <a href="{{ route('web.category') }}"><span>Action</span></a>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- #post-## -->
-                            </div>
-
-
-                            <div class="item">
-                                <div
-                                    class="movie type-movie status-publish has-post-thumbnail hentry movie_genre-action movie_genre-adventure movie_genre-drama">
-                                    <div class="gen-carousel-movies-style-2 movie-grid style-2">
-                                        <div class="gen-movie-contain">
-                                            <div class="gen-movie-img">
-                                                <img src="http://gentechtree.com/themes/streamlab/red-html/images/background/asset-5.jpeg"
-                                                    alt="owl-carousel-video-image">
-                                                <div class="gen-movie-add">
-                                                    <div class="wpulike wpulike-heart">
-                                                        <div class="wp_ulike_general_class wp_ulike_is_not_liked">
-                                                            <button type="button"
-                                                                class="wp_ulike_btn wp_ulike_put_image"></button>
-                                                        </div>
-                                                    </div>
-                                                    <ul class="menu bottomRight">
-                                                        <li class="share top">
-                                                            <i class="fa fa-share-alt"></i>
-                                                            <ul class="submenu">
-                                                                <li><a href="#" class="facebook"><i
-                                                                            class="fab fa-facebook-f"></i></a>
-                                                                </li>
-                                                                <li><a href="#" class="facebook"><i
-                                                                            class="fab fa-instagram"></i></a>
-                                                                </li>
-                                                                <li><a href="#" class="facebook"><i
-                                                                            class="fab fa-twitter"></i></a></li>
-                                                            </ul>
-                                                        </li>
-                                                    </ul>
-                                                    <div class="movie-actions--link_add-to-playlist dropdown">
-                                                        <a class="dropdown-toggle" href="#" data-toggle="dropdown"><i
-                                                                class="fa fa-plus"></i></a>
-                                                        <div class="dropdown-menu mCustomScrollbar">
-                                                            <div class="mCustomScrollBox">
-                                                                <div class="mCSB_container">
-                                                                    <a class="login-link" href="register.html">Sign in
-                                                                        to add this
-                                                                        movie to a
-                                                                        playlist.</a>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="gen-movie-action">
-                                                    <a href="{{ route('web.single') }}" class="gen-button">
-                                                        <i class="fa fa-play"></i>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <div class="gen-info-contain">
-                                                <div class="gen-movie-info">
-                                                    <h3><a href="{{ route('web.single') }}">skull’s world</a>
-                                                    </h3>
-                                                </div>
-                                                <div class="gen-movie-meta-holder">
-                                                    <ul>
-                                                        <li>2 years</li>
-                                                        <li>
-                                                            <a href="{{ route('web.category') }}"><span>Horror</span></a>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- #post-## -->
-                            </div>
-
-
-                            <div class="item">
-                                <div
-                                    class="movie type-movie status-publish has-post-thumbnail hentry movie_genre-action movie_genre-adventure movie_genre-drama">
-                                    <div class="gen-carousel-movies-style-2 movie-grid style-2">
-                                        <div class="gen-movie-contain">
-                                            <div class="gen-movie-img">
-                                                <img src="http://gentechtree.com/themes/streamlab/red-html/images/background/asset-5.jpeg"
-                                                    alt="owl-carousel-video-image">
-                                                <div class="gen-movie-add">
-                                                    <div class="wpulike wpulike-heart">
-                                                        <div class="wp_ulike_general_class wp_ulike_is_not_liked">
-                                                            <button type="button"
-                                                                class="wp_ulike_btn wp_ulike_put_image"></button>
-                                                        </div>
-                                                    </div>
-                                                    <ul class="menu bottomRight">
-                                                        <li class="share top">
-                                                            <i class="fa fa-share-alt"></i>
-                                                            <ul class="submenu">
-                                                                <li><a href="#" class="facebook"><i
-                                                                            class="fab fa-facebook-f"></i></a>
-                                                                </li>
-                                                                <li><a href="#" class="facebook"><i
-                                                                            class="fab fa-instagram"></i></a>
-                                                                </li>
-                                                                <li><a href="#" class="facebook"><i
-                                                                            class="fab fa-twitter"></i></a></li>
-                                                            </ul>
-                                                        </li>
-                                                    </ul>
-                                                    <div class="movie-actions--link_add-to-playlist dropdown">
-                                                        <a class="dropdown-toggle" href="#" data-toggle="dropdown"><i
-                                                                class="fa fa-plus"></i></a>
-                                                        <div class="dropdown-menu mCustomScrollbar">
-                                                            <div class="mCustomScrollBox">
-                                                                <div class="mCSB_container">
-                                                                    <a class="login-link" href="register.html">Sign in
-                                                                        to add this
-                                                                        movie to a
-                                                                        playlist.</a>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="gen-movie-action">
-                                                    <a href="{{ route('web.single') }}" class="gen-button">
-                                                        <i class="fa fa-play"></i>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <div class="gen-info-contain">
-                                                <div class="gen-movie-info">
-                                                    <h3><a href="{{ route('web.single') }}">cycle rider</a>
-                                                    </h3>
-                                                </div>
-                                                <div class="gen-movie-meta-holder">
-                                                    <ul>
-                                                        <li>2 years</li>
-                                                        <li>
-                                                            <a href="adventure.html"><span>Games</span></a>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- #post-## -->
-                            </div>
                         </div>
                     </div>
                 </div>

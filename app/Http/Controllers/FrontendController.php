@@ -13,7 +13,12 @@ class FrontendController extends Controller
     public function index()
     {
         //
-        $data['categories'] = Category::get();
+        $tread = Tread::where('status', 1);
+        $data['short_skit'] = $tread->orderBy('id', 'DESC')->take(10)->get();
+        $data['slider_video'] = $tread->orderBy('id', 'DESC')->take(3)->get();
+        $data['sponsored'] = $tread->where('is_sponsored', 1)->orderBy('id', 'DESC')->take(10)->get();
+        $data['trending'] = $tread->orderBy('id', 'DESC')->take(10)->get();
+        $data['popular'] = $tread->orderBy('id', 'DESC')->take(10)->get();
 
         return view('user.index', $data);
 
@@ -69,7 +74,7 @@ class FrontendController extends Controller
     {
         //
         $data['id'] = $request['s'];
-        $get_tread = Tread::where('title','LIKE','%'.$id.'%')->where('status', 1)->where('is_tread', 1)->orderBy('created_at', 'DESC')->get();
+        $data['search'] = Tread::where('title','LIKE','%'.$id.'%')->where('status', 1)->where('is_tread', 1)->orderBy('created_at', 'DESC')->get();
 
         return view('user.search', $data);
 
