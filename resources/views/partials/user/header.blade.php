@@ -98,23 +98,22 @@
                                     <div class="gen-account-menu">
                                         <ul class="gen-account-menu">
                                             <!-- Library Menu -->
+                                            @if(Auth::check())
                                             <li>
                                                 <a href="#">
                                                     <i class="fa fa-indent"></i>
                                                     Library </a>
                                             </li>
                                             <li>
-                                                <a href="#"><i class="fa fa-list"></i>
-                                                    Tv Show Playlist </a>
-                                            </li>
-                                            <li>
-                                                <a href="#"><i class="fa fa-list"></i>
-                                                    Video Playlist </a>
-                                            </li>
-                                            <li>
-                                                <a href="#"> <i class="fa fa-upload"></i>
+                                                <a href="{{ route('auth.logout') }}"> <i class="fa fa-upload"></i>
                                                     Logout </a>
                                             </li>
+                                            @else
+                                            <li>
+                                                <a href="{{ route('auth.login') }}"> <i class="fa fa-upload"></i>
+                                                    Login </a>
+                                            </li>
+                                            @endif
                                         </ul>
                                     </div>
                                 </div>
