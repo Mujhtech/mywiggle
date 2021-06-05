@@ -75,7 +75,7 @@ class UserController extends Controller
 
         if(!$request->hasFile('profile_photo_path')){
 
-            return redirect()->back()->with('success','Please select a picture');
+            return redirect()->back()->with('error','Please select a picture');
 
         }
 

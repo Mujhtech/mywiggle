@@ -14,6 +14,7 @@
             <div class="card mb-4 h-100">
                 <div class="card-body">
                     <form action="{{ route('user.u.ppicture') }}" method="POST" enctype="multipart/form-data">
+                        @csrf
                         <div class="card-title">Profile Picture</div>
                         <img src="{{ Auth::user()->profile_photo_url }}"alt="" style="display: block; border-radius: 50%; margin-left: 90px;" id="user_p_image">
                         <input type="file" style="display: none" id="profile_photo_path" name="profile_photo_path">
@@ -32,6 +33,7 @@
             <div class="card bg-defualt text-black">
                 <div class="card-body">
                     <form action="{{ route('user.u.profile') }}" method="POST" enctype="multipart/form-data">
+                        @csrf
                         <div class="d-flex align-items-center mb-4"><i class="i-ID-Card text-22 mr-2"></i>
                             <h5 class="text-18 font-weight-700 card-title m-0">Edit Information</h5>
                         </div>
@@ -77,6 +79,7 @@
             <div class="card bg-defualt text-black">
                 <div class="card-body">
                     <form action="{{ route('user.u.password') }}" method="POST" enctype="multipart/form-data">
+                        @csrf
                         <div class="d-flex align-items-center mb-4"><i class="i-ID-Card text-22 mr-2"></i>
                             <h5 class="text-18 font-weight-700 card-title m-0">Change Password</h5>
                         </div>
