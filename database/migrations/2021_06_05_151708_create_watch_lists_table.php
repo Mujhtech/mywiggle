@@ -15,6 +15,8 @@ class CreateWatchListsTable extends Migration
     {
         Schema::create('watch_lists', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->constrained('users')->nullable();
+            $table->foreignId('tread_id')->constrained('treads');
             $table->timestamps();
         });
     }

@@ -44,4 +44,10 @@ class User extends Authenticatable
     public function setPasswordAttribute($value) {
         $this->attributes['password'] = bcrypt($value);
     }
+
+
+    public function getProfilePhotoUrlAttribute()
+    {
+        return $this->avatar ? $this->avatar : 'https://ui-avatars.com/api/?name='.urlencode($this->fullname).'&color=7F9CF5&background=EBF4FF';
+    }
 }

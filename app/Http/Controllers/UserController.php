@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
+use Storage;
+use Carbon\Carbon;
 
 class UserController extends Controller
 {
@@ -24,7 +27,7 @@ class UserController extends Controller
         //
         $data['title'] = "My Video";
         
-        return view('user.logged.index', $data);
+        return view('user.logged.video', $data);
     }
 
     public function profile()
@@ -32,72 +35,94 @@ class UserController extends Controller
         //
         $data['title'] = "Profile";
         
-        return view('user.logged.index', $data);
+        return view('user.logged.profile', $data);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+
+    public function updateProfile(Request $request)
     {
         //
+        $request->validate([
+            'fullname' => 'required|string',
+            'username' => 'required|string|min:8|unique:users',
+            'email' => 'required|email|unique:users',
+            'phone_number' => 'required|digits:11|unique:users',
+        ]);
+
+
+        $user = $request->user();
+        $user->phone_number = $request->phone_number;
+        $user->fullname = $request->fullname;
+        $user->username = $request->username;
+        $user->email = $request->email;
+
+        if($user->save()){
+
+            return redirect()->back()->with('success','Profile updated successfully');
+
+        }
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+    public function updateProfilePicture(Request $request)
     {
         //
+        $request->validate([
+            'profile_photo_path' => 'required|string',
+        ]);
+
+
+        $user = $request->user();
+
+        if(!$request->hasFile('profile_photo_path')){
+
+            return redirect()->back()->with('success','Please select a picture');
+
+        }
+
+        if(Storage::exists($user->profile_photo_path)){
+
+            Storage::delete($user->profile_photo_path);
+
+        }
+
+        $pp = time().'_'.$user->username.'_profile_picture';
+        $user->profile_photo_path = $request->file('profile_photo_path')->storeAs(
+            'uploads/profile', $pp
+        );
+
+        if($user->save()){
+
+            return redirect()->back()->with('success','Profile updated successfully');
+
+        }
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
+    public function updatePassword(Request $request)
     {
         //
+        $request->validate([
+            'old_password' => 'required|string',
+            'new_password' => 'required|string|max:120|min:8',
+            'confirm_new_password' => 'required|string|max:120|min:8|same:new_password',
+        ]);
+
+
+        $user = $request->user();
+        
+        if(Hash::check($request->old_password, $user->password)){
+
+            return redirect()->back()->with('error','Incorrect old password');
+
+        }
+
+        $user->password = $new_password;
+
+        if($user->save()){
+
+            return redirect()->back()->with('success','Profile updated successfully');
+
+        }
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
 }

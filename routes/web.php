@@ -67,6 +67,13 @@ Route::group(['prefix' => 'user', 'middleware' => ['auth']], function () {
 
 	Route::get('/videos', 'UserController@video')->name('user.video');
 
+	Route::post('/change-profile-picture', 'UserController@updateProfilePicture')->name('user.u.ppicture');
+
+	Route::post('/update-profile', 'UserController@updateProfile')->name('user.u.profile');
+
+	Route::post('/change-password', 'UserController@updatePassword')->name('user.u.password');
+
+
 });
 
 
