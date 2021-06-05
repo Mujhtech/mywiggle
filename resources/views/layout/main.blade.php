@@ -15,7 +15,7 @@
         <link href="{{ asset('assets/dashboard/css/themes/lite-purple.min.css') }}" rel="stylesheet" />
         <link href="{{ asset('assets/css/plugins/perfect-scrollbar.min.css') }}" rel="stylesheet" />
         <!-- Toastr -->
-        <link href="{{ asset('assets/css/toastr.min.css') }}" rel="stylesheet">
+        <link href="{{ asset('assets/frontend/user/css/toast.min.css') }}" rel="stylesheet">
 
         @stack('css')
 
@@ -45,7 +45,7 @@
         </div>
 
         <!-- ########## All JS ########## -->
-        <script src="{{ asset('assets/js/jquery.min.js') }}"></script>
+        <script src="{{ asset('assets/frontend/user/js/jquery-3.6.0.min.js') }}"></script>
 
         <script src="{{ asset('assets/dashboard/js/plugins/bootstrap.bundle.min.js') }}"></script>
         <script src="{{ asset('assets/dashboard/js/plugins/perfect-scrollbar.min.js') }}"></script>
@@ -60,7 +60,7 @@
         <script src="{{ asset('assets/dashboard/js/scripts/apexSparklineChart.script.min.js') }}"></script>
 
         <!-- Toastr -->
-        <script src="{{ asset('assets/js/toastr.min.js') }}"></script>
+        <script src="{{ asset('assets/frontend/user/js/toast.min.js') }}"></script>
 
         @stack('modals')
 
