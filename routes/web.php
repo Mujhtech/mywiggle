@@ -61,9 +61,11 @@ Route::group(['middleware' => ['web'], 'prefix' => 'frontend'], function () {
 
 Route::group(['prefix' => 'user', 'middleware' => ['auth']], function () {
     
-	Route::get('/dashboard', function () {
-	    return view('user.dashboard');
-	})->name('user.dashboard');
+	Route::get('/dashboard', 'UserController@index')->name('user.dashboard');
+
+	Route::get('/profile', 'UserController@profile')->name('user.profile');
+
+	Route::get('/videos', 'UserController@video')->name('user.video');
 
 });
 

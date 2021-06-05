@@ -14,6 +14,25 @@ class UserController extends Controller
     public function index()
     {
         //
+        $data['title'] = "Dashbaord";
+
+        return view('user.logged.index', $data);
+    }
+
+    public function video()
+    {
+        //
+        $data['title'] = "My Video";
+        
+        return view('user.logged.index', $data);
+    }
+
+    public function profile()
+    {
+        //
+        $data['title'] = "Profile";
+        
+        return view('user.logged.index', $data);
     }
 
     /**

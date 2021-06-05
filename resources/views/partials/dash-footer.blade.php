@@ -14,7 +14,7 @@
         <div class="d-flex align-items-center">
             <img class="logo" src="{{ asset('assets/dashboard/images/logo.png') }}" alt="">
             <div>
-                <p class="m-0">&copy; 2021 Lnaid</p>
+                <p class="m-0">&copy; 2021 MyWiggle</p>
                 <p class="m-0">All rights reserved</p>
             </div>
         </div>
