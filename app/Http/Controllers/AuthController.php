@@ -68,6 +68,16 @@ class AuthController extends Controller
         $user->email_verified_at = Carbon::now();
         $user->referral_code = substr(time(), 0, 2).substr(time(), 4, 6).substr(time(), 7, 9);
 
+        if($request->filled('referral_code')){
+
+            $user->referred_by = User::where('referral_code', $request->referral_code)->first()->id;
+
+        } else {
+
+            $user->referred_by = 1;
+
+        }
+
         if($user->save()){
 
             return redirect()->route('auth.login')->with('success', 'Welcome to our platform, please login to continue');
