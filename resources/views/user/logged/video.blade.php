@@ -1,6 +1,5 @@
-@extends('layouts.student')
+@extends('layout.main')
 @push('css')
-<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" integrity="sha512-vKMx8UnXk60zUwyUnUPM3HbQo8QfmNx7+ltw8Pm5zLusl1XIfwcxo8DbWCqMGKaWeNxWA8yrx5v3SaVpMvR3CA==" crossorigin="anonymous" /> -->
 @endPush
 @section('content')
 
@@ -12,91 +11,80 @@
         <div class="col-md-12 col-lg-12 col-sm-12 mb-3">
             <div class="card text-left">
                 <div class="card-body">
-                    <button class="btn btn-success float-right" type="button" data-toggle="modal" data-target="#exampleModal">Create a request</button>
-                    <h4 class="card-title mb-3">My Request</h4>
+                    <button class="btn btn-success float-right" type="button" data-toggle="modal" data-target="#exampleModal">Add new video</button>
+                    <h4 class="card-title mb-3">My Videos</h4>
                     <div class="table-responsive">
                         <table class="table table-hover">
                             <thead>
                                 <tr>
                                     <th scope="col">#</th>
                                     <th scope="col">Title</th>
-                                    <th scope="col">Amount</th>
-                                    <th scope="col">Request Media</th>
+                                    <th scope="col">Number of views</th>
+                                    <th scope="col">Likes</th>
                                     <th scope="col">Status</th>
                                     <th scope="col">Action</th>
                                 </tr>
                             </thead>
 
                             <tbody>
-                                @if(count($requests) > 0)
+                                @if(count($treads) > 0)
                                 @php $sn = 0 @endphp
-                                @foreach($requests as $request)
+                                @foreach($treads as $tread)
                                 @php $sn++ @endphp
                                 <tr>
                                     <th scope="row">{{ $sn }}</th>
-                                    <td>{{$request->title}}</td>
+                                    <td><a href="{{ route('web.single', $tread->slug) }}">{{$tread->title}}</a></td>
                                     <td>
-                                        @if($request->is_fund_request)
-                                            {{$request->currency->code}} {{$request->amount}}
-                                        @endif
-
+                                        {{$tread->views}}
                                     </td>
                                     <td>
-
+                                        {{$tread->likes}}
                                     </td>
                                     <td>
-                                        @if($request->status == 1)
-                                        <span class="badge badge-success">Paid</span>
-                                        @elseif($request->status == 2)
-                                        <span class="badge badge-success">Accepted</span>
-                                        @elseif($request->status == 3)
-                                        <span class="badge badge-success">Failed</span>
-                                        @elseif($request->status == 0)
+                                        @if($tread->status == 1)
+                                        <span class="badge badge-success">Publish</span>
+                                        @elseif($tread->status == 2)
+                                        <span class="badge badge-success">Draft</span>
+                                        @elseif($tread->status == 0)
                                         <span class="badge badge-success">Pending</span>
                                         @endif
                                     </td>
                                     <td>
-                                        <button class="btn btn-success" type="button" data-toggle="modal" data-target="#exampleModal{{$request->id}}"><i class="nav-icon i-Pen-2" title="Edit"></i></button>
-                                        <a href="{{ route('student.fund.delete', ['id' => $request->id]) }}" class="btn btn-danger" type="button"><i class="nav-icon i-Close-Window" title="Delete"></i></a>
+                                        <button class="btn btn-success" type="button" data-toggle="modal" data-target="#exampleModal{{$tread->id}}"><i class="nav-icon i-Pen-2" title="Edit"></i></button>
+                                        <a href="{{ route('user.v.delete', ['id' => $tread->id]) }}" class="btn btn-danger" type="button"><i class="nav-icon i-Close-Window" title="Delete"></i></a>
                                     </td>
                                 </tr>
-                                <div class="modal fade" id="exampleModal{{$request->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal fade" id="exampleModal{{$tread->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                     <div class="modal-dialog" role="document">
                                         <div class="modal-content">
-                                            <form action="{{route('student.fund.edit', ['id' => $request->id])}}" method="POST" enctype="multipart/form-data">
+                                            <form action="" method="POST" enctype="multipart/form-data">
                                                 @csrf
                                                 <div class="modal-header">
-                                                    <h5 class="modal-title" id="exampleModalLabel">Create a request</h5>
+                                                    <h5 class="modal-title" id="exampleModalLabel">Edit a tread</h5>
                                                     <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
                                                 </div>
                                                 <div class="modal-body">
                                                     <div class="row">
                                                         <div class="col-md-12">
                                                             <p class="font-weight-400 mb-2">Title</p>
-                                                            <input class="form-control" type="text" name="title" placeholder="Title" value="{{ $request->title }}" />
+                                                            <input class="form-control" type="text" name="title" placeholder="Title" value="{{ $tread->title }}" />
                                                         </div>
                                                     </div>
                                                     <div class="row">
                                                         <div class="col-md-12">
-                                                            <p class="font-weight-400 mb-2">Currency</p>
+                                                            <p class="font-weight-400 mb-2">Category</p>
                                                             <select class="form-control" name="currency"/>
-                                                            <option>Select currency</option>
-                                                            @foreach($currency as $cur)
-                                                            <option value="{{$cur->id}}" @if($request->currency_id == $cur->id) selected @endif> {{$cur->name}} ({{$cur->code}})</option>
+                                                            <option>Select Category</option>
+                                                            @foreach($category as $cat)
+                                                            <option value="{{$cat->id}}" @if($tread->category_id == $cat->id) selected @endif> {{$cat->name}}</option>
                                                            @endforeach
                                                         </select>
                                                     </div>
                                                 </div>
                                                 <div class="row">
                                                     <div class="col-md-12">
-                                                        <p class="font-weight-400 mb-2">Amount</p>
-                                                        <input class="form-control" type="number" name="amount" placeholder="Amount" value="{{ $request->amount }}" />
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-md-12">
-                                                        <p class="font-weight-400 mb-2">Description</p>
-                                                        <textarea class="form-control" name="description" placeholder="Description">{{ $request->description }}</textarea>
+                                                        <p class="font-weight-400 mb-2">Content</p>
+                                                        <textarea class="form-control" name="content" placeholder="Content">{{ $tread->content }}</textarea>
                                                     </div>
                                                 </div>
                                                 <div class="row">
@@ -133,10 +121,16 @@
 
 @endSection
 @push('js')
-<!-- <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script> -->
 
-<!-- include('partials.error', ['position' => 'toast-bottom-left' ]) -->
-<!-- include('partials.flash', ['position' => 'toast-bottom-left', 'timeout' => 1000 ]) -->
+@foreach ($errors->all() as $error)
+    <script type="text/javascript">
+        new Toast({
+            message: '{{ $error }}',
+            type: 'error'
+        });
+    </script>
+@endforeach
+
 
 @endPush
 
@@ -144,46 +138,40 @@
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
-            <form action="{{route('student.fund.create')}}" method="POST" enctype="multipart/form-data">
+            <form action="{{route('user.v.create')}}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Create a request</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Create new video</h5>
                     <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
                 </div>
                 <div class="modal-body">
                     <div class="row">
                         <div class="col-md-12">
                             <p class="font-weight-400 mb-2">Title</p>
-                            <input class="form-control" type="text" name="title" placeholder="Title" value="" />
+                            <input class="form-control" type="text" name="title" placeholder="Title" value="" required />
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-12">
-                            <p class="font-weight-400 mb-2">Currency</p>
-                            <select class="form-control" name="currency"/>
-                            <option>Select currency</option>
-                            @foreach($currency as $cur)
-                                <option value="{{$cur->id}}"> {{$cur->name}} ({{$cur->code}})</option>
+                            <p class="font-weight-400 mb-2">Category</p>
+                            <select class="form-control" name="category" required>
+                            <option>Select Category</option>
+                            @foreach($category as $cat)
+                                <option value="{{$cat->id}}"> {{$cat->name}}</option>
                             @endforeach
                         </select>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-12">
-                        <p class="font-weight-400 mb-2">Amount</p>
-                        <input class="form-control" type="number" name="amount" placeholder="Amount" value="" />
+                        <p class="font-weight-400 mb-2">Content</p>
+                        <textarea class="form-control" name="content" placeholder="Content" require></textarea>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-12">
-                        <p class="font-weight-400 mb-2">Description</p>
-                        <textarea class="form-control" name="description" placeholder="Description"></textarea>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-12">
-                        <p class="font-weight-400 mb-2">Attached File</p>
-                        <input class="form-control" type="file" name="attachment"/>
+                        <p class="font-weight-400 mb-2">Attached Video</p>
+                        <input class="form-control" type="file" name="attachment" required />
                     </div>
                 </div>
 
@@ -197,4 +185,5 @@
 </div>
 </div>
 @endPush
+
 

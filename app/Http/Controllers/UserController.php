@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Storage;
 use Carbon\Carbon;
+use App\Models\Category;
+use App\Models\Tread;
+use App\Models\TreadVideoPath;
 
 class UserController extends Controller
 {
@@ -22,11 +25,13 @@ class UserController extends Controller
         return view('user.logged.index', $data);
     }
 
-    public function video()
+    public function video(Request $request)
     {
         //
         $data['title'] = "My Video";
-        
+        $data['category'] = Category::get();
+        $data['treads'] = Tread::where('user_id', $request->user()->id)->get();
+
         return view('user.logged.video', $data);
     }
 
@@ -66,9 +71,9 @@ class UserController extends Controller
     public function updateProfilePicture(Request $request)
     {
         //
-        $request->validate([
-            'profile_photo_path' => 'required|string',
-        ]);
+        //$request->validate([
+          //  'profile_photo_path' => 'required|string',
+        //]);
 
 
         $user = $request->user();
@@ -109,7 +114,7 @@ class UserController extends Controller
 
         $user = $request->user();
         
-        if(Hash::check($request->old_password, $user->password)){
+        if(!Hash::check($request->old_password, $user->password)){
 
             return redirect()->back()->with('error','Incorrect old password');
 
@@ -122,6 +127,64 @@ class UserController extends Controller
             return redirect()->back()->with('success','Profile updated successfully');
 
         }
+    }
+
+
+    public function createVideo(Request $request){
+
+        $request->validate([
+            'title' => 'required|string|min:20|max:50',
+            'category' => 'required',
+            'content' => 'required|string|min:20|max:200',
+            'attachment' => 'required',
+        ]);
+
+        if(!$request->hasFile('attachment')){
+
+            return redirect()->back()->with('error','Please select a video attachment');
+
+        }
+
+        $tread = new Tread;
+        $tread->title = $request->title;
+        $tread->category_id = $request->category;
+        $tread->content = $request->content;
+        $tread->user_id = $request->user()->id;
+        $tread->slug = str_replace(' ', '-', strtolower($request->title)).'-'.str_replace(' ', '-', strtolower($request->user()->username));
+        $tread->save();
+
+        $video_path = new TreadVideoPath;
+        $video_path->tread_id = $tread->id;
+        $video_path->video_path = $request->file('attachment')->storeAs(
+            'uploads/videos', $tread->slug
+        );
+
+        if($video_path->save()){
+
+            return redirect()->back()->with('success','Video uploaded successfully');
+
+        }
+
+    }
+
+    public function deleteVideo($id){
+
+        $video_path = TreadVideoPath::where('tread_id')->first()->video_path;
+
+        if(Storage::exists($video_path)){
+
+            Storage::delete($video_path);
+
+        }
+
+        $tread = Tread::find($id);
+
+        if($tread->delete()){
+
+            return redirect()->back()->with('success','Video deleted successfully');
+
+        }
+        
     }
 
 
