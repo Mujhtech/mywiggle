@@ -10,7 +10,7 @@
         <!-- Title -->
         <title>@yield('title')</title>
         <!-- Favicon -->
-        <link rel="icon" href="{{ asset('assets/img/core-img/favicon.ico') }}">
+        <link rel="shortcut icon" href="https://ui-avatars.com/api/?name=MyWiggle&color=E50916&background=000000">
 
         <link href="{{ asset('assets/dashboard/css/themes/lite-purple.min.css') }}" rel="stylesheet" />
         <link href="{{ asset('assets/css/plugins/perfect-scrollbar.min.css') }}" rel="stylesheet" />

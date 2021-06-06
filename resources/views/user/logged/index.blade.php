@@ -13,58 +13,28 @@
                     <div class="card card-icon-bg card-icon-bg-primary o-hidden mb-4">
                         <div class="card-body text-center"><i class="i-Money-2"></i>
                             <div class="content">
-                                <p class="text-muted mt-2 mb-0">Amount Requested</p>
-                                <p class="text-primary text-24 line-height-1 mb-2"></p>
+                                <p class="text-muted mt-2 mb-0">Point Earned</p>
+                                <p class="text-primary text-24 line-height-1 mb-2">0</p>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6 col-sm-6">
                     <div class="card card-icon-bg card-icon-bg-primary o-hidden mb-4">
-                        <div class="card-body text-center"><i class="i-Money-2"></i>
+                        <div class="card-body text-center"><i class="i-Computer-Secure"></i>
                             <div class="content">
-                                <p class="text-muted mt-2 mb-0">Amount Received</p>
-                                <p class="text-primary text-24 line-height-1 mb-2"></p>
+                                <p class="text-muted mt-2 mb-0">My Videos</p>
+                                <p class="text-primary text-24 line-height-1 mb-2">0</p>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6 col-sm-6">
                     <div class="card card-icon-bg card-icon-bg-primary o-hidden mb-4">
-                        <div class="card-body text-center"><i class="i-Financial"></i>
+                        <div class="card-body text-center"><i class="i-Computer-Secure"></i>
                             <div class="content">
-                                <p class="text-muted mt-2 mb-0">Completed Request</p>
-                                <p class="text-primary text-24 line-height-1 mb-2"></p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 col-sm-6">
-                    <div class="card card-icon-bg card-icon-bg-primary o-hidden mb-4">
-                        <div class="card-body text-center"><i class="i-Money-2"></i>
-                            <div class="content">
-                                <p class="text-muted mt-2 mb-0">Validation Score</p>
-                                <p class="text-primary text-24 line-height-1 mb-2"></p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 col-sm-6">
-                    <div class="card card-icon-bg card-icon-bg-primary o-hidden mb-4">
-                        <div class="card-body text-center"><i class="i-Add-User"></i>
-                            <div class="content">
-                                <p class="text-muted mt-2 mb-0">Fund Request</p>
-                                <p class="text-primary text-24 line-height-1 mb-2"></p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 col-sm-6">
-                    <div class="card card-icon-bg card-icon-bg-primary o-hidden mb-4">
-                        <div class="card-body text-center"><i class="i-Money-2"></i>
-                            <div class="content">
-                                <p class="text-muted mt-2 mb-0">Donations</p>
-                                <p class="text-primary text-24 line-height-1 mb-2"></p>
+                                <p class="text-muted mt-2 mb-0">My Watch Later</p>
+                                <p class="text-primary text-24 line-height-1 mb-2">0</p>
                             </div>
                         </div>
                     </div>

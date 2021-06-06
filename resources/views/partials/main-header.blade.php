@@ -1,7 +1,7 @@
 <!-- =============== Main Header start ================-->
 <div class="main-header">
     <div class="logo">
-        <img src="{{ asset('assets/dashboard/images/logo.png') }}" alt="">
+        <img src="https://ui-avatars.com/api/?name=MyWiggle&color=E50916&background=000000" alt="">
     </div>
     <div class="menu-toggle">
         <div></div>
