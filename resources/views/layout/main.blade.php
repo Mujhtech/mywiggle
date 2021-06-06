@@ -8,7 +8,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta name="csrf-token" content="{{ csrf_token() }}">
         <!-- Title -->
-        <title>@yield('title')</title>
+        <title>{{ $title }} - MyWiggle</title>
         <!-- Favicon -->
         <link rel="shortcut icon" href="https://ui-avatars.com/api/?name=MyWiggle&color=E50916&background=000000">
 
