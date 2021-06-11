@@ -145,18 +145,20 @@ class UserController extends Controller
 
         }
 
+        $slug = generate_slug($require->title);
+
         $tread = new Tread;
         $tread->title = $request->title;
         $tread->category_id = $request->category;
         $tread->content = $request->content;
         $tread->user_id = $request->user()->id;
-        $tread->slug = str_replace(' ', '-', strtolower($request->title)).'-'.str_replace(' ', '-', strtolower($request->user()->username));
+        $tread->slug = $slug;
         $tread->save();
 
         $video_path = new TreadVideoPath;
         $video_path->tread_id = $tread->id;
         $video_path->video_path = $request->file('attachment')->storeAs(
-            'uploads/videos', $tread->slug
+            'uploads/videos', $slug
         );
 
         if($video_path->save()){
