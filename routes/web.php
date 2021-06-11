@@ -56,6 +56,8 @@ Route::group(['middleware' => ['web'], 'prefix' => 'frontend'], function () {
 
 	Route::get('/search', 'FrontendController@search')->name('web.search');
 
+	Route::get('/share/{platform}/{slug}', 'FrontendController@share')->name('web.share');
+
 });
 
 

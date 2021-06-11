@@ -27,7 +27,12 @@ class FrontendController extends Controller
     public function single($slug)
     {
         //
-        $data['categories'] = Category::where('slug', $slug)->first();
+        $tread = Tread::where('slug', $slug)->first();
+        $tread->views += 1;
+        $tread->save()
+
+        $data['tread'] = $tread;
+        $data['title'] = $tread->title;
 
         return view('user.single', $data);
 
@@ -89,6 +94,10 @@ class FrontendController extends Controller
         $data['all'] = Tread::paginate(20);
 
         return view('user.all', $data);
+
+    }
+
+    public function share( $platform, $slug ){
 
     }
 

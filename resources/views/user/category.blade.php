@@ -35,13 +35,13 @@
 										<li class="share top">
 											<i class="fa fa-share-alt"></i>
 											<ul class="submenu">
-												<li><a href="#" class="facebook"><i
+												<li><a href="{{ route('web.share', ['platform' => 'facebook', 'slug' => $sh->slug]) }}" class="facebook"><i
 													class="fab fa-facebook-f"></i></a>
 												</li>
-												<li><a href="#" class="facebook"><i
+												<li><a href="{{ route('web.share', ['platform' => 'instagram', 'slug' => $sh->slug]) }}" class="facebook"><i
 													class="fab fa-instagram"></i></a>
 												</li>
-												<li><a href="#" class="facebook"><i
+												<li><a href="{{ route('web.share', ['platform' => 'twitter', 'slug' => $sh->slug]) }}" class="facebook"><i
 													class="fab fa-twitter"></i></a></li>
 												</ul>
 											</li>
@@ -74,11 +74,11 @@
 										</div>
 										<div class="gen-movie-meta-holder">
 											<ul>
-                                                <li>{{ $sh->created_at->diffForHumans() }}</li>
-                                                <li>
-                                                    <a href="{{ route('web.category', $sh->category->slug) }}"><span>{{ $sh->category->name }}</span></a>
-                                                </li>
-                                            </ul>
+												<li>{{ $sh->created_at->diffForHumans() }}</li>
+												<li>
+													<a href="{{ route('web.category', $sh->category->slug) }}"><span>{{ $sh->category->name }}</span></a>
+												</li>
+											</ul>
 										</div>
 									</div>
 								</div>
@@ -86,16 +86,16 @@
 						</div>
 						<!-- #post-## -->
 					</div>
-			</div>
-			@endforeach
+				</div>
+				@endforeach
 
-			@else
-			<div class="col-lg-4 col-md-6 col-xs-12">
-				<h4>No result found</h4>
+				@else
+				<div class="col-lg-4 col-md-6 col-xs-12">
+					<h4>No result found</h4>
+				</div>
+				@endif
 			</div>
-			@endif
 		</div>
-	</div>
-</section>
+	</section>
 
-@endsection
+	@endsection
