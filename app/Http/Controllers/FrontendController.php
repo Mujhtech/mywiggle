@@ -109,7 +109,7 @@ class FrontendController extends Controller
             $th = new TreadHistory;
             $th->tread_id = $tread->id;
             $th->user_id = Auth::user()->id;
-            $th->save()
+            $th->save();
 
             $eh = new EarningHistory;
             $eh->user_id = Auth::user()->id;
