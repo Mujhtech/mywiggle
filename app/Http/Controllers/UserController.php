@@ -92,7 +92,7 @@ class UserController extends Controller
 
         $pp = time().'_'.$user->username.'_profile_picture';
         $user->profile_photo_path = $request->file('profile_photo_path')->storeAs(
-            'uploads/profile', $pp
+            'public/uploads/profiles', $pp.'.jpg'
         );
 
         if($user->save()){
@@ -133,7 +133,7 @@ class UserController extends Controller
     public function createVideo(Request $request){
 
         $request->validate([
-            'title' => 'required|string|min:20|max:50',
+            'title' => 'required|string|min:12|max:50',
             'category' => 'required',
             'content' => 'required|string|min:20|max:200',
             'attachment' => 'required',
@@ -145,7 +145,7 @@ class UserController extends Controller
 
         }
 
-        $slug = generate_slug($require->title);
+        $slug = generate_slug($request->title);
 
         $tread = new Tread;
         $tread->title = $request->title;
@@ -158,7 +158,7 @@ class UserController extends Controller
         $video_path = new TreadVideoPath;
         $video_path->tread_id = $tread->id;
         $video_path->video_path = $request->file('attachment')->storeAs(
-            'uploads/videos', $slug
+            'public/uploads/videos', $slug.'.mp4'
         );
 
         if($video_path->save()){

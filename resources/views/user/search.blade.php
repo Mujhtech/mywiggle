@@ -44,10 +44,10 @@
 												</li>
 												<li><a href="{{ route('web.share', ['platform' => 'twitter', 'slug' => $sh->slug]) }}" class="facebook"><i
 													class="fab fa-twitter"></i></a></li>
-												</ul>
-											</li>
-										</ul>
-										<div class="movie-actions--link_add-to-playlist dropdown">
+											</ul>
+										</li>
+									</ul>
+									<div class="movie-actions--link_add-to-playlist dropdown">
 											<a class="dropdown-toggle" href="#" data-toggle="dropdown"><i
 												class="fa fa-plus"></i></a>
 												<div class="dropdown-menu mCustomScrollbar">
@@ -61,14 +61,14 @@
 													</div>
 												</div>
 											</div>
-										</div>
-										<div class="gen-movie-action">
+									</div>
+									<div class="gen-movie-action">
 											<a href="{{ route('web.single', $sh->slug) }}" class="gen-button">
 												<i class="fa fa-play"></i>
 											</a>
-										</div>
 									</div>
-									<div class="gen-info-contain">
+								</div>
+								<div class="gen-info-contain">
 										<div class="gen-movie-info">
 											<h3><a href="{{ route('web.single', $sh->slug) }}">{{ $sh->title }}</a>
 											</h3>
@@ -81,23 +81,22 @@
 												</li>
 											</ul>
 										</div>
-									</div>
 								</div>
 							</div>
 						</div>
-						<!-- #post-## -->
 					</div>
+						<!-- #post-## -->
 				</div>
-				@endforeach
-
-				@else
-				<div class="col-lg-3 col-md-6 col-xs-12">
-					<h4>No result found</h4>
-				</div>
-				@endif
-
 			</div>
-		</div>
-	</section>
+			@endforeach
 
-	@endsection
+			@else
+			<div class="col-lg-3 col-md-6 col-xs-12">
+				<h4>No result found</h4>
+			</div>
+			@endif
+		</div>
+	</div>
+</section>
+
+@endsection

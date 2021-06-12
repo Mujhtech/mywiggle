@@ -29,7 +29,7 @@ class FrontendController extends Controller
         //
         $tread = Tread::where('slug', $slug)->first();
         $tread->views += 1;
-        $tread->save()
+        $tread->save();
 
         $data['tread'] = $tread;
         $data['title'] = $tread->title;

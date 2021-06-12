@@ -20,4 +20,9 @@ class Tread extends Model
     {
         return $this->belongsTo(Category::class, 'category_id', 'id');
     }
+
+    public function tread_video_path()
+    {
+        return $this->belongsTo(TreadVideoPath::class, 'id', 'tread_id');
+    }
 }
