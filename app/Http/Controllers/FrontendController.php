@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Category;
 use App\Models\Tread;
 use App\Models\Page;
+use Auth;
 
 class FrontendController extends Controller
 {
@@ -99,6 +100,61 @@ class FrontendController extends Controller
 
     public function share( $platform, $slug ){
 
+        if(Auth::check()){
+
+        }
+
+        if ( $platform == 'twitter' ) {
+
+            return redirect()->away("https://twitter.com/intent/tweet?text=".urlencode(url('/')."/video/".$slug));
+
+        } elseif ( $platform == 'instagram' ) {
+
+            return redirect()->away('');
+            
+        } elseif ( $platform == 'facebook' ) {
+            
+            return redirect()->away("https://www.facebook.com/sharer/sharer.php?u=".urlencode(url('/')."/video/".$slug));
+
+        } elseif ( $platform == 'whatsapp' ) {
+            
+            return redirect()->away("whatsapp://send?text=".urlencode(url('/')."/video/".$slug));
+            
+        } else {
+
+            return redirect()->back();
+
+        }
+
+    }
+
+    public function addToWatchList( $slug ){
+
+        if(Auth::check()){
+
+            $tread = Tread::where('slug', $slug)->first();
+
+            if(WatchList::where('tread_id', $tread->id)->where('user_id', Auth::user()->id)->exists()){
+
+                return redirect()->back()->with('error', 'Already added to watch list');
+
+
+            } else {
+
+                $wl = new WatchList;
+                $wl->tread_id = $tread->id;
+                $wl->user_id = Auth::user()->id;
+                $wl->save();
+
+                return redirect()->back()->with('success', 'Video added to watch list successfully');
+
+            }
+
+        } else {
+
+            return redirect()->back()->with('error', 'Please login to add to watch list');
+
+        }
     }
 
     

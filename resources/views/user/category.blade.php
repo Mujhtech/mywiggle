@@ -38,8 +38,8 @@
 												<li><a href="{{ route('web.share', ['platform' => 'facebook', 'slug' => $sh->slug]) }}" class="facebook"><i
 													class="fab fa-facebook-f"></i></a>
 												</li>
-												<li><a href="{{ route('web.share', ['platform' => 'instagram', 'slug' => $sh->slug]) }}" class="facebook"><i
-													class="fab fa-instagram"></i></a>
+												<li><a href="{{ route('web.share', ['platform' => 'whatsapp', 'slug' => $sh->slug]) }}" class="facebook"><i
+													class="fab fa-whatsapp"></i></a>
 												</li>
 												<li><a href="{{ route('web.share', ['platform' => 'twitter', 'slug' => $sh->slug]) }}" class="facebook"><i
 													class="fab fa-twitter"></i></a></li>
@@ -47,7 +47,7 @@
 											</li>
 										</ul>
 										<div class="movie-actions--link_add-to-playlist dropdown">
-											<a class="dropdown-toggle" href="#" data-toggle="dropdown"><i
+											<a class="dropdown-toggle" href="{{ route('web.addwl', $sh->slug) }}" data-toggle="dropdown"><i
 												class="fa fa-plus"></i></a>
 												<div class="dropdown-menu mCustomScrollbar">
 													<div class="mCustomScrollBox">

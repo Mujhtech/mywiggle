@@ -58,6 +58,8 @@ Route::group(['middleware' => ['web'], 'prefix' => 'frontend'], function () {
 
 	Route::get('/share/{platform}/{slug}', 'FrontendController@share')->name('web.share');
 
+	Route::get('/add-to-watch-list/{slug}', 'FrontendController@addToWatchList')->name('web.addwl');
+
 });
 
 

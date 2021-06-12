@@ -100,9 +100,14 @@
                                             <!-- Library Menu -->
                                             @if(Auth::check())
                                             <li>
-                                                <a href="#">
+                                                <a href="{{ route('user.dashboard') }}">
+                                                    <i class="fa fa-user-circle"></i>
+                                                    Dashboard </a>
+                                            </li>
+                                            <li>
+                                                <a href="{{ route('user.video') }}">
                                                     <i class="fa fa-indent"></i>
-                                                    Library </a>
+                                                    My Videos </a>
                                             </li>
                                             <li>
                                                 <a href="{{ route('auth.logout') }}"> <i class="fa fa-upload"></i>

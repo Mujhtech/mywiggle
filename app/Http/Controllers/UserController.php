@@ -9,6 +9,7 @@ use Carbon\Carbon;
 use App\Models\Category;
 use App\Models\Tread;
 use App\Models\TreadVideoPath;
+use App\Models\WatchList;
 
 class UserController extends Controller
 {
@@ -187,6 +188,29 @@ class UserController extends Controller
 
         }
         
+    }
+
+
+    public function myWatchList(){
+
+        $data['title'] = "My Watch List";
+        $data['watchlist'] = WatchList::where('user_id', $request->user()->id)->get();
+
+        return view('user.logged.watchlist', $data);
+
+    }
+
+
+    public function removeFromWatchList( $id ){
+
+        $wl = WatchList::find($id);
+
+        if($wl->delete()){
+
+            return redirect()->back()->with('success','Video removed successfully from watch list');
+
+        }
+
     }
 
 

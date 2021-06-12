@@ -25,11 +25,16 @@
 									<div class="gen-single-meta-holder">
 										<ul>
 											<li><a href="{{ route('web.category', $tread->category->slug) }}"><span>{{ $tread->category->name }}</span></a></li>
-											<li>40min</li>
+											<li><a href="">Add to my watch list</a></li>
 											<li>
 												<i class="fas fa-eye">
 												</i>
 												<span>{{ $tread->views }} Views</span>
+											</li>
+											<li>
+												<i class="fas fa-heart">
+												</i>
+												<span>{{ $tread->likes }} Likes</span>
 											</li>
 										</ul>
 									</div>
@@ -40,8 +45,8 @@
 											<li><a href="{{ route('web.share', ['platform' => 'facebook', 'slug' => $tread->slug]) }}" class="facebook"><i
 												class="fab fa-facebook-f"></i></a>
 											</li>
-											<li><a href="{{ route('web.share', ['platform' => 'instagram', 'slug' => $tread->slug]) }}" class="facebook"><i
-												class="fab fa-instagram"></i></a>
+											<li><a href="{{ route('web.share', ['platform' => 'whatsapp', 'slug' => $tread->slug]) }}" class="facebook"><i
+												class="fab fa-whatsapp"></i></a>
 											</li>
 											<li><a href="{{ route('web.share', ['platform' => 'twitter', 'slug' => $tread->slug]) }}" class="facebook"><i
 												class="fab fa-twitter"></i></a></li>

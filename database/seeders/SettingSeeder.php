@@ -60,6 +60,10 @@ class SettingSeeder extends Seeder
                 "name" => "ios-link",
                 "value" => null,
             ],
+            [
+                "name" => "meta-description",
+                "value" => ""
+            ]
         ];
 
     	foreach ($sss as $ss) {

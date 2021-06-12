@@ -204,8 +204,8 @@
                                                     <li><a href="{{ route('web.share', ['platform' => 'facebook', 'slug' => $sp->slug]) }}" class="facebook"><i
                                                        class="fab fa-facebook-f"></i></a>
                                                    </li>
-                                                   <li><a href="{{ route('web.share', ['platform' => 'instagram', 'slug' => $sp->slug]) }}" class="facebook"><i
-                                                       class="fab fa-instagram"></i></a>
+                                                   <li><a href="{{ route('web.share', ['platform' => 'whatsapp', 'slug' => $sp->slug]) }}" class="facebook"><i
+                                                       class="fab fa-whatsapp"></i></a>
                                                    </li>
                                                    <li><a href="{{ route('web.share', ['platform' => 'twitter', 'slug' => $sp->slug]) }}" class="facebook"><i
                                                        class="fab fa-twitter"></i></a></li>
@@ -213,7 +213,7 @@
                                                </li>
                                            </ul>
                                            <div class="movie-actions--link_add-to-playlist dropdown">
-                                            <a class="dropdown-toggle" href="#" data-toggle="dropdown"><i
+                                            <a class="dropdown-toggle" href="{{ route('web.addwl', $sp->slug) }}" data-toggle="dropdown"><i
                                                 class="fa fa-plus"></i></a>
                                                 <div class="dropdown-menu mCustomScrollbar">
                                                     <div class="mCustomScrollBox">
@@ -310,8 +310,8 @@
                                                     <li><a href="{{ route('web.share', ['platform' => 'facebook', 'slug' => $td->slug]) }}" class="facebook"><i
                                                        class="fab fa-facebook-f"></i></a>
                                                    </li>
-                                                   <li><a href="{{ route('web.share', ['platform' => 'instagram', 'slug' => $td->slug]) }}" class="facebook"><i
-                                                       class="fab fa-instagram"></i></a>
+                                                   <li><a href="{{ route('web.share', ['platform' => 'whatsapp', 'slug' => $td->slug]) }}" class="facebook"><i
+                                                       class="fab fa-whatsapp"></i></a>
                                                    </li>
                                                    <li><a href="{{ route('web.share', ['platform' => 'twitter', 'slug' => $td->slug]) }}" class="facebook"><i
                                                        class="fab fa-twitter"></i></a></li>
@@ -319,7 +319,7 @@
                                                </li>
                                            </ul>
                                            <div class="movie-actions--link_add-to-playlist dropdown">
-                                            <a class="dropdown-toggle" href="#" data-toggle="dropdown"><i
+                                            <a class="dropdown-toggle" href="{{ route('web.addwl', $td->slug) }}" data-toggle="dropdown"><i
                                                 class="fa fa-plus"></i></a>
                                                 <div class="dropdown-menu mCustomScrollbar">
                                                     <div class="mCustomScrollBox">
@@ -417,8 +417,8 @@
                                                     <li><a href="{{ route('web.share', ['platform' => 'facebook', 'slug' => $pp->slug]) }}" class="facebook"><i
                                                        class="fab fa-facebook-f"></i></a>
                                                    </li>
-                                                   <li><a href="{{ route('web.share', ['platform' => 'instagram', 'slug' => $pp->slug]) }}" class="facebook"><i
-                                                       class="fab fa-instagram"></i></a>
+                                                   <li><a href="{{ route('web.share', ['platform' => 'whatsapp', 'slug' => $pp->slug]) }}" class="facebook"><i
+                                                       class="fab fa-whatsapp"></i></a>
                                                    </li>
                                                    <li><a href="{{ route('web.share', ['platform' => 'twitter', 'slug' => $pp->slug]) }}" class="facebook"><i
                                                        class="fab fa-twitter"></i></a></li>
@@ -426,7 +426,7 @@
                                                </li>
                                            </ul>
                                            <div class="movie-actions--link_add-to-playlist dropdown">
-                                            <a class="dropdown-toggle" href="#" data-toggle="dropdown"><i
+                                            <a class="dropdown-toggle" href="{{ route('web.addwl', $pp->slug) }}" data-toggle="dropdown"><i
                                                 class="fa fa-plus"></i></a>
                                                 <div class="dropdown-menu mCustomScrollbar">
                                                     <div class="mCustomScrollBox">
@@ -652,8 +652,8 @@
                                                     <li><a href="{{ route('web.share', ['platform' => 'facebook', 'slug' => $ss->slug]) }}" class="facebook"><i
                                                        class="fab fa-facebook-f"></i></a>
                                                    </li>
-                                                   <li><a href="{{ route('web.share', ['platform' => 'instagram', 'slug' => $ss->slug]) }}" class="facebook"><i
-                                                       class="fab fa-instagram"></i></a>
+                                                   <li><a href="{{ route('web.share', ['platform' => 'whatsapp', 'slug' => $ss->slug]) }}" class="facebook"><i
+                                                       class="fab fa-whatsapp"></i></a>
                                                    </li>
                                                    <li><a href="{{ route('web.share', ['platform' => 'twitter', 'slug' => $ss->slug]) }}" class="facebook"><i
                                                        class="fab fa-twitter"></i></a></li>
@@ -661,7 +661,7 @@
                                                </li>
                                            </ul>
                                            <div class="movie-actions--link_add-to-playlist dropdown">
-                                            <a class="dropdown-toggle" href="#" data-toggle="dropdown"><i
+                                            <a class="dropdown-toggle" href="{{ route('web.addwl', $ss->slug) }}" data-toggle="dropdown"><i
                                                 class="fa fa-plus"></i></a>
                                                 <div class="dropdown-menu mCustomScrollbar">
                                                     <div class="mCustomScrollBox">
