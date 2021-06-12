@@ -3,12 +3,12 @@
     <head>
         <meta charset="UTF-8">
         <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
-        <meta name="description" content="{{ $title }}">
+        <meta name="description" content="{{ $title }} - {{ get_setting('app-name') }}">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta name="csrf-token" content="{{ csrf_token() }}">
         <!-- Title -->
-        <title>{{ $title }} - MyWiggle</title>
+        <title>{{ $title }} - {{ get_setting('app-name') }}</title>
         <!-- Favicon -->
         <link rel="shortcut icon" href="https://ui-avatars.com/api/?name=MyWiggle&color=E50916&background=000000">
 

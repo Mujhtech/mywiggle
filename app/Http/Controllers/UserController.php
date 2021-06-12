@@ -18,10 +18,13 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         //
         $data['title'] = "Dashbaord";
+        $data['point'] = $request->user()->point_earn;
+        $data['video'] = Tread::where('user_id', $request->user()->id)->get()->count();
+        $data['wl'] = WatchList::where('user_id', $request->user()->id)->get()->count();
 
         return view('user.logged.index', $data);
     }

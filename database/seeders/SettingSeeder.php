@@ -22,7 +22,7 @@ class SettingSeeder extends Seeder
             ],
             [
                 "name" => "app-description",
-                "value" => 'MyWiggle',
+                "value" => 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Libero quis beatae officia saepe perferendis voluptatum minima eveniet voluptates dolorum, temporibus nisi maxime nesciunt totam repudiandae commodi sequi dolor quibusdam',
             ],
             [
                 "name" => "app-logo",
@@ -63,6 +63,10 @@ class SettingSeeder extends Seeder
             [
                 "name" => "meta-description",
                 "value" => ""
+            ]
+            [
+                "name" => "share-post-point",
+                "value" => "10"
             ]
         ];
 

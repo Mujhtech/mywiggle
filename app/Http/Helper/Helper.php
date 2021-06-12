@@ -8,6 +8,12 @@ if( !function_exists('get_setting') ){
 
 	function get_setting( $name ){
 
+		if(!Setting::where('name', $name)->exists()){
+
+			return null;
+			
+		}
+
 		$s = Setting::where('name', $name)->first();
 
 		return $s->value;

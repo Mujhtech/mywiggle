@@ -8,6 +8,9 @@
             <li class="nav-item {{  Route::is('user.video') ? 'active' : ''  }}"><a class="nav-item-hold" href="{{ route('user.video') }}" title="Fund Requests"><i class="nav-icon i-Computer-Secure"></i><span class="nav-text">My Video</span></a>
                 <div class="triangle"></div>
             </li>
+            <li class="nav-item {{  Route::is('user.watchlist') ? 'active' : ''  }}"><a class="nav-item-hold" href="{{ route('user.watchlist') }}" title="Fund Requests"><i class="nav-icon i-Computer-Secure"></i><span class="nav-text">My Watch List</span></a>
+                <div class="triangle"></div>
+            </li>
             <li class="nav-item {{  Route::is('user.profile') ? 'active' : ''  }}"><a class="nav-item-hold" href="{{ route('user.profile') }}" title="Profile"><i class="nav-icon i-Administrator"></i><span class="nav-text">Profile</span></a>
                 <div class="triangle"></div>
             </li>

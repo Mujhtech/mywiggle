@@ -1,7 +1,7 @@
 <!-- =============== Main Header start ================-->
 <div class="main-header">
     <div class="logo">
-        <img src="https://ui-avatars.com/api/?name=MyWiggle&color=E50916&background=000000" alt="">
+        <a href="{{ url('/') }}"><img src="https://ui-avatars.com/api/?name=MyWiggle&color=E50916&background=000000" alt=""></a>
     </div>
     <div class="menu-toggle">
         <div></div>

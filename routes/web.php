@@ -81,6 +81,10 @@ Route::group(['prefix' => 'user', 'middleware' => ['auth']], function () {
 
 	Route::get('/delete-video/{id}', 'UserController@deleteVideo')->name('user.v.delete');
 
+	Route::get('/watch-list', 'UserController@myWatchList')->name('user.watchlist');
+
+	Route::get('/remove-watch-list/{id}', 'UserController@removeFromWatchList')->name('user.rwatchlist');
+
 
 });
 

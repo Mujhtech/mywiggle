@@ -7,6 +7,8 @@ use App\Models\Category;
 use App\Models\Tread;
 use App\Models\Page;
 use Auth;
+use App\Models\EarningHistory;
+use App\Models\TreadHistory;
 
 class FrontendController extends Controller
 {
@@ -100,7 +102,24 @@ class FrontendController extends Controller
 
     public function share( $platform, $slug ){
 
-        if(Auth::check()){
+        $tread = Tread::where('slug', $slug)->first();
+
+        if(Auth::check() && !TreadHistory::wher('tread_id', $tread->id)->where('user_id', Auth::user()->id)->exists()){
+
+            $th = new TreadHistory;
+            $th->tread_id = $tread->id;
+            $th->user_id = Auth::user()->id;
+            $th->save()
+
+            $eh = new EarningHistory;
+            $eh->user_id = Auth::user()->id;
+            $eh->amount = get_setting('share-post-point');
+            $eh->description = "You earned ".get_setting('share-post-point')." for sharing";
+            $eh->save();
+
+            $user = Auth::user();
+            $user->point_earn += get_setting('share-post-point');
+            $user->save(); 
 
         }
 
