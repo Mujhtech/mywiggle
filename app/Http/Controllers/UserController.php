@@ -179,11 +179,11 @@ class UserController extends Controller
 
     public function deleteVideo($id){
 
-        $video_path = TreadVideoPath::where('tread_id')->first()->video_path;
+        $video_path = TreadVideoPath::where('tread_id', $id)->first();
 
-        if(Storage::exists($video_path)){
+        if(Storage::exists($video_path->video_path)){
 
-            Storage::delete($video_path);
+            Storage::delete($video_path->video_path);
 
         }
 
