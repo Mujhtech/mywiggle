@@ -181,7 +181,7 @@ class UserController extends Controller
 
         $video_path = TreadVideoPath::where('tread_id', $id)->first();
 
-        if(Storage::exists($video_path->video_path)){
+        if($video_path->video_path != null && $video_path->video_path != "" && Storage::exists($video_path->video_path)){
 
             Storage::delete($video_path->video_path);
 
@@ -190,6 +190,12 @@ class UserController extends Controller
         $video_path->delete();
 
         $tread = Tread::find($id);
+
+        if($tread->featured_image != null && $tread->featured_image != "" && Storage::exists($tread->featured_image)){
+
+            Storage::delete($tread->featured_image);
+
+        }
 
         if($tread->delete()){
 
