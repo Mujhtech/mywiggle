@@ -19,6 +19,8 @@ class DatabaseSeeder extends Seeder
 	        SettingSeeder::class,
 	        UserSeeder::class,
             CategorySeeder::class,
+            TreadSeeder::class,
+            TreadVideoPathSeeder::class,
 	    ]);
     }
 }

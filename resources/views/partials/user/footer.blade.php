@@ -9,14 +9,14 @@
                             <div class="widget">
                                 <div class="row">
                                     <div class="col-sm-12">
-                                        <img src="https://ui-avatars.com/api/?name=MyWiggle&color=E50916&background=000000" class="gen-footer-logo" alt="gen-footer-logo">
-                                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                                        <img src="{{ get_app_logo() }}" class="gen-footer-logo" alt="gen-footer-logo">
+                                        <p>{{ get_setting('app-description') }}
                                         </p>
                                         <ul class="social-link">
-                                            <li><a href="#" class="facebook"><i class="fab fa-facebook-f"></i></a></li>
-                                            <li><a href="#" class="facebook"><i class="fab fa-instagram"></i></a></li>
-                                            <li><a href="#" class="facebook"><i class="fab fa-skype"></i></a></li>
-                                            <li><a href="#" class="facebook"><i class="fab fa-twitter"></i></a></li>
+                                            <li><a href="{{ get_setting('facebook-link') }}" class="facebook"><i class="fab fa-facebook-f"></i></a></li>
+                                            <li><a href="{{ get_setting('instagram-link') }}" class="facebook"><i class="fab fa-instagram"></i></a></li>
+                                            <li><a href="{{ get_setting('whatsapp-link') }}" class="facebook"><i class="fab fa-whatsapp"></i></a></li>
+                                            <li><a href="{{ get_setting('twitter-link') }}" class="facebook"><i class="fab fa-twitter"></i></a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -42,12 +42,12 @@
                                 <h4 class="footer-title">Downlaod App</h4>
                                 <div class="row">
                                     <div class="col-sm-12">
-                                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                                        <p>Download our mobile app both on Apple Store and Play Store.
                                         </p>
-                                        <a href="#">
+                                        <a href="{{ get_setting('android-link') }}">
                                             <img src="{{ asset('assets/img/asset-35.png') }}" class="gen-playstore-logo" alt="playstore">
                                         </a>
-                                        <a href="#">
+                                        <a href="{{ get_setting('ios-link') }}">
                                             <img src="{{ asset('assets/img/asset-36.png') }}" class="gen-appstore-logo" alt="appstore">
                                         </a>
                                     </div>

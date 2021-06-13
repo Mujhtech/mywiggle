@@ -2,6 +2,7 @@
 
 
 use App\Models\Setting;
+use Illuminate\Support\Facades\Storage;
 
 
 if( !function_exists('get_setting') ){
@@ -17,6 +18,25 @@ if( !function_exists('get_setting') ){
 		$s = Setting::where('name', $name)->first();
 
 		return $s->value;
+
+	}
+
+}
+
+
+if( !function_exists('get_app_logo') ){
+
+	function get_app_logo( ){
+
+		$s = Setting::where('name', 'app-logo')->first();
+
+		if($s->value == null || $s->value == ""){
+
+			return "https://ui-avatars.com/api/?name=MyWiggle&color=E50916&background=000000";
+			
+		}
+
+		return Storage::url($s->value);
 
 	}
 

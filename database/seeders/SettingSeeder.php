@@ -62,8 +62,8 @@ class SettingSeeder extends Seeder
             ],
             [
                 "name" => "meta-description",
-                "value" => ""
-            ]
+                "value" => null
+            ],
             [
                 "name" => "share-post-point",
                 "value" => "10"

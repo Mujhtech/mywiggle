@@ -18,6 +18,7 @@ class CreateTreadsTable extends Migration
             $table->string('title');
             $table->string('slug');
             $table->longText('content');
+            $table->string('featured_image')->nullable();
             $table->foreignId('category_id')->constrained('categories');
             $table->foreignId('user_id')->constrained('users');
             $table->integer('status')->default(0);
