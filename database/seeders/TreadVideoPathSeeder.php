@@ -27,7 +27,7 @@ class TreadVideoPathSeeder extends Seeder
     		if( !$existing->isEmpty() ){
     			continue;
     		}
-           Tread::create($t);
+           TreadVideoPath::create($t);
     	}
     }
 }

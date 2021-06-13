@@ -30,39 +30,39 @@ class SettingSeeder extends Seeder
             ],
             [
                 "name" => "enable-ads",
-                "value" => null,
+                "value" => false,
             ],
             [
                 "name" => "enable-loader",
-                "value" => null,
+                "value" => false,
             ],
             [
                 "name" => "facebook-link",
-                "value" => null,
+                "value" => "#",
             ],
             [
                 "name" => "twitter-link",
-                "value" => null,
+                "value" => "#",
             ],
             [
                 "name" => "instagram-link",
-                "value" => null,
+                "value" => "#",
             ],
             [
-                "name" => "skype-link",
-                "value" => null,
+                "name" => "whatsapp-link",
+                "value" => "#",
             ],
             [
                 "name" => "android-link",
-                "value" => null,
+                "value" => "#",
             ],
             [
                 "name" => "ios-link",
-                "value" => null,
+                "value" => "#",
             ],
             [
                 "name" => "meta-description",
-                "value" => null
+                "value" => "Lorem ipsum, dolor sit amet consectetur adipisicing elit"
             ],
             [
                 "name" => "share-post-point",

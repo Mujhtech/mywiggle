@@ -14,7 +14,7 @@
 					<div class="gen-carousel-movies-style-2 movie-grid style-2">
 						<div class="gen-movie-contain">
 							<div class="gen-movie-img">
-								<img src="http://gentechtree.com/themes/streamlab/red-html/images/background/asset-41.jpg"
+								<img src="{{ $sh->featured_image_url }}"
 								alt="owl-carousel-video-image">
 								<div class="gen-movie-add">
 									<div class="wpulike wpulike-heart">

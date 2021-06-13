@@ -103,6 +103,26 @@
 
     <script src="{{ asset('assets/frontend/user/js/script.js') }}"></script>
 
+    <script src="{{ asset('assets/frontend/user/js/toast.min.js') }}"></script>
+
+    @if(\Session::has('error'))
+        <script type="text/javascript">
+            new Toast({
+              message: '{!!  \Session::get('error')!!}',
+              type: 'danger'
+            });
+        </script>                      
+    @endif
+
+    @if(\Session::has('success'))
+        <script type="text/javascript">
+            new Toast({
+              message: '{!!  \Session::get('success')!!}',
+              type: 'success'
+            });
+        </script>                      
+    @endif
+
 
 </body>
 

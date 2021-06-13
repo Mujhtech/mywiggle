@@ -141,11 +141,12 @@ class UserController extends Controller
             'category' => 'required',
             'content' => 'required|string|min:20|max:200',
             'attachment' => 'required',
+            'featured_image' => 'required'
         ]);
 
-        if(!$request->hasFile('attachment')){
+        if(!$request->hasFile('attachment') || !$request->hasFile('featured_image')){
 
-            return redirect()->back()->with('error','Please select a video attachment');
+            return redirect()->back()->with('error','Please select a video and featured image attachment');
 
         }
 
@@ -157,6 +158,9 @@ class UserController extends Controller
         $tread->content = $request->content;
         $tread->user_id = $request->user()->id;
         $tread->slug = $slug;
+        $tread->featured_image = $request->file('featured_image')->storeAs(
+            'public/uploads/images', $slug.'.jpg'
+        );
         $tread->save();
 
         $video_path = new TreadVideoPath;

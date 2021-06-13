@@ -171,7 +171,13 @@
                 <div class="row">
                     <div class="col-md-12">
                         <p class="font-weight-400 mb-2">Attached Video</p>
-                        <input class="form-control" type="file" name="attachment" required />
+                        <input class="form-control" type="file" name="attachment" accept="video/*" required />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <p class="font-weight-400 mb-2">Attached Featured Image</p>
+                        <input class="form-control" type="file" name="featured_image" accept="image/*" required />
                     </div>
                 </div>
 

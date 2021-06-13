@@ -188,7 +188,7 @@
                         <div class="gen-carousel-movies-style-2 movie-grid style-2">
                             <div class="gen-movie-contain">
                                 <div class="gen-movie-img">
-                                    <img src="http://gentechtree.com/themes/streamlab/red-html/images/background/asset-41.jpg"
+                                    <img src="{{ $sp->featured_image_url }}"
                                     alt="owl-carousel-video-image">
                                     <div class="gen-movie-add">
                                         <div class="wpulike wpulike-heart">
@@ -294,7 +294,7 @@
                         <div class="gen-carousel-movies-style-2 movie-grid style-2">
                             <div class="gen-movie-contain">
                                 <div class="gen-movie-img">
-                                    <img src="http://gentechtree.com/themes/streamlab/red-html/images/background/asset-41.jpg"
+                                    <img src="{{ $td->featured_image_url }}"
                                     alt="owl-carousel-video-image">
                                     <div class="gen-movie-add">
                                         <div class="wpulike wpulike-heart">
@@ -401,7 +401,7 @@
                         <div class="gen-carousel-movies-style-2 movie-grid style-2">
                             <div class="gen-movie-contain">
                                 <div class="gen-movie-img">
-                                    <img src="http://gentechtree.com/themes/streamlab/red-html/images/background/asset-41.jpg"
+                                    <img src="{{ $pp->featured_image_url }}"
                                     alt="owl-carousel-video-image">
                                     <div class="gen-movie-add">
                                         <div class="wpulike wpulike-heart">
@@ -636,7 +636,7 @@
                         <div class="gen-carousel-movies-style-2 movie-grid style-2">
                             <div class="gen-movie-contain">
                                 <div class="gen-movie-img">
-                                    <img src="http://gentechtree.com/themes/streamlab/red-html/images/background/asset-41.jpg"
+                                    <img src="{{ $ss->featured_image_url }}"
                                     alt="owl-carousel-video-image">
                                     <div class="gen-movie-add">
                                         <div class="wpulike wpulike-heart">

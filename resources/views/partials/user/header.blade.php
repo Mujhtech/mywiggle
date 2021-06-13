@@ -26,6 +26,8 @@
     <link rel="stylesheet" href="{{ asset('assets/frontend/user/css/style.css') }}" />
     <!--  Responsive -->
     <link rel="stylesheet" href="{{ asset('assets/frontend/user/css/responsive.css') }}" />
+
+    <link rel="stylesheet" href="{{ asset('assets/frontend/user/css/toast.min.css') }}" />
 </head>
 <body>
 

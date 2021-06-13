@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Storage;
 
 class Tread extends Model
 {
@@ -24,5 +25,10 @@ class Tread extends Model
     public function tread_video_path()
     {
         return $this->belongsTo(TreadVideoPath::class, 'id', 'tread_id');
+    }
+
+    public function getFeaturedImageUrlAttribute()
+    {
+        return $this->featured_image ? Storage::url($this->featured_image) : 'https://ui-avatars.com/api/?name='.urlencode($this->title).'&color=7F9CF5&background=EBF4FF';
     }
 }
