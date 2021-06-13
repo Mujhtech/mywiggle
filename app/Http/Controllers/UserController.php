@@ -206,7 +206,7 @@ class UserController extends Controller
     }
 
 
-    public function myWatchList(){
+    public function myWatchList(Request $request){
 
         $data['title'] = "My Watch List";
         $data['watchlist'] = WatchList::where('user_id', $request->user()->id)->get();
