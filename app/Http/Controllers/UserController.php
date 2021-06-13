@@ -187,6 +187,8 @@ class UserController extends Controller
 
         }
 
+        $video_path->delete();
+
         $tread = Tread::find($id);
 
         if($tread->delete()){
