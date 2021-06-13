@@ -9,6 +9,7 @@ use App\Models\Page;
 use Auth;
 use App\Models\EarningHistory;
 use App\Models\TreadHistory;
+use App\Models\WatchList;
 
 class FrontendController extends Controller
 {
@@ -104,7 +105,7 @@ class FrontendController extends Controller
 
         $tread = Tread::where('slug', $slug)->first();
 
-        if(Auth::check() && !TreadHistory::wher('tread_id', $tread->id)->where('user_id', Auth::user()->id)->exists()){
+        if(Auth::check() && !TreadHistory::where('tread_id', $tread->id)->where('user_id', Auth::user()->id)->exists()){
 
             $th = new TreadHistory;
             $th->tread_id = $tread->id;
