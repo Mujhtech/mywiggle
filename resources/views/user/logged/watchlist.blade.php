@@ -29,7 +29,7 @@
                                 @php $sn++ @endphp
                                 <tr>
                                     <th scope="row">{{ $sn }}</th>
-                                    <td><a href="{{ route('web.single', $tread->slug) }}">{{$tread->title}}</a></td>
+                                    <td><a href="{{ route('web.single', $tread->tt->slug) }}">{{$tread->tt->title}}</a></td>
                                     <td>
                                         <a href="{{ route('user.rwatchlist', ['id' => $tread->id]) }}" class="btn btn-danger" type="button"><i class="nav-icon i-Close-Window" title="Remove From Watch List"></i></a>
                                     </td>

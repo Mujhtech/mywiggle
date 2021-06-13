@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class WatchList extends Model
 {
     use HasFactory;
+
+    public function tt()
+    {
+        return $this->belongsTo(Tread::class, 'tread_id', 'id');
+    }
 }
