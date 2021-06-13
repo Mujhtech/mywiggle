@@ -150,11 +150,13 @@ class FrontendController extends Controller
 
     public function addToWatchList( $slug ){
 
+        //dd($slug);
+
         if(Auth::check()){
 
             $tread = Tread::where('slug', $slug)->first();
 
-            if(WatchList::where('tread_id', $tread->id)->where('user_id', Auth::user()->id)->exists()){
+            if(WatchList::where('tread_id', $tread->id)->where('user_id', 1)->exists()){
 
                 return redirect()->back()->with('error', 'Already added to watch list');
 

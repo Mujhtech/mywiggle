@@ -25,7 +25,7 @@
 									<div class="gen-single-meta-holder">
 										<ul>
 											<li><a href="{{ route('web.category', $tread->category->slug) }}"><span>{{ $tread->category->name }}</span></a></li>
-											<li><a href="{{ route('web.addwl', $tread->slug) }} }}">Add to my watch list</a></li>
+											<li><a href="{{ route('web.addwl', $tread->slug) }}">Add to my watch list</a></li>
 											<li>
 												<i class="fas fa-eye">
 												</i>
