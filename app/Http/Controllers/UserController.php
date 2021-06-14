@@ -177,6 +177,61 @@ class UserController extends Controller
 
     }
 
+    public function editVideo( Request $request, $id ){
+
+        $request->validate([
+            'title' => 'required|string|min:12|max:50',
+            'category' => 'required',
+            'content' => 'required|string|min:20|max:200',
+            'attachment' => 'required',
+            'featured_image' => 'required'
+        ]);
+
+
+        if(!$request->hasFile('attachment') || !$request->hasFile('featured_image')){
+
+            return redirect()->back()->with('error','Please select a video and featured image attachment');
+
+        }
+
+        $tread = Tread::find($id);
+        //$tread->title = $request->title;
+        $tread->category_id = $request->category;
+        $tread->content = $request->content;
+        $tread->user_id = $request->user()->id;
+        //$tread->slug = $slug;
+
+        if($tread->featured_image != null && $tread->featured_image != "" && Storage::exists($tread->featured_image)){
+
+            Storage::delete($tread->featured_image);
+
+        }
+
+        $tread->featured_image = $request->file('featured_image')->storeAs(
+            'public/uploads/images', $tread->slug.'.jpg'
+        );
+        $tread->save();
+
+        $video_path = TreadVideoPath::where('tread_id', $id)->first();
+
+        if($video_path->video_path != null && $video_path->video_path != "" && Storage::exists($video_path->video_path)){
+
+            Storage::delete($video_path->video_path);
+
+        }
+
+        $video_path->video_path = $request->file('attachment')->storeAs(
+            'public/uploads/videos', $tread->slug.'.mp4'
+        );
+
+        if($video_path->save()){
+
+            return redirect()->back()->with('success','Video editted successfully');
+
+        }
+
+    }
+
     public function deleteVideo($id){
 
         $video_path = TreadVideoPath::where('tread_id', $id)->first();

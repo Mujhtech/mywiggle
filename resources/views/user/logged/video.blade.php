@@ -59,7 +59,7 @@
                         <div class="modal fade" id="exampleModal{{$tread->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                     <div class="modal-dialog" role="document">
                                         <div class="modal-content">
-                                            <form action="" method="POST" enctype="multipart/form-data">
+                                            <form action="{{ route('user.v.edit', $tread->id) }}" method="POST" enctype="multipart/form-data">
                                                 @csrf
                                                 <div class="modal-header">
                                                     <h5 class="modal-title" id="exampleModalLabel">Edit a tread</h5>
@@ -69,7 +69,7 @@
                                                     <div class="row">
                                                         <div class="col-md-12">
                                                             <p class="font-weight-400 mb-2">Title</p>
-                                                            <input class="form-control" type="text" name="title" placeholder="Title" value="{{ $tread->title }}" />
+                                                            <input class="form-control" type="text" name="title" placeholder="Title" value="{{ $tread->title }}" readonly />
                                                         </div>
                                                     </div>
                                                     <div class="row">
