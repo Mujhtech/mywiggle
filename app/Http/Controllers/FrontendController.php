@@ -68,7 +68,7 @@ class FrontendController extends Controller
             $cat = Category::where('slug', $slug)->first();
 
             $data['title'] = $cat->name;
-            $data['cat'] = Tread::where('category_id', $slug)->paginate(20);
+            $data['cat'] = Tread::where('category_id', $cat->id)->paginate(20);
 
             return view('user.category', $data);
 
