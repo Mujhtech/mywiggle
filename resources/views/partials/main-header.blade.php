@@ -22,6 +22,9 @@
                     <div class="dropdown-header">
                         <i class="i-Lock-User mr-1"></i> {{ Auth::user()->username }}
                     </div>
+                    @if(Auth::user()->role_id)
+                    <a class="dropdown-item" href="{{ route('admin.index') }}">Admin</a>
+                    @endif
                     <a class="dropdown-item" href="{{ route('user.profile') }}">Profile</a>
                     <a class="dropdown-item" href="{{ route('auth.logout') }}">Logout</a>
                 </div>

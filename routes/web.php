@@ -91,11 +91,15 @@ Route::group(['prefix' => 'user', 'middleware' => ['auth']], function () {
 });
 
 
-Route::group(['middleware' => ['web'], 'prefix' => 'admin'], function () {
+Route::group(['middleware' => ['web', 'admin'], 'prefix' => 'admin'], function () {
     
 	Route::get('/', function () {
-	    return view('user.index');
-	});
+	    return view('admin.index');
+	})->name('admin.index');
+
+	Route::get('/', function () {
+	    return view('admin.index');
+	})->name('admin.setting');
 
 
 
