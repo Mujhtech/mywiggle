@@ -10,6 +10,7 @@ use App\Models\Category;
 use App\Models\Tread;
 use App\Models\TreadVideoPath;
 use App\Models\WatchList;
+use App\Models\PayoutRequest;
 
 class UserController extends Controller
 {
@@ -278,6 +279,41 @@ class UserController extends Controller
         if($wl->delete()){
 
             return redirect()->back()->with('success','Video removed successfully from watch list');
+
+        }
+
+    }
+
+
+    public function withdraw(Request $request){
+
+        $data['title'] = "My Withdrawal";
+        $data['withdraw'] = PayoutRequest::where('user_id', $request->user()->id)->get();
+
+        return view('user.logged.withdraw', $data);
+
+    }
+
+    public function createWithdraw(Request $request){
+
+        $request->validate([
+            'amount' => 'required',
+            'bank_name' => 'required',
+            'account_name' => 'required',
+            'account_number' => 'required'
+        ]);
+
+
+        $wd = new PayoutRequest;
+        $wd->user_id = $request->user()->id;
+        $wd->amount = $request->amount;
+        $wd->bank_name = $request->bank_name;
+        $wd->account_number = $request->account_number;
+        $wd->account_name = $request->account_name;
+
+        if($wd->save()){
+
+            return redirect()->back()->with('success','Request created successfully, wait for admin approval');
 
         }
 

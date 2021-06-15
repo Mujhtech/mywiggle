@@ -67,6 +67,10 @@ class SettingSeeder extends Seeder
             [
                 "name" => "share-post-point",
                 "value" => "10"
+            ],
+            [
+                "name" => "point-equal-balance",
+                "value" => "5"
             ]
         ];
 

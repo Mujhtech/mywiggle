@@ -15,6 +15,13 @@ class CreatePayoutRequestsTable extends Migration
     {
         Schema::create('payout_requests', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->constrained('users');
+            $table->integer('amount');
+            $table->string('account_number');
+            $table->string('account_name');
+            $table->string('bank_name');
+            $table->string('bank_code')->nullable();
+            $table->boolean('status')->default(false);
             $table->timestamps();
         });
     }

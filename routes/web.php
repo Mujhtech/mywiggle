@@ -87,6 +87,10 @@ Route::group(['prefix' => 'user', 'middleware' => ['auth']], function () {
 
 	Route::get('/remove-watch-list/{id}', 'UserController@removeFromWatchList')->name('user.rwatchlist');
 
+	Route::get('/withdraw', 'UserController@withdraw')->name('user.withdraw');
+
+	Route::post('/withdraw', 'UserController@createWithdraw')->name('user.c.withdraw');
+
 
 });
 
