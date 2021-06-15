@@ -4,6 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
+use Auth;
 
 class Admin
 {
@@ -16,14 +17,12 @@ class Admin
      */
     public function handle(Request $request, Closure $next)
     {
-        if($request->user()->role_id != 1){
-
-            abort(419);
-
-        } else {
+        if(Auth::check() && $request->user()->role_id == 1){
 
             return $next($request);
 
         }
+
+        return abort(404);
     }
 }
