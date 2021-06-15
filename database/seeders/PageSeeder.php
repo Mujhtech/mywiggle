@@ -17,13 +17,13 @@ class PageSeeder extends Seeder
         //
         $ppp = [
             [
-                "name" => "About Us",
+                "title" => "About Us",
                 "slug" => 'about-us',
                 "content" => "",
                 "status" => 1
             ],
             [
-                "name" => "Terms and condition",
+                "title" => "Terms and condition",
                 "slug" => 'terms-and-condition',
                 "content" => "",
                 "status" => 1
