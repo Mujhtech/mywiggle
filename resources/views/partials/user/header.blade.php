@@ -45,11 +45,13 @@
         <div class="gen-bottom-header">
             <div class="container">
                 <div class="row">
+                    @if(get_setting('enable-ads'))
                     <div class="col-lg-12 col-md-12 col-xs-12 offset-lg-2 offset-md-3">
                         <a href="#">
                             <img src="https://via.placeholder.com/728x90?text=Visit+MyWiggle.com+Now+to+place+your+ads" alt="Ads">
                         </a>
                     </div>
+                    @endif
                     <div class="col-lg-12">
                         <nav class="navbar navbar-expand-lg navbar-light">
                             <a class="navbar-brand" href="{{ url('/') }}">

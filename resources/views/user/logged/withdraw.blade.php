@@ -8,42 +8,59 @@
     @include('partials.breadcrumb')
     <div class="separator-breadcrumb border-top"></div>
     <div class="row mb-4">
-        <div class="col-md-8 col-lg-8 col-sm-12 mb-3">
+        <div class="col-md-4 col-lg-4 col-sm-12 mb-3">
             <div class="card text-left">
                 <div class="card-body">
+                    @if(get_setting('enable-withdraw'))
                     <h4 class="card-title mb-3">Withdraw Balance</h4>
                     <form action="{{route('user.c.withdraw')}}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="row">
                             <div class="col-md-12">
                                 <p class="font-weight-400 mb-2">Amount</p>
-                                <input class="form-control" type="text" name="amount" placeholder="Amount" value="" required />
+                                <input class="form-control" type="text" name="amount" placeholder="Amount" value="{{ old('amount') }}" required />
+                                @if($errors->has('amount'))
+                                <small>{!!  $errors->get('amount')[0] !!}</small>
+                                @endif
                             </div>
                         </div>
 
                         <div class="row">
                             <div class="col-md-12">
                                 <p class="font-weight-400 mb-2">Account Number</p>
-                                <input class="form-control" type="text" name="account_number" placeholder="Account Number" value="" required />
+                                <input class="form-control" type="text" name="account_number" placeholder="Account Number" value="{{ old('account_number') }}" required />
+                                @if($errors->has('account_number'))
+                                <small>{!!  $errors->get('account_number')[0] !!}</small>
+                                @endif
                             </div>
                         </div>
 
                         <div class="row">
                             <div class="col-md-12">
                                 <p class="font-weight-400 mb-2">Account Name</p>
-                                <input class="form-control" type="text" name="account_name" placeholder="Account Name" value="" required />
+                                <input class="form-control" type="text" name="account_name" placeholder="Account Name" value="{{ old('account_name') }}" required />
+                                @if($errors->has('account_name'))
+                                <small>{!!  $errors->get('account_name')[0] !!}</small>
+                                @endif
                             </div>
                         </div>
 
                         <div class="row">
                             <div class="col-md-12">
                                 <p class="font-weight-400 mb-2">Bank Name</p>
-                                <input class="form-control" type="text" name="bank_name" placeholder="Bank Name" value="" required />
+                                <input class="form-control" type="text" name="bank_name" placeholder="Bank Name" value="{{ old('bank_name') }}" required />
+                                @if($errors->has('bank_name'))
+                                <small>{!!  $errors->get('bank_name')[0] !!}</small>
+                                @endif
                             </div>
                         </div>
                     
                         <button class="btn btn-primary ml-2" type="submit">Create</button>
                     </form>
+                    @else
+                    <h4>Withdrawal form has been closed</h4>
+                    @endif
+
                 </div>
             </div>
         </div>

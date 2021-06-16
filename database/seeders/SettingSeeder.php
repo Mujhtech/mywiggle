@@ -79,6 +79,10 @@ class SettingSeeder extends Seeder
             [
                 "name" => "footer-code",
                 "value" => ""
+            ],
+            [
+                "name" => "enable-withdraw",
+                "value" => true
             ]
         ];
 

@@ -312,6 +312,13 @@ class UserController extends Controller
         }
 
 
+        if(PayoutRequest::where('user_id', $request->user()->id)->where('status', 0)->exists()){
+
+            return redirect()->back()->with('error','Sorry, you have a pending withdrawal wait for admin approval');
+
+        }
+
+
         $wd = new PayoutRequest;
         $wd->user_id = $request->user()->id;
         $wd->amount = $request->amount;

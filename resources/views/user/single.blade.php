@@ -64,6 +64,9 @@
 									<div class="row post-loadmore-wrapper">
 
 										<!-- Categories here -->
+										@foreach($tread->category->treads as $t)
+											hi
+										@endforeach
 											
 									</div>
 								</div>
