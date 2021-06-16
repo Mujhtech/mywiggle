@@ -28,6 +28,7 @@
     <link rel="stylesheet" href="{{ asset('assets/frontend/user/css/responsive.css') }}" />
 
     <link rel="stylesheet" href="{{ asset('assets/frontend/user/css/toast.min.css') }}" />
+    {!! get_setting('header-code') !!}
 </head>
 <body>
 

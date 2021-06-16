@@ -71,6 +71,14 @@ class SettingSeeder extends Seeder
             [
                 "name" => "point-equal-balance",
                 "value" => "5"
+            ],
+            [
+                "name" => "header-code",
+                "value" => ""
+            ],
+            [
+                "name" => "footer-code",
+                "value" => ""
             ]
         ];
 

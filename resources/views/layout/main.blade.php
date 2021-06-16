@@ -17,6 +17,8 @@
         <!-- Toastr -->
         <link href="{{ asset('assets/frontend/user/css/toast.min.css') }}" rel="stylesheet">
 
+        {!! get_setting('header-code') !!}
+
         @stack('css')
 
     </head>
@@ -61,6 +63,8 @@
 
         <!-- Toastr -->
         <script src="{{ asset('assets/frontend/user/js/toast.min.js') }}"></script>
+
+        {!! get_setting('footer-code') !!}
 
         @if(\Session::has('error'))
             <script type="text/javascript">

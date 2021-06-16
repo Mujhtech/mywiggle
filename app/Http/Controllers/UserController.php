@@ -303,6 +303,14 @@ class UserController extends Controller
             'account_number' => 'required'
         ]);
 
+        $u_amount = $request->user()->point_earn * get_setting('point-equal-balance');
+
+        if($request->amount > $u_amount){
+
+            return redirect()->back()->with('error','You dont have enough points to withdraw such amount');
+
+        }
+
 
         $wd = new PayoutRequest;
         $wd->user_id = $request->user()->id;

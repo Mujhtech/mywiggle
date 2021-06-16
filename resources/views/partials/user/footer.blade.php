@@ -105,6 +105,8 @@
 
     <script src="{{ asset('assets/frontend/user/js/toast.min.js') }}"></script>
 
+    {!! get_setting('footer-code') !!}
+
     @if(\Session::has('error'))
         <script type="text/javascript">
             new Toast({
