@@ -97,13 +97,13 @@ Route::group(['prefix' => 'user', 'middleware' => ['auth']], function () {
 
 Route::group(['middleware' => ['web', 'admin'], 'prefix' => 'admin'], function () {
     
-	Route::get('/', function () {
-	    return view('admin.index');
-	})->name('admin.index');
+	Route::get('/', 'AdminController@index')->name('admin.index');
 
-	Route::get('/', function () {
-	    return view('admin.index');
-	})->name('admin.setting');
+	Route::get('/setting', 'AdminController@setting')->name('admin.setting');
+
+	Route::get('/users', 'AdminController@users')->name('admin.users');
+
+	Route::get('/treads', 'AdminController@treads')->name('admin.treads');
 
 
 
