@@ -128,7 +128,7 @@ class AdminController extends Controller
 
         $data['user'] = User::find($id);
         $data['treads'] = Tread::where('user_id', $id)->get();
-        
+
         return view('admin.users.single', $data);
     }
 
@@ -138,6 +138,83 @@ class AdminController extends Controller
         //
         $data['categories'] = Category::paginate(10);
         return view('admin.category.index', $data);
+    }
+
+    public function createCategory()
+    {
+        //
+        return view('admin.category.create');
+    }
+
+    public function createCategoryPost(Request $request)
+    {
+        //
+        $request->validate([
+            'cat_name' => 'required|string',
+        ]);
+
+        $slug = str_replace(' ', '-', strtolower($request->cat_name));
+
+        if(Category::where('slug', $slug)->exists()){
+
+            return redirect()->back()->with('danger', 'Category cannot be added, choose another name');
+
+        }
+
+        $cat = new Category;
+        $cat->name = $request->cat_name;
+        $cat->slug = $slug;
+
+        if($cat->save()){
+
+            return redirect()->back()->with('success', 'Category added successfully');
+
+        }
+    }
+
+
+    public function createUserPost(Request $request){
+
+        $request->validate([
+            'email' => 'required|email|unique:users',
+            'username' => 'required|string|max:120|min:8|unique:users',
+            'fullname' => 'required|string',
+            'phone_number' => 'required|digits:11|unique:users',
+            'password' => 'required|string|max:120|min:8',
+        ]);
+
+        $user = new User;
+        $user->username = $request->username;
+        $user->fullname = $request->fullname;
+        $user->email = $request->email;
+        $user->phone_number = $request->phone_number;
+        $user->password = $request->password;
+        $user->role_id = 1;
+        $user->is_verified = 1;
+        $user->last_login = Carbon::now();
+        $user->email_verified_at = Carbon::now();
+        $user->referral_code = substr(time(), 0, 2).substr(time(), 4, 6).substr(time(), 7, 9);
+
+        if($request->filled('referral_code')){
+
+            $user->referred_by = User::where('referral_code', $request->referral_code)->first()->id;
+
+        } else {
+
+            $user->referred_by = 1;
+
+        }
+
+        if($user->save()){
+
+            return redirect()->back->with('success', 'User created successfully');
+
+        } else {
+
+            return redirect()->back()->with('danger', 'Something went wrong');
+
+        }
+
     }
 
     public function categoyDelete($id){

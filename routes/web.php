@@ -125,6 +125,12 @@ Route::group(['middleware' => ['web', 'admin'], 'prefix' => 'admin'], function (
 
 	Route::get('/categories', 'AdminController@categories')->name('admin.categories');
 
+	Route::get('/create-category', 'AdminController@createCategory')->name('admin.c.category');
+
+	Route::post('/create-category', 'AdminController@createCategoryPost')->name('admin.p.category');
+
+	Route::post('/create-user', 'AdminController@createUserPost')->name('admin.p.user');
+
 	Route::get('/category/{id}/delete', 'AdminController@categoyDelete')->name('admin.d.category');
 
 

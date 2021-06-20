@@ -23,12 +23,13 @@
                 </ul>
             </li>
             <li class="nav-static-title">Categories</li>
-            <li class="{{  Route::is('admin.categories') ? 'active' : ''  }}">
+            <li class="{{  Route::is('admin.categories') || Route::is('admin.c.category') ? 'active' : ''  }}">
                 <a class="has-arrow" href="javascript:void(0)" aria-expanded="false">
                     <i class="nav-icon ti ti-rocket"></i>
                     <span class="nav-title">Manage Category</span>
                 </a>
                 <ul aria-expanded="false">
+                    <li class="{{  Route::is('admin.c.category') ? 'active' : ''  }}"> <a href='{{ route("admin.c.category") }}'>Create new category</a> </li>
                     <li class="{{  Route::is('admin.categories') ? 'active' : ''  }}"> <a href='{{ route("admin.categories") }}'>All Categories</a> </li>
                 </ul>
             </li>
