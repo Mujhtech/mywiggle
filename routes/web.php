@@ -103,7 +103,29 @@ Route::group(['middleware' => ['web', 'admin'], 'prefix' => 'admin'], function (
 
 	Route::get('/users', 'AdminController@users')->name('admin.users');
 
+	Route::get('/unverified-users', 'AdminController@usersUnverified')->name('admin.unv.users');
+
+	Route::get('/create-user', 'AdminController@usersCreate')->name('admin.c.user');
+
+	Route::get('/blocked-users', 'AdminController@usersBlocked')->name('admin.b.users');
+
+	Route::get('/user/{id}/block', 'AdminController@blockUser')->name('admin.b.user');
+
+	Route::get('/user/{id}/unblock', 'AdminController@unblockUser')->name('admin.unb.user');
+
+	Route::get('/user/{id}/verify', 'AdminController@verifyUser')->name('admin.v.user');
+
+	Route::get('/user/{id}/unverify', 'AdminController@unverifyUser')->name('admin.unv.user');
+
+	Route::get('/user/{id}/view', 'AdminController@singleUser')->name('admin.vw.user');
+
+	Route::get('/user/{id}/delete', 'AdminController@deleteUser')->name('admin.d.user');
+
 	Route::get('/treads', 'AdminController@treads')->name('admin.treads');
+
+	Route::get('/categories', 'AdminController@categories')->name('admin.categories');
+
+	Route::get('/category/{id}/delete', 'AdminController@categoyDelete')->name('admin.d.category');
 
 
 

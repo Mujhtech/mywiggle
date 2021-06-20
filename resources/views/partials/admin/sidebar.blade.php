@@ -10,15 +10,26 @@
                 </a> 
             </li>
             <li class="nav-static-title">Users</li>
-            <li class="{{  Route::is('admin.users') ? 'active' : ''  }}">
+            <li class="{{  Route::is('admin.users') || Route::is('admin.unv.users') || Route::is('admin.b.users') || Route::is('admin.c.user') ? 'active' : ''  }}">
                 <a class="has-arrow" href="javascript:void(0)" aria-expanded="false">
                     <i class="nav-icon ti ti-rocket"></i>
                     <span class="nav-title">Manage Users</span>
                 </a>
                 <ul aria-expanded="false">
-                    <li class="{{  Route::is('admin.users') ? 'active' : ''  }}"> <a href='{{ route("admin.users") }}'>Create User</a> </li>
-                    <li class="{{  Route::is('admin.users') ? 'active' : ''  }}"> <a href='{{ route("admin.users") }}'>All Users</a> </li>
-                    <li class="{{  Route::is('admin.users') ? 'active' : ''  }}"> <a href='{{ route("admin.users") }}'>Blocked Users</a> </li>
+                    <li class="{{  Route::is('admin.c.user') ? 'active' : ''  }}"> <a href='{{ route("admin.c.user") }}'>Create User</a> </li>
+                    <li class="{{  Route::is('admin.users') ? 'active' : ''  }}"> <a href='{{ route("admin.users") }}'>Active Users</a> </li>
+                    <li class="{{  Route::is('admin.unv.users') ? 'active' : ''  }}"> <a href='{{ route("admin.unv.users") }}'>Unverified Users</a> </li>
+                    <li class="{{  Route::is('admin.b.users') ? 'active' : ''  }}"> <a href='{{ route("admin.b.users") }}'>Blocked Users</a> </li>
+                </ul>
+            </li>
+            <li class="nav-static-title">Categories</li>
+            <li class="{{  Route::is('admin.categories') ? 'active' : ''  }}">
+                <a class="has-arrow" href="javascript:void(0)" aria-expanded="false">
+                    <i class="nav-icon ti ti-rocket"></i>
+                    <span class="nav-title">Manage Category</span>
+                </a>
+                <ul aria-expanded="false">
+                    <li class="{{  Route::is('admin.categories') ? 'active' : ''  }}"> <a href='{{ route("admin.categories") }}'>All Categories</a> </li>
                 </ul>
             </li>
             <li class="nav-static-title">Treads</li>
