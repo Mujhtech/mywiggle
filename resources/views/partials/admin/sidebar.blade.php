@@ -34,16 +34,16 @@
                 </ul>
             </li>
             <li class="nav-static-title">Treads</li>
-            <li class="{{  Route::is('admin.treads') ? 'active' : ''  }}">
+            <li class="{{  Route::is('admin.treads') || Route::is('admin.unp.treads') || Route::is('admin.p.treads') || Route::is('admin.c.tread') ? 'active' : ''  }}">
                 <a class="has-arrow" href="javascript:void(0)" aria-expanded="false">
                     <i class="nav-icon ti ti-rocket"></i>
                     <span class="nav-title">Manage Treads</span>
                 </a>
                 <ul aria-expanded="false">
-                    <li class="{{  Route::is('admin.treads') ? 'active' : ''  }}"> <a href='{{ route("admin.treads") }}'>Create Tread</a> </li>
+                    <li class="{{  Route::is('admin.c.tread') ? 'active' : ''  }}"> <a href='{{ route("admin.c.tread") }}'>Create Tread</a> </li>
                     <li class="{{  Route::is('admin.treads') ? 'active' : ''  }}"> <a href='{{ route("admin.treads") }}'>All Treads</a> </li>
-                    <li class="{{  Route::is('admin.treads') ? 'active' : ''  }}"> <a href='{{ route("admin.treads") }}'>Publish Treads</a> </li>
-                    <li class="{{  Route::is('admin.treads') ? 'active' : ''  }}"> <a href='{{ route("admin.treads") }}'>Unpublish Treads</a> </li>
+                    <li class="{{  Route::is('admin.p.treads') ? 'active' : ''  }}"> <a href='{{ route("admin.p.treads") }}'>Publish Treads</a> </li>
+                    <li class="{{  Route::is('admin.unp.treads') ? 'active' : ''  }}"> <a href='{{ route("admin.unp.treads") }}'>Unpublish Treads</a> </li>
                 </ul>
             </li>
             <li class="{{  Route::is('admin.setting') ? 'active' : ''  }}">

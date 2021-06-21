@@ -121,7 +121,21 @@ Route::group(['middleware' => ['web', 'admin'], 'prefix' => 'admin'], function (
 
 	Route::get('/user/{id}/delete', 'AdminController@deleteUser')->name('admin.d.user');
 
+	Route::get('/create-tread', 'AdminController@createTread')->name('admin.c.tread');
+
 	Route::get('/treads', 'AdminController@treads')->name('admin.treads');
+
+	Route::get('/publish-treads', 'AdminController@publishTreads')->name('admin.p.treads');
+
+	Route::get('/unpublish-treads', 'AdminController@unPublishtreads')->name('admin.unp.treads');
+
+	Route::get('/tread/{id}/delete', 'AdminController@deleteTread')->name('admin.d.tread');
+
+	Route::get('/tread/{id}/edit', 'AdminController@editTread')->name('admin.e.tread');
+
+	Route::get('/tread/{id}/publish', 'AdminController@publishTread')->name('admin.p.tread');
+
+	Route::get('/tread/{id}/unpublish', 'AdminController@unpublishTread')->name('admin.unp.tread');
 
 	Route::get('/categories', 'AdminController@categories')->name('admin.categories');
 

@@ -47,13 +47,10 @@
 									</td>
 									<td>
                                         <a href="{{ route('web.single', ['slug' => $tread->slug]) }}" class="btn btn-icon btn-round btn-info" title="View {{ $tread->title }}" target="_blank"><i class="fa fa-file-movie-o"></i></a>
-                                        @if($tread->status == 0)
-                                        <a href="{{ route('admin.unv.user', ['id' => $tread->id]) }}" class="btn btn-icon btn-round btn-warning" title="Publish {{ $tread->title }}"><i class="fa fa-close"></i></a>
-                                        @else
-                                        <a href="{{ route('admin.unv.user', ['id' => $tread->id]) }}" class="btn btn-icon btn-round btn-warning" title="Unpublish {{ $tread->title }}"><i class="fa fa-close"></i></a>
-                                        @endif
-                                        <a href="{{ route('admin.b.user', ['id' => $tread->id]) }}" class="btn btn-icon btn-round btn-success" title="Block {{ $tread->title }}"><i class="fa fa-lock"></i></a>
-                                        <a href="{{ route('admin.d.user', ['id' => $tread->id]) }}" class="btn btn-icon btn-round btn-danger" title="Delete {{ $tread->title }}"><i class="fa fa-trash"></i></a>
+                                        <a href="{{ route('admin.p.tread', ['id' => $tread->id]) }}" class="btn btn-icon btn-round btn-primary" title="Publish {{ $tread->title }}"><i class="fa fa-check"></i></a>
+                                        <a href="{{ route('admin.unp.tread', ['id' => $tread->id]) }}" class="btn btn-icon btn-round btn-warning" title="Unpublish {{ $tread->title }}"><i class="fa fa-close"></i></a>
+                                        <a href="{{ route('admin.e.tread', ['id' => $tread->id]) }}" class="btn btn-icon btn-round btn-success" title="Edit {{ $tread->title }}"><i class="fa fa-edit"></i></a>
+                                        <a href="{{ route('admin.d.tread', ['id' => $tread->id]) }}" class="btn btn-icon btn-round btn-danger" title="Delete {{ $tread->title }}"><i class="fa fa-trash"></i></a>
 									</td>
 								</tr>
 							@endforeach
@@ -64,6 +61,7 @@
 							@endif
 						</tbody>
 					</table>
+					{{ $treads->links('vendor.pagination.custom') }}
 				</div>
 			</div>
 		</div>

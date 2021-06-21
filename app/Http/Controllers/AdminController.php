@@ -11,6 +11,8 @@ use App\Models\PayoutRequest;
 use App\Models\Transaction;
 use App\Models\Page;
 use App\Models\EarnHistory;
+use Storage;
+use Carbon\Carbon;
 
 class AdminController extends Controller
 {
@@ -268,6 +270,127 @@ class AdminController extends Controller
         return view('admin.treads.unpublish', $data);
     }
 
+
+    public function publishTread($id){
+
+        $t = Tread::find($id);
+        $t->status = 1;
+
+        if($t->save()){
+
+            return redirect()->back()->with('success', 'Tread published successfully');
+
+        }
+    }
+
+
+    public function unpublishTread($id){
+
+        $t = Tread::find($id);
+        $t->status = 2;
+
+        if($t->save()){
+
+            return redirect()->back()->with('success', 'Tread unpublished successfully');
+
+        }
+    }
+
+
+    public function deleteTread($id){
+
+        $video_path = TreadVideoPath::where('tread_id', $id)->first();
+
+        if($video_path->video_path != null && $video_path->video_path != "" && Storage::exists($video_path->video_path)){
+
+            Storage::delete($video_path->video_path);
+
+        }
+
+        $video_path->delete();
+
+        $tread = Tread::find($id);
+
+        if($tread->featured_image != null && $tread->featured_image != "" && Storage::exists($tread->featured_image)){
+
+            Storage::delete($tread->featured_image);
+
+        }
+
+        if($tread->delete()){
+
+            return redirect()->back()->with('success','Tread deleted successfully');
+
+        }
+
+    }
+
+
+    public function editTread($id){
+
+        $data['tread'] = Tread::find($id);
+
+        return view('admin.treads.edit', $data);
+    }
+
+
+    public function editTreadPost(){
+
+        $request->validate([
+            'title' => 'required|string|min:12|max:50',
+            'category' => 'required',
+            'content' => 'required|string|min:20|max:200',
+            'attachment' => 'required',
+            'featured_image' => 'required'
+        ]);
+
+
+        if(!$request->hasFile('attachment') || !$request->hasFile('featured_image')){
+
+            return redirect()->back()->with('danger','Please select a video and featured image attachment');
+
+        }
+
+        $tread = Tread::find($id);
+        //$tread->title = $request->title;
+        $tread->category_id = $request->category;
+        $tread->content = $request->content;
+        $tread->user_id = $request->user()->id;
+        //$tread->slug = $slug;
+
+        if($tread->featured_image != null && $tread->featured_image != "" && Storage::exists($tread->featured_image)){
+
+            Storage::delete($tread->featured_image);
+
+        }
+
+        $tread->featured_image = $request->file('featured_image')->storeAs(
+            'public/uploads/images', $tread->slug.'.jpg'
+        );
+        $tread->save();
+
+        $video_path = TreadVideoPath::where('tread_id', $id)->first();
+
+        if($video_path->video_path != null && $video_path->video_path != "" && Storage::exists($video_path->video_path)){
+
+            Storage::delete($video_path->video_path);
+
+        }
+
+        $video_path->video_path = $request->file('attachment')->storeAs(
+            'public/uploads/videos', $tread->slug.'.mp4'
+        );
+
+        if($video_path->save()){
+
+            return redirect()->back()->with('success','Video editted successfully');
+
+        }
+
+    }
+
+
+
     public function update(Request $request, $id)
     {
         //
@@ -276,6 +399,33 @@ class AdminController extends Controller
     public function editSetting(Request $request)
     {
         //
+        $setting = Setting::get();
+
+        foreach ($setting as $set) {
+
+            if($set->name == "app-logo" && $request->hasFile('app-logo')){
+                
+                if($set->value != null && $set->value != "" && Storage::exists($set->value)){
+
+                    Storage::delete($set->value);
+
+                }
+
+                $set->value = $request->file('app-icon')->storeAs(
+                    'public/uploads/favicon', 'favicon.png'
+                );
+
+                $set->save();
+
+            }
+
+            $set->value = $request->input($set->name);
+
+            $set->save();
+
+        }
+
+        return redirect()->back()->with('success', 'Setting save successfully');
 
     }
 }

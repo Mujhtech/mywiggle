@@ -51,7 +51,7 @@
 					<div class="form-row">
 						<div class="col-md-6 mb-3">
 							<label for="">App version</label>
-							<input type="text" class="form-control" name="app-version" placeholder="App version" value="{{ get_setting('app-verison') }}" readonly>
+							<input type="text" class="form-control" name="app-version" placeholder="App version" value="{{ get_setting('app-version') }}" readonly>
 						</div>
 						<div class="col-md-6 mb-3">
 							<label for="">App Url</label>
@@ -96,6 +96,19 @@
 						<div class="col-md-6 mb-3">
 							<label for="">Facebook Page Link</label>
 							<input type="text" class="form-control" name="facebook-link" placeholder="Facebook Page Link" value="{{ get_setting('facebook-link') }}">
+						</div>
+					</div>
+					<div class="form-row">
+						<div class="col-md-6 mb-3">
+							<div class="form-group">
+                                <div class="checkbox checbox-switch switch-success">
+                                    <label>
+                                        <input type="checkbox" name="enable-ads" @if(get_setting("enable-ads")) checked @endif>
+                                        <span></span>
+                                        Enable Ads
+                                    </label>
+                                </div>
+                            </div>
 						</div>
 					</div>
 					<div class="form-row">
