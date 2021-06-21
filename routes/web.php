@@ -149,6 +149,20 @@ Route::group(['middleware' => ['web', 'admin'], 'prefix' => 'admin'], function (
 
 	Route::get('/category/{id}/delete', 'AdminController@categoyDelete')->name('admin.d.category');
 
+	Route::get('/create-page', 'AdminController@createPage')->name('admin.c.page');
 
+	Route::get('/pages', 'AdminController@pages')->name('admin.pages');
+
+	Route::get('/page/{id}/edit', 'AdminController@editPage')->name('admin.e.page');
+
+	Route::get('/page/{id}/delete', 'AdminController@deletePage')->name('admin.d.page');
+
+	Route::get('/page/{id}/publish', 'AdminController@deletePage')->name('admin.p.page');
+
+	Route::get('/page/{id}/unpublish', 'AdminController@deletePage')->name('admin.unp.page');
+
+	Route::post('/create-page', 'AdminController@createPagePost')->name('admin.cp.page');
+
+	Route::post('/page/{id}/edit', 'AdminController@editPagePost')->name('admin.ep.page');
 
 });

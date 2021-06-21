@@ -243,7 +243,8 @@ class AdminController extends Controller
     public function createTread()
     {
         //
-        return view('admin.treads.create');
+        $data['category'] = Category::get();
+        return view('admin.treads.create', $data);
     }
 
 
@@ -329,7 +330,8 @@ class AdminController extends Controller
     public function editTread($id){
 
         $data['tread'] = Tread::find($id);
-
+        $data['category'] = Category::get();
+        
         return view('admin.treads.edit', $data);
     }
 
@@ -427,5 +429,113 @@ class AdminController extends Controller
 
         return redirect()->back()->with('success', 'Setting save successfully');
 
+    }
+
+    public function pages(){
+
+        $data['pages'] = Page::paginate(10);
+
+        return view('admin.page.index', $data);
+
+    }
+
+
+    public function createPage(){
+
+        return view('admin.page.create');
+           
+    }
+
+
+    public function editPage($id){
+
+        $data['page'] = Page::find($id);
+
+        return view('admin.page.edit', $data);
+           
+    }
+
+
+    public function deletePage($id){
+
+        $pp = Page::find($id);
+
+        if($pp->delete()){
+
+            return redirect()->back()->with('success', 'Page deleted successfully');
+
+        }
+
+    }
+
+
+    public function publishPage($id){
+
+        $p = Page::find($id);
+        $p->status = 1;
+
+        if($p->save()){
+
+            return redirect()->back()->with('success', 'Page published successfully');
+
+        }
+    }
+
+
+    public function unpublishPage($id){
+
+        $p = Page::find($id);
+        $p->status = 0;
+
+        if($p->save()){
+
+            return redirect()->back()->with('success', 'Page unpublished successfully');
+
+        }
+    }
+
+
+    public function createPagePost(Request $request){
+
+
+        $request->validate([
+            'title' => 'required|string|min:12|max:50',
+            'content' => 'required|string',
+        ]);
+
+        $page = new Page;
+        $page->title = $request->title;
+        $page->slug = str_replace(' ', '-', strtolower($request->title));
+        $page->content = $request->content;
+
+        if($page->save()){
+
+            return redirect()->back()->with('success', 'Page created successfully');
+
+        }
+
+    }
+
+
+    public function editPagePost(Request $request, $id){
+
+
+        $request->validate([
+            'title' => 'required|string|min:12|max:50',
+            'content' => 'required|string',
+        ]);
+
+
+        $page = Page::find($id);
+        $page->title = $request->title;
+        $page->slug = str_replace(' ', '-', strtolower($request->title));
+        $page->content = $request->content;
+
+        if($page->save()){
+
+            return redirect()->back()->with('success', 'Page editted successfully');
+
+        }
+        
     }
 }

@@ -1,8 +1,8 @@
 @extends('layout.admin')
 
-@section('title', 'Create new user')
+@section('title', 'Edit User')
 
-@section('breadcrum', 'Create new user')
+@section('breadcrum', 'Edit User')
 
 @section('content')
 
@@ -12,7 +12,7 @@
 		<div class="card card-statistics">
 			<div class="card-header">
 				<div class="card-heading">
-					<h4 class="card-title">Create new user</h4>
+					<h4 class="card-title">Edit User</h4>
 				</div>
 			</div>
 			<div class="card-body">

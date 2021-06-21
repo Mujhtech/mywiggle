@@ -5,7 +5,7 @@
         <ul class="metismenu " id="sidebarNav">
             <li class="{{  Route::is('admin.index') ? 'active' : ''  }}">
                 <a href="{{ route('admin.index') }}" aria-expanded="false">
-                    <i class="nav-icon ti ti-comment"></i>
+                    <i class="nav-icon ti ti-rocket"></i>
                     <span class="nav-title">Dashboard</span>
                 </a> 
             </li>
@@ -46,15 +46,26 @@
                     <li class="{{  Route::is('admin.unp.treads') ? 'active' : ''  }}"> <a href='{{ route("admin.unp.treads") }}'>Unpublish Treads</a> </li>
                 </ul>
             </li>
+            <li class="nav-static-title">Pages</li>
+            <li class="{{  Route::is('admin.pages') || Route::is('admin.c.page') ? 'active' : ''  }}">
+                <a class="has-arrow" href="javascript:void(0)" aria-expanded="false">
+                    <i class="nav-icon ti ti-rocket"></i>
+                    <span class="nav-title">Manage Pages</span>
+                </a>
+                <ul aria-expanded="false">
+                    <li class="{{  Route::is('admin.c.page') ? 'active' : ''  }}"> <a href='{{ route("admin.c.page") }}'>Create Page</a> </li>
+                    <li class="{{  Route::is('admin.pages') ? 'active' : ''  }}"> <a href='{{ route("admin.pages") }}'>All Pages</a> </li>
+                </ul>
+            </li>
             <li class="{{  Route::is('admin.setting') ? 'active' : ''  }}">
                 <a href='{{ route("admin.setting") }}' aria-expanded="false">
-                    <i class="nav-icon ti ti-comment"></i>
+                    <i class="nav-icon ti ti-rocket"></i>
                     <span class="nav-title">Settings</span>
                 </a> 
             </li>
             <li class="{{  Route::is('user.profile') ? 'active' : ''  }}">
                 <a href='{{ route("user.profile") }}' aria-expanded="false">
-                    <i class="nav-icon ti ti-comment"></i>
+                    <i class="nav-icon ti ti-rocket"></i>
                     <span class="nav-title">Profile</span>
                 </a> 
             </li>

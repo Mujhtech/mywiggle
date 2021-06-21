@@ -23,7 +23,7 @@
 							<label for="validationCustom01">Category Name</label>
 							<input type="text" class="form-control" name="cat_name" placeholder="Category Name">
 							@if($errors->has('cat_name'))
-	                            <div class="valid-feedback">{!!  $errors->get('cat_name')[0] !!}</div>
+	                            <small>{!!  $errors->get('cat_name')[0] !!}</small>
 	                        @endif
 						</div>
 					</div>
