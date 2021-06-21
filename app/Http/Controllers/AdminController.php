@@ -242,7 +242,7 @@ class AdminController extends Controller
     {
         //
         $data['treads'] = Tread::paginate(10);
-        return view('admin.tread.index', $data);
+        return view('admin.treads.index', $data);
     }
 
     /**
