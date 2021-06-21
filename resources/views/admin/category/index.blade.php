@@ -45,6 +45,7 @@
 							@endif
 						</tbody>
 					</table>
+					{{ $categories->links('vendor.pagination.custom') }}
 				</div>
 			</div>
 		</div>
