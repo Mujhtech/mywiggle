@@ -238,6 +238,13 @@ class AdminController extends Controller
     }
 
 
+    public function createTread()
+    {
+        //
+        return view('admin.treads.create');
+    }
+
+
     public function treads()
     {
         //
@@ -245,26 +252,30 @@ class AdminController extends Controller
         return view('admin.treads.index', $data);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
+    public function publishTreads()
+    {
+        //
+        $data['treads'] = Tread::where('status', 1)->paginate(10);
+        return view('admin.treads.publish', $data);
+    }
+
+
+    public function unPublishtreads()
+    {
+        //
+        $data['treads'] = Tread::where('status', 2)->paginate(10);
+        return view('admin.treads.unpublish', $data);
+    }
+
     public function update(Request $request, $id)
     {
         //
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
+    public function editSetting(Request $request)
     {
         //
+
     }
 }

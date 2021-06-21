@@ -21,6 +21,22 @@ class SettingSeeder extends Seeder
                 "value" => 'MyWiggle',
             ],
             [
+                "name" => "app-version",
+                "value" => '1.0',
+            ],
+            [
+                "name" => "app-url",
+                "value" => url('/'),
+            ],
+            [
+                "name" => "app-email",
+                "value" => "mywiggle@gmail.com",
+            ],
+            [
+                "name" => "app-phone-number",
+                "value" => "+234",
+            ],
+            [
                 "name" => "app-description",
                 "value" => 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Libero quis beatae officia saepe perferendis voluptatum minima eveniet voluptates dolorum, temporibus nisi maxime nesciunt totam repudiandae commodi sequi dolor quibusdam',
             ],

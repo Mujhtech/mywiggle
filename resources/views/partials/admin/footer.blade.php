@@ -4,7 +4,7 @@
                     <p>&copy; Hjhgh</p>
                 </div>
             <div class="col  col-sm-6 ml-sm-auto text-center text-sm-right">
-                    <p><a target="_blank" href="{{url('/')}}">School Management System v1.2</a></p>
+                    <p><a target="_blank" href="{{url('/')}}">{{ get_setting('app-name')}} v{{ get_setting('app-version')}}</a></p>
                 </div>
             </div>
         </footer>

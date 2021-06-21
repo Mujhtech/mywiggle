@@ -131,6 +131,8 @@ Route::group(['middleware' => ['web', 'admin'], 'prefix' => 'admin'], function (
 
 	Route::post('/create-user', 'AdminController@createUserPost')->name('admin.p.user');
 
+	Route::post('/setting', 'AdminController@editSetting')->name('admin.p.setting');
+
 	Route::get('/category/{id}/delete', 'AdminController@categoyDelete')->name('admin.d.category');
 
 
