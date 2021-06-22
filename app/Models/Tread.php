@@ -31,4 +31,9 @@ class Tread extends Model
     {
         return $this->featured_image ? Storage::url($this->featured_image) : 'https://ui-avatars.com/api/?name='.urlencode($this->title).'&color=7F9CF5&background=EBF4FF';
     }
+
+    public function getShortContentAttribute()
+    {
+        return substr($this->content, 0, 150);
+    }
 }

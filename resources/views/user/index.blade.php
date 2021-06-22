@@ -10,149 +10,60 @@
                     <div class="owl-carousel owl-loaded owl-drag" data-dots="false" data-nav="true"
                     data-desk_num="1" data-lap_num="1" data-tab_num="1" data-mob_num="1" data-mob_sm="1"
                     data-autoplay="true" data-loop="true" data-margin="0">
-                    <div class="item" style="background: url('http://gentechtree.com/themes/streamlab/red-html/images/background/asset-41.jpg')">
+                    
+                    @foreach($slider_video as $sv)
+
+                    <div class="item" style="background: url('{{ $sv->featured_image_url }}')">
                         <div class="gen-movie-contain-style-3 h-100">
                             <div class="container h-100">
                                 <div class="row justify-content-center h-100">
                                     <div class="col-xl-6">
-                                        <a href="https://www.youtube.com/watch?v=LXb3EKWsInQ"
+                                        <a href="{{ asset($sv->tread_video_path->video_url) }}"
                                         class="playBut popup-youtube popup-vimeo popup-gmaps">
-                                        <!-- Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In  -->
-                                        <svg version="1.1" xmlns="http://www.w3.org/2000/svg"
-                                        width="213.7px" height="213.7px" viewBox="0 0 213.7 213.7"
-                                        enable-background="new 0 0 213.7 213.7" xml:space="preserve">
-                                        <polygon class="triangle" id="XMLID_18_" fill="none"
-                                        stroke-width="7" stroke-linecap="round"
-                                        stroke-linejoin="round" stroke-miterlimit="10" points="
-                                        73.5,62.5 148.5,105.8 73.5,149.1 "></polygon>
-                                        <circle class="circle" id="XMLID_17_" fill="none"
-                                        stroke-width="7" stroke-linecap="round"
-                                        stroke-linejoin="round" stroke-miterlimit="10" cx="106.8"
-                                        cy="106.8" r="103.3"></circle>
-                                    </svg>
-                                    <span>Watch Now</span>
-                                </a>
-                                <div class="gen-movie-info">
-                                    <h3>sefozie world</h3>
-                                </div>
-                                <div class="gen-movie-meta-holder">
-                                    <ul class="gen-meta-after-title">
-                                        <li>2 weeks</li>
-                                        <li>
-                                            <a href="adventure.html"><span>Adventure</span></a>
-                                        </li>
-                                        <li>
-                                            <i class="fas fa-eye">
-                                            </i>
-                                            <span>44 Views</span>
-                                        </li>
-                                    </ul>
-                                    <p>Streamlab is a long established fact that a reader will be
-                                        distracted by the readable content of a page when Streamlab at
-                                    its layout.</p>
+                                            <!-- Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In  -->
+                                            <svg version="1.1" xmlns="http://www.w3.org/2000/svg"
+                                            width="213.7px" height="213.7px" viewBox="0 0 213.7 213.7"
+                                            enable-background="new 0 0 213.7 213.7" xml:space="preserve">
+                                            <polygon class="triangle" id="XMLID_18_" fill="none"
+                                            stroke-width="7" stroke-linecap="round"
+                                            stroke-linejoin="round" stroke-miterlimit="10" points="
+                                            73.5,62.5 148.5,105.8 73.5,149.1 "></polygon>
+                                            <circle class="circle" id="XMLID_17_" fill="none"
+                                            stroke-width="7" stroke-linecap="round"
+                                            stroke-linejoin="round" stroke-miterlimit="10" cx="106.8"
+                                            cy="106.8" r="103.3"></circle>
+                                            </svg>
+                                            <span>Watch Now</span>
+                                        </a>
+                                        <div class="gen-movie-info">
+                                            <h3>{{ $sv->title }}</h3>
+                                        </div>
+                                        <div class="gen-movie-meta-holder">
+                                            <ul class="gen-meta-after-title">
+                                                <li>{{ $sv->created_at->diffForHumans() }}</li>
+                                                <li>
+                                                    <a href="{{ route('web.category', $sv->category->slug) }}"><span>{{ $sv->category->name }}</span></a>
+                                                </li>
+                                                <li>
+                                                    <i class="fas fa-eye">
+                                                    </i>
+                                                    <span>{{ $sv->views }} Views</span>
+                                                </li>
+                                            </ul>
+                                            <p>{{ $sv->short_content }}</p>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-            <div class="item" style="background: url('http://gentechtree.com/themes/streamlab/red-html/images/background/asset-41.jpg')">
-                <div class="gen-movie-contain-style-3 h-100">
-                    <div class="container h-100">
-                        <div class="row justify-content-center h-100">
-                            <div class="col-xl-6">
-                                <a href="https://www.youtube.com/watch?v=LXb3EKWsInQ"
-                                class="playBut popup-youtube popup-vimeo popup-gmaps">
-                                <!-- Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In  -->
-                                <svg version="1.1" xmlns="http://www.w3.org/2000/svg"
-                                width="213.7px" height="213.7px" viewBox="0 0 213.7 213.7"
-                                enable-background="new 0 0 213.7 213.7" xml:space="preserve">
-                                <polygon class="triangle" id="XMLID_20_" fill="none"
-                                stroke-width="7" stroke-linecap="round"
-                                stroke-linejoin="round" stroke-miterlimit="10" points="
-                                73.5,62.5 148.5,105.8 73.5,149.1 "></polygon>
-                                <circle class="circle" id="XMLID_19_" fill="none"
-                                stroke-width="7" stroke-linecap="round"
-                                stroke-linejoin="round" stroke-miterlimit="10" cx="106.8"
-                                cy="106.8" r="103.3"></circle>
-                            </svg>
-                            <span>Watch Now</span>
-                        </a>
-                        <div class="gen-movie-info">
-                            <h3>war hands</h3>
-                        </div>
-                        <div class="gen-movie-meta-holder">
-                            <ul class="gen-meta-after-title">
-                                <li>2 weeks</li>
-                                <li>
-                                    <a href="{{ route('web.category', 'jhsdkkhd') }}"><span>Animation</span></a>
-                                </li>
-                                <li>
-                                    <i class="fas fa-eye">
-                                    </i>
-                                    <span>43 Views</span>
-                                </li>
-                            </ul>
-                            <p>Streamlab is a long established fact that a reader will be
-                                distracted by the readable content of a page when Streamlab at
-                            its layout.</p>
-                        </div>
+                    @endforeach
+            
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <div class="item" style="background: url('http://gentechtree.com/themes/streamlab/red-html/images/background/asset-41.jpg')">
-        <div class="gen-movie-contain-style-3 h-100">
-            <div class="container h-100">
-                <div class="row justify-content-center h-100">
-                    <div class="col-xl-6">
-                        <a href="https://www.youtube.com/watch?v=LXb3EKWsInQ"
-                        class="playBut popup-youtube popup-vimeo popup-gmaps">
-                        <!-- Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In  -->
-                        <svg version="1.1" xmlns="http://www.w3.org/2000/svg"
-                        width="213.7px" height="213.7px" viewBox="0 0 213.7 213.7"
-                        enable-background="new 0 0 213.7 213.7" xml:space="preserve">
-                        <polygon class="triangle" id="XMLID_22_" fill="none"
-                        stroke-width="7" stroke-linecap="round"
-                        stroke-linejoin="round" stroke-miterlimit="10" points="
-                        73.5,62.5 148.5,105.8 73.5,149.1 "></polygon>
-                        <circle class="circle" id="XMLID_21_" fill="none"
-                        stroke-width="7" stroke-linecap="round"
-                        stroke-linejoin="round" stroke-miterlimit="10" cx="106.8"
-                        cy="106.8" r="103.3"></circle>
-                    </svg>
-                    <span>Watch Now</span>
-                </a>
-                <div class="gen-movie-info">
-                    <h3>Bigfoot Silva</h3>
-                </div>
-                <div class="gen-movie-meta-holder">
-                    <ul class="gen-meta-after-title">
-                        <li>2 years</li>
-                        <li>
-                            <a href="{{ route('web.category', 'jhsdkkhd') }}"><span>Action</span></a>
-                        </li>
-                        <li>
-                            <i class="fas fa-eye">
-                            </i>
-                            <span>43 Views</span>
-                        </li>
-                    </ul>
-                    <p>Streamlab is a long established fact that a reader will be
-                        distracted by the readable content of a page when Streamlab at
-                    its layout.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
 </section>
 <!-- owl-carousel Banner End -->
 
@@ -485,33 +396,32 @@
                     <div class="owl-carousel owl-loaded owl-drag" data-dots="true" data-nav="false"
                     data-desk_num="1" data-lap_num="1" data-tab_num="1" data-mob_num="1" data-mob_sm="1"
                     data-autoplay="false" data-loop="false" data-margin="30">
-                    <div class="item" style="background: url('images/background/asset-59.jpg')">
+                    @foreach($ads as $ad)
+                    <div class="item" style="background: url('{{ $ad->featured_image_url }}')">
                         <div class="gen-movie-contain h-100">
                             <div class="container h-100">
                                 <div class="row align-items-center h-100">
                                     <div class="col-xl-6">
                                         <div class="gen-movie-info">
-                                            <h3>like life</h3>
+                                            <h3>{{ $ad->title }}</h3>
                                         </div>
                                         <div class="gen-movie-meta-holder">
                                             <ul>
-                                                <li>2 years</li>
+                                                <li>{{ $ad->created_at->diffForHumans() }}</</li>
                                                 <li>
-                                                    <a href="tennis.html"><span>Tennis</span></a>
+                                                    <a href="{{ route('web.category', $ad->category->slug) }}"><span>{{ $ad->category->name }}</span></a>
                                                 </li>
                                                 <li>
                                                     <i class="fas fa-eye">
                                                     </i>
-                                                    <span>25 Views</span>
+                                                    <span>{{ $ad->views }} Views</span>
                                                 </li>
                                             </ul>
-                                            <p>Streamlab is a long established fact that a reader will be
-                                                distracted by the readable content of a page when Streamlab at
-                                            its layout.</p>
+                                            <p>{{ $ad->short_content }}</p>
                                         </div>
                                         <div class="gen-movie-action">
                                             <div class="gen-btn-container button-1">
-                                                <a href="{{ route('web.single', 'jhsdkkhd') }}" class="gen-button">
+                                                <a href="{{ route('web.single', $ad->slug) }}" class="gen-button">
                                                     <i aria-hidden="true" class="ion ion-play"></i> <span
                                                     class="text">play now</span>
                                                 </a>
@@ -522,80 +432,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="item" style="background: url('images/background/asset-60.jpg')">
-                        <div class="gen-movie-contain h-100">
-                            <div class="container h-100">
-                                <div class="row align-items-center h-100">
-                                    <div class="col-xl-6">
-                                        <div class="gen-movie-info">
-                                            <h3>unicorn Jk</h3>
-                                        </div>
-                                        <div class="gen-movie-meta-holder">
-                                            <ul>
-                                                <li>2 years</li>
-                                                <li>
-                                                    <a href="{{ route('web.category', 'jhsdkkhd') }}"><span>Action</span></a>
-                                                </li>
-                                                <li>
-                                                    <i class="fas fa-eye">
-                                                    </i>
-                                                    <span>18 Views</span>
-                                                </li>
-                                            </ul>
-                                            <p>Streamlab is a long established fact that a reader will be
-                                                distracted by the readable content of a page when Streamlab at
-                                            its layout.</p>
-                                        </div>
-                                        <div class="gen-movie-action">
-                                            <div class="gen-btn-container button-1">
-                                                <a href="{{ route('web.single', 'jhsdkkhd') }}" class="gen-button">
-                                                    <i aria-hidden="true" class="ion ion-play"></i> <span
-                                                    class="text">play now</span>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item" style="background: url('images/background/asset-10.jpeg')">
-                        <div class="gen-movie-contain h-100">
-                            <div class="container h-100">
-                                <div class="row align-items-center h-100">
-                                    <div class="col-xl-6">
-                                        <div class="gen-movie-info">
-                                            <h3>skull’s world</h3>
-                                        </div>
-                                        <div class="gen-movie-meta-holder">
-                                            <ul>
-                                                <li>2 years</li>
-                                                <li>
-                                                    <a href="{{ route('web.category', 'jhsdkkhd') }}"><span>Horror</span></a>
-                                                </li>
-                                                <li>
-                                                    <i class="fas fa-eye">
-                                                    </i>
-                                                    <span>17 Views</span>
-                                                </li>
-                                            </ul>
-                                            <p>Streamlab is a long established fact that a reader will be
-                                                distracted by the readable content of a page when Streamlab at
-                                            its layout.</p>
-                                        </div>
-                                        <div class="gen-movie-action">
-                                            <div class="gen-btn-container button-1">
-                                                <a href="{{ route('web.single', 'jhsdkkhd') }}" class="gen-button">
-                                                    <i aria-hidden="true" class="ion ion-play"></i> <span
-                                                    class="text">play now</span>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
         </div>

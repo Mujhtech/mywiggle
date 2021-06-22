@@ -27,6 +27,7 @@ class CreateTreadsTable extends Migration
             $table->integer('views')->default(0);
             $table->boolean('is_sponsored')->default(false);
             $table->boolean('is_trending')->default(false);
+            $table->boolean('is_ads')->default(false);
             $table->timestamps();
         });
     }
