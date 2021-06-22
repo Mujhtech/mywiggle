@@ -39,6 +39,7 @@
 									<td>{{ $user->last_login }}</td>
 									<td>
                                         <a href="{{ route('admin.vw.user', ['id' => $user->id]) }}" class="btn btn-icon btn-round btn-info" title="View {{ $user->username }}"><i class="fa fa-user-circle-o"></i></a>
+                                        <a href="{{ route('admin.e.user', ['user' => $user->id]) }}" class="btn btn-icon btn-round btn-primary" title="Edit {{ $user->username }}"><i class="fa fa-edit"></i></a>
                                         <a href="{{ route('admin.unv.user', ['id' => $user->id]) }}" class="btn btn-icon btn-round btn-warning" title="Unverify {{ $user->username }}"><i class="fa fa-close"></i></a>
                                         <a href="{{ route('admin.d.user', ['id' => $user->id]) }}" class="btn btn-icon btn-round btn-danger" title="Delete {{ $user->username }}"><i class="fa fa-trash"></i></a>
                                         <a href="{{ route('admin.b.user', ['id' => $user->id]) }}" class="btn btn-icon btn-round btn-success" title="Block {{ $user->username }}"><i class="fa fa-lock"></i></a>

@@ -119,6 +119,8 @@ Route::group(['middleware' => ['web', 'admin'], 'prefix' => 'admin'], function (
 
 	Route::get('/user/{id}/view', 'AdminController@singleUser')->name('admin.vw.user');
 
+	Route::get('/user/{user}/edit', 'AdminController@editUser')->name('admin.e.user');
+
 	Route::get('/user/{id}/delete', 'AdminController@deleteUser')->name('admin.d.user');
 
 	Route::get('/create-tread', 'AdminController@createTread')->name('admin.c.tread');
@@ -133,6 +135,10 @@ Route::group(['middleware' => ['web', 'admin'], 'prefix' => 'admin'], function (
 
 	Route::get('/tread/{id}/edit', 'AdminController@editTread')->name('admin.e.tread');
 
+	Route::post('/treads/edit', 'AdminController@editTreads')->name('admin.e.treads');
+
+	Route::post('/tread/{tread}/edit', 'AdminController@editTreadPost')->name('admin.ep.tread');
+
 	Route::get('/tread/{id}/publish', 'AdminController@publishTread')->name('admin.p.tread');
 
 	Route::get('/tread/{id}/unpublish', 'AdminController@unpublishTread')->name('admin.unp.tread');
@@ -144,6 +150,8 @@ Route::group(['middleware' => ['web', 'admin'], 'prefix' => 'admin'], function (
 	Route::post('/create-category', 'AdminController@createCategoryPost')->name('admin.p.category');
 
 	Route::post('/create-user', 'AdminController@createUserPost')->name('admin.p.user');
+
+	Route::post('/user/{user}/edit', 'AdminController@editUserPost')->name('admin.ep.user');
 
 	Route::post('/setting', 'AdminController@editSetting')->name('admin.p.setting');
 

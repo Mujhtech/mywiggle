@@ -338,68 +338,6 @@ class AdminController extends Controller
     }
 
 
-    public function editTreadPost(){
-
-        $request->validate([
-            'title' => 'required|string|min:12|max:50',
-            'category' => 'required',
-            'content' => 'required|string|min:20|max:200',
-            'attachment' => 'required',
-            'featured_image' => 'required'
-        ]);
-
-
-        if(!$request->hasFile('attachment') || !$request->hasFile('featured_image')){
-
-            return redirect()->back()->with('danger','Please select a video and featured image attachment');
-
-        }
-
-        $tread = Tread::find($id);
-        //$tread->title = $request->title;
-        $tread->category_id = $request->category;
-        $tread->content = $request->content;
-        $tread->user_id = $request->user()->id;
-        //$tread->slug = $slug;
-
-        if($tread->featured_image != null && $tread->featured_image != "" && Storage::exists($tread->featured_image)){
-
-            Storage::delete($tread->featured_image);
-
-        }
-
-        $tread->featured_image = $request->file('featured_image')->storeAs(
-            'public/uploads/images', $tread->slug.'.jpg'
-        );
-        $tread->save();
-
-        $video_path = TreadVideoPath::where('tread_id', $id)->first();
-
-        if($video_path->video_path != null && $video_path->video_path != "" && Storage::exists($video_path->video_path)){
-
-            Storage::delete($video_path->video_path);
-
-        }
-
-        $video_path->video_path = $request->file('attachment')->storeAs(
-            'public/uploads/videos', $tread->slug.'.mp4'
-        );
-
-        if($video_path->save()){
-
-            return redirect()->back()->with('success','Video editted successfully');
-
-        }
-
-    }
-
-
-
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
     public function editSetting(Request $request)
     {
         //
@@ -599,6 +537,107 @@ class AdminController extends Controller
             return redirect()->back()->with('success', 'Payment deleted successfully');
 
         }
+    }
+
+
+    public function editTreadPost(Request $request, Tread $tread){
+
+
+        $request->validate([
+            'title' => 'required|string|min:12|max:50',
+            'category' => 'required',
+            'content' => 'required|string|min:20|max:200',
+        ]);
+
+        //$tread->title = $request->title;
+        $tread->category_id = $request->category;
+        $tread->content = $request->content;
+        $tread->user_id = $request->user()->id;
+        //$tread->slug = $slug;
+
+        if($request->hasFile('featured_image') && $tread->featured_image != null && $tread->featured_image != "" && Storage::exists($tread->featured_image)){
+
+            Storage::delete($tread->featured_image);
+
+            $tread->featured_image = $request->file('featured_image')->storeAs(
+                'public/uploads/images', $tread->slug.'.jpg'
+            );
+
+        }
+
+        $tread->save();
+
+        $video_path = TreadVideoPath::where('tread_id', $tread->id)->first();
+
+        if($request->hasFile('attachment') && $video_path->video_path != null && $video_path->video_path != "" && Storage::exists($video_path->video_path)){
+
+            Storage::delete($video_path->video_path);
+
+            $video_path->video_path = $request->file('attachment')->storeAs(
+                'public/uploads/videos', $tread->slug.'.mp4'
+            );
+
+        }
+
+
+        if($video_path->save()){
+
+            return redirect()->back()->with('success','Video editted successfully');
+
+        }
+
+    }
+
+    public function editUser(User $user){
+
+        return view('admin.users.edit', compact('user'));
+
+    }
+
+    public function editUserPost(Request $request, User $user){
+
+        $request->validate([
+            'fullname' => 'required|string',
+            'username' => 'required|string|min:8|unique:users',
+            'email' => 'required|email|unique:users',
+            'phone_number' => 'required|digits:11|unique:users',
+        ]);
+
+        $user->phone_number = $request->phone_number;
+        $user->fullname = $request->fullname;
+        $user->username = $request->username;
+        $user->email = $request->email;
+
+        if(!empty($request->password)){
+
+            $user->password = $request->password;
+
+        }
+
+        if($user->save()){
+
+            return redirect()->back()->with('success','Profile updated successfully');
+
+        }
+
+    }
+
+
+    public function editTreads(Request $request){
+
+        for ($i=0; $i < count($request->treads); $i++) { 
+
+            $t = Tread::find($request->treads[$i]);
+            $t->is_ads = $request->ads[$i] == 'on' ? 1 : 0;
+            $t->is_sponsored = $request->sponsored[$i] == 'on' ? 1 : 0;
+            $t->is_trending = $request->trending[$i] == 'on' ? 1 : 0;
+            $t->save();
+
+        }
+
+
+        return redirect()->back()->with('success','Changes made successfully');
+
     }
 
 

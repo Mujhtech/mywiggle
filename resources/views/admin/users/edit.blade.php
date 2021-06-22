@@ -16,12 +16,12 @@
 				</div>
 			</div>
 			<div class="card-body">
-				<form method="POST" action="{{ route('admin.p.user') }}">
+				<form method="POST" action="{{ route('admin.ep.user', $user->id) }}">
 					@csrf
 					<div class="form-row">
 						<div class="col-md-6 mb-3">
 							<label for="">Full Name</label>
-							<input type="text" class="form-control" name="fullname" placeholder="Full Name">
+							<input type="text" class="form-control" name="fullname" placeholder="Full Name" value="{{ $user->fullname }}">
 							@if($errors->has('fullname'))
 							<small>{!!  $errors->get('fullname')[0] !!}</small>
 							@endif
@@ -32,7 +32,7 @@
 								<div class="input-group-prepend">
 									<span class="input-group-text">@</span>
 								</div>
-								<input type="text" class="form-control" name="username" placeholder="Username">
+								<input type="text" class="form-control" name="username" placeholder="Username" value="{{ $user->username }}">
 								@if($errors->has('username'))
 								<small>{!!  $errors->get('username')[0] !!}</small>
 								@endif
@@ -42,14 +42,14 @@
 					<div class="form-row">
 						<div class="col-md-6 mb-3">
 							<label for="">Email</label>
-							<input type="text" class="form-control" name="email" placeholder="Email">
+							<input type="text" class="form-control" name="email" placeholder="Email" value="{{ $user->email }}">
 							@if($errors->has('email'))
 							<small>{!!  $errors->get('email')[0] !!}</small>
 							@endif
 						</div>
 						<div class="col-md-6 mb-3">
 							<label for="">Phone Number</label>
-							<input type="text" class="form-control" name="phone_number" placeholder="Phone Number">
+							<input type="text" class="form-control" name="phone_number" placeholder="Phone Number" value="{{ $user->phone_number }}">
 							@if($errors->has('phone_number'))
 							<small>{!!  $errors->get('phone_number')[0] !!}</small>
 							@endif
