@@ -110,6 +110,17 @@
                                 </div>
                             </div>
 						</div>
+						<div class="col-md-6 mb-3">
+							<div class="form-group">
+                                <div class="checkbox checbox-switch switch-success">
+                                    <label>
+                                        <input type="checkbox" name="enable-withdraw" @if(get_setting("enable-withdraw")) checked @endif>
+                                        <span></span>
+                                        Enable Withdrawal Form
+                                    </label>
+                                </div>
+                            </div>
+						</div>
 					</div>
 					<div class="form-row">
 						<div class="col-md-6 mb-3">

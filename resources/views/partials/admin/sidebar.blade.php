@@ -57,6 +57,17 @@
                     <li class="{{  Route::is('admin.pages') ? 'active' : ''  }}"> <a href='{{ route("admin.pages") }}'>All Pages</a> </li>
                 </ul>
             </li>
+            <li class="nav-static-title">History</li>
+            <li class="{{  Route::is('admin.payments') || Route::is('admin.earnings') ? 'active' : ''  }}">
+                <a class="has-arrow" href="javascript:void(0)" aria-expanded="false">
+                    <i class="nav-icon ti ti-rocket"></i>
+                    <span class="nav-title">Manage History</span>
+                </a>
+                <ul aria-expanded="false">
+                    <li class="{{  Route::is('admin.payments') ? 'active' : ''  }}"> <a href='{{ route("admin.payments") }}'>Payment</a> </li>
+                    <li class="{{  Route::is('admin.earnings') ? 'active' : ''  }}"> <a href='{{ route("admin.earnings") }}'>Earning</a> </li>
+                </ul>
+            </li>
             <li class="{{  Route::is('admin.setting') ? 'active' : ''  }}">
                 <a href='{{ route("admin.setting") }}' aria-expanded="false">
                     <i class="nav-icon ti ti-rocket"></i>
@@ -67,6 +78,12 @@
                 <a href='{{ route("user.profile") }}' aria-expanded="false">
                     <i class="nav-icon ti ti-rocket"></i>
                     <span class="nav-title">Profile</span>
+                </a> 
+            </li>
+            <li class="{{  Route::is('auth.logout') ? 'active' : ''  }}">
+                <a href='{{ route("auth.logout") }}' aria-expanded="false">
+                    <i class="nav-icon ti ti-rocket"></i>
+                    <span class="nav-title">Logout</span>
                 </a> 
             </li>
         </ul>

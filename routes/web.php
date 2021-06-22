@@ -165,4 +165,12 @@ Route::group(['middleware' => ['web', 'admin'], 'prefix' => 'admin'], function (
 
 	Route::post('/page/{id}/edit', 'AdminController@editPagePost')->name('admin.ep.page');
 
+	Route::get('/payments', 'AdminController@payments')->name('admin.payments');
+
+	Route::get('/earnings', 'AdminController@earnings')->name('admin.earnings');
+
+	Route::get('/payment/{id}/approve', 'AdminController@approvePayment')->name('admin.app.payment');
+
+	Route::get('/payment/{id}/delete', 'AdminController@deletePayment')->name('admin.d.payment');
+
 });

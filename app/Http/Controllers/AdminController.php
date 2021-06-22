@@ -10,7 +10,7 @@ use App\Models\Setting;
 use App\Models\PayoutRequest;
 use App\Models\Transaction;
 use App\Models\Page;
-use App\Models\EarnHistory;
+use App\Models\EarningHistory;
 use Storage;
 use Carbon\Carbon;
 
@@ -331,7 +331,7 @@ class AdminController extends Controller
 
         $data['tread'] = Tread::find($id);
         $data['category'] = Category::get();
-        
+
         return view('admin.treads.edit', $data);
     }
 
@@ -538,4 +538,48 @@ class AdminController extends Controller
         }
         
     }
+
+    public function payments(){
+
+        $data['payments'] = PayoutRequest::paginate(10);
+
+        return view('admin.history.payment', $data);
+
+    }
+
+
+    public function earnings(){
+
+        $data['earnings'] = EarningHistory::paginate(10);
+
+        return view('admin.history.earning', $data);
+        
+    }
+
+
+    public function approvePayment($id){
+
+        $p = PayoutRequest::find($id);
+        $p->status = 1;
+
+        if($p->save()){
+
+            return redirect()->back()->with('success', 'Payment approved successfully');
+
+        }
+    }
+
+
+    public function deletePayment($id){
+
+        $p = PayoutRequest::find($id);
+
+        if($p->delete()){
+
+            return redirect()->back()->with('success', 'Payment deleted successfully');
+
+        }
+    }
+
+
 }
