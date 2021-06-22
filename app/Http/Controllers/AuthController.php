@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Auth;
 use App\Models\User;
 use Carbon\Carbon;
+use App\Models\LoginHistory;
 
 class AuthController extends Controller
 {
@@ -30,6 +31,14 @@ class AuthController extends Controller
             $userLogin = User::where('username', $request->id)->orWhere('email', $request->id)->first();
             $userLogin->last_login = Carbon::now();
             $userLogin->save();
+
+            $lhistory = new LoginHistory;
+            $lhistory->user_id = $userLogin->id;
+            $lhistory->os = get_os();
+            $lhistory->device = get_device();
+            $lhistory->ip = user_ip();
+            $lhistory->browser = get_browsers();
+            $lhistory->save();
 
             $user = Auth::getLastAttempted();
 

@@ -58,7 +58,7 @@
                 </ul>
             </li>
             <li class="nav-static-title">History</li>
-            <li class="{{  Route::is('admin.payments') || Route::is('admin.earnings') ? 'active' : ''  }}">
+            <li class="{{  Route::is('admin.payments') || Route::is('admin.t.history') || Route::is('admin.l.history') || Route::is('admin.earnings') ? 'active' : ''  }}">
                 <a class="has-arrow" href="javascript:void(0)" aria-expanded="false">
                     <i class="nav-icon ti ti-rocket"></i>
                     <span class="nav-title">Manage History</span>
@@ -66,6 +66,8 @@
                 <ul aria-expanded="false">
                     <li class="{{  Route::is('admin.payments') ? 'active' : ''  }}"> <a href='{{ route("admin.payments") }}'>Payment</a> </li>
                     <li class="{{  Route::is('admin.earnings') ? 'active' : ''  }}"> <a href='{{ route("admin.earnings") }}'>Earning</a> </li>
+                    <li class="{{  Route::is('admin.l.history') ? 'active' : ''  }}"> <a href='{{ route("admin.l.history") }}'>Login History</a> </li>
+                    <li class="{{  Route::is('admin.t.history') ? 'active' : ''  }}"> <a href='{{ route("admin.t.history") }}'>Tread History</a> </li>
                 </ul>
             </li>
             <li class="{{  Route::is('admin.setting') ? 'active' : ''  }}">

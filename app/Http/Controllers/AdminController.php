@@ -11,6 +11,8 @@ use App\Models\PayoutRequest;
 use App\Models\Transaction;
 use App\Models\Page;
 use App\Models\EarningHistory;
+use App\Models\TreadHistory;
+use App\Models\LoginHistory;
 use Storage;
 use Carbon\Carbon;
 
@@ -553,6 +555,24 @@ class AdminController extends Controller
         $data['earnings'] = EarningHistory::paginate(10);
 
         return view('admin.history.earning', $data);
+        
+    }
+
+
+    public function lHistory(){
+
+        $data['history'] = LoginHistory::paginate(10);
+
+        return view('admin.history.login', $data);
+
+    }
+
+
+    public function tHistory(){
+
+        $data['history'] = TreadHistory::paginate(10);
+
+        return view('admin.history.tread', $data);
         
     }
 

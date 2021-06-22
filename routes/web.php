@@ -169,6 +169,10 @@ Route::group(['middleware' => ['web', 'admin'], 'prefix' => 'admin'], function (
 
 	Route::get('/earnings', 'AdminController@earnings')->name('admin.earnings');
 
+	Route::get('/tread-history', 'AdminController@tHistory')->name('admin.t.history');
+
+	Route::get('/login-history', 'AdminController@lHistory')->name('admin.l.history');
+
 	Route::get('/payment/{id}/approve', 'AdminController@approvePayment')->name('admin.app.payment');
 
 	Route::get('/payment/{id}/delete', 'AdminController@deletePayment')->name('admin.d.payment');
