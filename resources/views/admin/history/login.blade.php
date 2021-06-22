@@ -22,22 +22,26 @@
 							<tr>
 								<th scope="col">#</th>
 								<th scope="col">Username</th>
-								<th scope="col">Description</th>
-								<th scope="col">Amount (Point)</th>
+								<th scope="col">Device</th>
+								<th scope="col">Operating System</th>
+								<th scope="col">Ip Address</th>
+								<th scope="col">Browser</th>
 								<th scope="col">Created On</th>
 							</tr>
 						</thead>
 						<tbody>
-							@if(count($earnings) > 0)
+							@if(count($history) > 0)
 	                        @php $sn = 0 @endphp
-	                        @foreach($earnings as $earning)
+	                        @foreach($history as $hist)
 	                        @php $sn++ @endphp
 								<tr>
 									<th scope="row">{{ $sn }}</th>
-									<td>{{ $earning->user->username }}</td>
-									<td>{{ $earning->description }}</td>
-									<td>{{ $earning->amount }}</td>
-									<td>{{ $earning->created_at->diffForHumans() }}</td>
+									<td>{{ $hist->user->username }}</td>
+									<td>{{ $hist->device }}</td>
+									<td>{{ $hist->os }}</td>
+									<td><a href="http://www.geoplugin.net/json.gp?ip={{ $hist->ip }}" target="_blank">{{ $hist->ip }}</a></td>
+									<td>{{ $hist->browser }}</td>
+									<td>{{ $hist->created_at->diffForHumans() }}</td>
 								</tr>
 							@endforeach
 							@else
@@ -47,7 +51,7 @@
 							@endif
 						</tbody>
 					</table>
-					{{ $earnings->links('vendor.pagination.custom') }}
+					{{ $history->links('vendor.pagination.custom') }}
 				</div>
 			</div>
 		</div>
