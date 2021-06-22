@@ -1,8 +1,8 @@
 @extends('layout.admin')
 
-@section('title', 'Tread History')
+@section('title', 'Login History')
 
-@section('breadcrum', 'Tread History')
+@section('breadcrum', 'Login History')
 
 @section('content')
 
@@ -12,7 +12,7 @@
 		<div class="card card-statistics">
 			<div class="card-header">
 				<div class="card-heading">
-					<h4 class="card-title">Tread History</h4>
+					<h4 class="card-title">Login History</h4>
 				</div>
 			</div>
 			<div class="card-body">
