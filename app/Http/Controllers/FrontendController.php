@@ -38,6 +38,7 @@ class FrontendController extends Controller
 
         $data['tread'] = $tread;
         $data['title'] = $tread->title;
+        $data['related'] = Tread::where('id', '!=', $tread->id)->where('category_id', $tread->category_id)->get();
 
         return view('user.single', $data);
 
