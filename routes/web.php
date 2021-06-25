@@ -13,8 +13,33 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
+
+/* 
+
+
+	Route::get('/', function () {
+    	return view('index');
+	});
+*/
+
+Route::group(['middleware' => ['web']], function () {
+    
+	Route::get('/', 'FrontendController@index')->name('web.index');
+
+	Route::get('/all-video', 'FrontendController@allvideo')->name('web.all');
+
+	Route::get('/video/{slug}', 'FrontendController@single')->name('web.single');
+
+	Route::get('/page/{slug}', 'FrontendController@page')->name('web.page');
+
+	Route::get('/category/{slug}', 'FrontendController@category')->name('web.category');
+
+	Route::get('/search', 'FrontendController@search')->name('web.search');
+
+	Route::get('/share/{platform}/{slug}', 'FrontendController@share')->name('web.share');
+
+	Route::get('/add-to-watch-list/{slug}', 'FrontendController@addToWatchList')->name('web.addwl');
+
 });
 
 
@@ -41,26 +66,6 @@ Route::group(['middleware' => ['web', 'guest'], 'prefix' => 'auth'], function ()
 });
 
 Route::get('/logout', 'AuthController@logout')->name('auth.logout');
-
-Route::group(['middleware' => ['web'], 'prefix' => 'frontend'], function () {
-    
-	Route::get('/', 'FrontendController@index')->name('web.index');
-
-	Route::get('/all-video', 'FrontendController@allvideo')->name('web.all');
-
-	Route::get('/video/{slug}', 'FrontendController@single')->name('web.single');
-
-	Route::get('/page/{slug}', 'FrontendController@page')->name('web.page');
-
-	Route::get('/category/{slug}', 'FrontendController@category')->name('web.category');
-
-	Route::get('/search', 'FrontendController@search')->name('web.search');
-
-	Route::get('/share/{platform}/{slug}', 'FrontendController@share')->name('web.share');
-
-	Route::get('/add-to-watch-list/{slug}', 'FrontendController@addToWatchList')->name('web.addwl');
-
-});
 
 
 Route::group(['prefix' => 'user', 'middleware' => ['auth']], function () {

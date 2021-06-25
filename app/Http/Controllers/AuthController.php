@@ -44,11 +44,15 @@ class AuthController extends Controller
 
             Auth::login($user, true);
 
+            navtoastr()->success('Login successful!!!');
+
             return redirect()->intended();
 
         } else {
             
-            return redirect()->back()->with('error', 'Invalid username or Password');
+            navtoastr()->error('Invalid username or Password');
+
+            return navtoastr()->back();
         }
     }
 
@@ -89,11 +93,15 @@ class AuthController extends Controller
 
         if($user->save()){
 
-            return redirect()->route('auth.login')->with('success', 'Welcome to our platform, please login to continue');
+            navtoastr()->success('Welcome to our platform, please login to continue');
+
+            return navtoastr()->named('auth.login');
 
         } else {
 
-            return redirect()->back()->with('error', 'Something went wrong');
+            navtoastr()->error('Something went wrong');
+
+            return navtoastr()->back();
 
         }
 
@@ -103,6 +111,13 @@ class AuthController extends Controller
     public function recover(Request $request)
     {
         //
+        $request->validate([
+            'id' => 'required|string',
+        ]);
+
+        navtoastr()->success('Coming soon!!!');
+
+        return navtoastr()->back();
     }
 
 

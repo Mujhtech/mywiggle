@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4a16c3c541bd99241cab1c21ce8e83ac",
+    "content-hash": "51bf67d71ca921eb71cadd3e58a61d89",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -1439,6 +1439,77 @@
                 }
             ],
             "time": "2020-12-14T13:15:25+00:00"
+        },
+        {
+            "name": "mujhtech/nav-toastr",
+            "version": "v1.10",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Mujhtech/laravel-navtoastr.git",
+                "reference": "b53ebfca8670bac1d30bfe590d093174c72341e5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Mujhtech/laravel-navtoastr/zipball/b53ebfca8670bac1d30bfe590d093174c72341e5",
+                "reference": "b53ebfca8670bac1d30bfe590d093174c72341e5",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "~6|~7|~8",
+                "laravel/framework": ">=6.0",
+                "php": ">=7.2.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Mujhtech\\NavToastr\\NavToastrServiceProvider"
+                    ],
+                    "aliases": {
+                        "NavToastr": "Mujhtech\\NavToastr\\Facades\\NavToastr"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Mujhtech\\NavToastr\\": "src/"
+                },
+                "files": [
+                    "src/Helpers.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Mujhtech",
+                    "email": "mujeeb.muhideen@gmail.com",
+                    "homepage": "https://twitter.com/MMujhtech",
+                    "role": "Developer"
+                }
+            ],
+            "description": "nav-toastr flash notification with custom redirection for laravel app",
+            "keywords": [
+                "flash notification",
+                "flast",
+                "laravel",
+                "library",
+                "mujhtech",
+                "navigation",
+                "php",
+                "redirection",
+                "route",
+                "session",
+                "toast",
+                "toastr"
+            ],
+            "support": {
+                "issues": "https://github.com/Mujhtech/laravel-navtoastr/issues",
+                "source": "https://github.com/Mujhtech/laravel-navtoastr/tree/v1.10"
+            },
+            "time": "2021-06-25T09:27:36+00:00"
         },
         {
             "name": "nesbot/carbon",

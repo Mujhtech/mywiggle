@@ -18,8 +18,11 @@
                                 password via email.</p>
                             <ul class="pms-form-fields-wrapper pl-0 mb-4">
                                 <li class="pms-field">
-                                    <label for="pms_username_email">Username or Email</label>
-                                    <input name="pms_username_email" type="text" value="">
+                                    <label for="id">Username or Email</label>
+                                    <input name="id" type="text" value="">
+                                    @if($errors->has('id'))
+                                    <small>{!!  $errors->get('id')[0] !!}</small>
+                                    @endif
                                 </li>
                             </ul>
                             <input type="submit" name="submit" value="Reset Password">

@@ -28,7 +28,7 @@
     <!--  Responsive -->
     <link rel="stylesheet" href="{{ asset('assets/frontend/user/css/responsive.css') }}" />
 
-    <link rel="stylesheet" href="{{ asset('assets/frontend/user/css/toast.min.css') }}" />
+    @navtoastrCss
 </head>
 
 <body>
@@ -72,25 +72,8 @@
 
     <script src="{{ asset('assets/frontend/user/js/script.js') }}"></script>
 
-    <script src="{{ asset('assets/frontend/user/js/toast.min.js') }}"></script>
-
-    @if(\Session::has('error'))
-        <script type="text/javascript">
-            new Toast({
-              message: '{!!  \Session::get('error')!!}',
-              type: 'danger'
-            });
-        </script>                      
-    @endif
-
-    @if(\Session::has('success'))
-        <script type="text/javascript">
-            new Toast({
-              message: '{!!  \Session::get('success')!!}',
-              type: 'success'
-            });
-        </script>                      
-    @endif
+    @navtoastrJs
+    @navtoastrRender
 
 </body>
 
