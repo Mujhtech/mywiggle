@@ -120,7 +120,7 @@
                                             </li>
                                             @else
                                             <li>
-                                                <a href="{{ route('auth.login') }}"> <i class="fa fa-upload"></i>
+                                                <a href="{{ route('auth.login') }}"> <i class="fa fa-user-circle"></i>
                                                     Login </a>
                                             </li>
                                             @endif
