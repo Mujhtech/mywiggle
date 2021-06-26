@@ -89,14 +89,14 @@ class UserController extends Controller
 
         }
 
-        if(Storage::exists($user->profile_photo_path)){
+        if(Storage::exists($user->avatar)){
 
-            Storage::delete($user->profile_photo_path);
+            Storage::delete($user->avatar);
 
         }
 
         $pp = time().'_'.$user->username.'_profile_picture';
-        $user->profile_photo_path = $request->file('profile_photo_path')->storeAs(
+        $user->avatar = $request->file('profile_photo_path')->storeAs(
             'public/uploads/profiles', $pp.'.jpg'
         );
 

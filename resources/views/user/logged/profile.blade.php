@@ -16,7 +16,7 @@
                     <form action="{{ route('user.u.ppicture') }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="card-title">Profile Picture</div>
-                        <img src="{{ Auth::user()->profile_photo_url }}"alt="" style="display: block; border-radius: 50%; margin-left: 90px;" id="user_p_image">
+                        <img src="{{ Auth::user()->profile_photo_url }}"alt="" style="display: block; border-radius: 50%; margin-left: 90px; width: 120px" id="user_p_image">
                         <input type="file" style="display: none" id="profile_photo_path" name="profile_photo_path">
                         @if($errors->has('profile_photo_path'))
                             <small>{!!  $errors->get('profile_photo_path')[0] !!}</small>
