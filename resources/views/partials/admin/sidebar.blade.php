@@ -9,6 +9,17 @@
                     <span class="nav-title">Dashboard</span>
                 </a> 
             </li>
+            <li class="nav-static-title">Ads</li>
+            <li class="{{  Route::is('admin.ads') || Route::is('admin.c.ad') ? 'active' : ''  }}">
+                <a class="has-arrow" href="javascript:void(0)" aria-expanded="false">
+                    <i class="nav-icon ti ti-rocket"></i>
+                    <span class="nav-title">Manage Ads</span>
+                </a>
+                <ul aria-expanded="false">
+                    <li class="{{  Route::is('admin.c.ad') ? 'active' : ''  }}"> <a href='{{ route("admin.c.ad") }}'>Create Ad</a> </li>
+                    <li class="{{  Route::is('admin.ads') ? 'active' : ''  }}"> <a href='{{ route("admin.ads") }}'>All Ads</a> </li>
+                </ul>
+            </li>
             <li class="nav-static-title">Users</li>
             <li class="{{  Route::is('admin.users') || Route::is('admin.unv.users') || Route::is('admin.b.users') || Route::is('admin.c.user') ? 'active' : ''  }}">
                 <a class="has-arrow" href="javascript:void(0)" aria-expanded="false">

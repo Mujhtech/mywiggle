@@ -642,4 +642,83 @@ class AdminController extends Controller
     }
 
 
+    public function ads(){
+
+        $data['ads'] = Ad::paginate(10);
+
+        return view('admin.ad.index', $data);
+
+    }
+
+
+    public function createAd(){
+
+        return view('admin.ad.create');
+        
+    }
+
+    public function createAdPost(Request $request){
+
+        $request->validate([
+
+            'url' => 'required|url',
+            'flier' => 'required|image',
+
+        ]);
+
+        $ad = Ad::where('url', $request->url)->exists() ? Ad::where('url', $request->url)->first() : new Ad;
+        $ad->url = $request->url;
+
+        if($request->hasFile('flier') && Ad::where('url', $request->url)->exists() && Ad::where('url', $request->url)->first()->ad_image_path != "" && Storage::exists(Ad::where('url', $request->url)->first()->ad_image_path)){
+
+            Storage::delete(Ad::where('url', $request->url)->first()->ad_image_path);
+
+            $ad->ad_image_path = $request->file('flier')->storeAs(
+                'public/uploads/ads', time().'.jpg'
+            );
+
+        } else {
+
+            $ad->ad_image_path = $request->file('flier')->storeAs(
+                'public/uploads/ads', time().'.jpg'
+            );
+
+        }
+
+
+        if($ad->save()){
+
+            return back()->with('success', 'Ad added successfully');
+
+        }
+    }
+
+
+    public function deleteAd(Ad $ad){
+
+        if($ad->delete()){
+
+            return back()->with('success', 'Ad deleted successfully');
+
+        }
+
+    }
+
+
+    public function statusAd(Request $request){
+
+        for ($i=0; $i < count($request->ads); $i++) { 
+
+            $ad = Ad::find($request->ads[$i]);
+            $ad->status = $request->status[$i] == 'on' ? 1 : 0;
+            $ad->save();
+
+        }
+
+
+        return redirect()->back()->with('success','Changes made successfully');
+
+    }
+
+
 }

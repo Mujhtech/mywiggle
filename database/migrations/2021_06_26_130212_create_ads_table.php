@@ -17,6 +17,7 @@ class CreateAdsTable extends Migration
             $table->id();
             $table->string('url');
             $table->string('ad_image_path');
+            $table->boolean('status')->default(false);
             $table->timestamps();
         });
     }

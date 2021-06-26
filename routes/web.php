@@ -101,10 +101,13 @@ Route::group(['prefix' => 'user', 'middleware' => ['auth']], function () {
 
 
 Route::group(['middleware' => ['web', 'admin'], 'prefix' => 'admin'], function () {
+
+
+	// Index Route
     
 	Route::get('/', 'AdminController@index')->name('admin.index');
 
-	Route::get('/setting', 'AdminController@setting')->name('admin.setting');
+	// User Routes
 
 	Route::get('/users', 'AdminController@users')->name('admin.users');
 
@@ -128,6 +131,13 @@ Route::group(['middleware' => ['web', 'admin'], 'prefix' => 'admin'], function (
 
 	Route::get('/user/{id}/delete', 'AdminController@deleteUser')->name('admin.d.user');
 
+	Route::post('/create-user', 'AdminController@createUserPost')->name('admin.p.user');
+
+	Route::post('/user/{user}/edit', 'AdminController@editUserPost')->name('admin.ep.user');
+
+
+	// Tread Routes
+
 	Route::get('/create-tread', 'AdminController@createTread')->name('admin.c.tread');
 
 	Route::get('/treads', 'AdminController@treads')->name('admin.treads');
@@ -148,19 +158,28 @@ Route::group(['middleware' => ['web', 'admin'], 'prefix' => 'admin'], function (
 
 	Route::get('/tread/{id}/unpublish', 'AdminController@unpublishTread')->name('admin.unp.tread');
 
+
+	// Category Routes
+
 	Route::get('/categories', 'AdminController@categories')->name('admin.categories');
 
 	Route::get('/create-category', 'AdminController@createCategory')->name('admin.c.category');
 
 	Route::post('/create-category', 'AdminController@createCategoryPost')->name('admin.p.category');
 
-	Route::post('/create-user', 'AdminController@createUserPost')->name('admin.p.user');
+	Route::get('/category/{id}/delete', 'AdminController@categoyDelete')->name('admin.d.category');
 
-	Route::post('/user/{user}/edit', 'AdminController@editUserPost')->name('admin.ep.user');
+
+	// Setting Routes
+
+
+	Route::get('/setting', 'AdminController@setting')->name('admin.setting');
 
 	Route::post('/setting', 'AdminController@editSetting')->name('admin.p.setting');
 
-	Route::get('/category/{id}/delete', 'AdminController@categoyDelete')->name('admin.d.category');
+
+
+	// Page Routes
 
 	Route::get('/create-page', 'AdminController@createPage')->name('admin.c.page');
 
@@ -178,6 +197,8 @@ Route::group(['middleware' => ['web', 'admin'], 'prefix' => 'admin'], function (
 
 	Route::post('/page/{id}/edit', 'AdminController@editPagePost')->name('admin.ep.page');
 
+	// History Routes
+
 	Route::get('/payments', 'AdminController@payments')->name('admin.payments');
 
 	Route::get('/earnings', 'AdminController@earnings')->name('admin.earnings');
@@ -189,5 +210,19 @@ Route::group(['middleware' => ['web', 'admin'], 'prefix' => 'admin'], function (
 	Route::get('/payment/{id}/approve', 'AdminController@approvePayment')->name('admin.app.payment');
 
 	Route::get('/payment/{id}/delete', 'AdminController@deletePayment')->name('admin.d.payment');
+
+
+	// Ads Routes
+
+	Route::get('/ads', 'AdminController@ads')->name('admin.ads');
+
+	Route::get('/create-ad', 'AdminController@createAd')->name('admin.c.ad');
+
+	Route::post('/create-ad', 'AdminController@createAdPost')->name('admin.cp.ad');
+
+	Route::get('/ad/{ad}/delete', 'AdminController@deleteAd')->name('admin.d.ad');
+
+	Route::post('/ad/status', 'AdminController@statusAd')->name('admin.s.ads');
+
 
 });
