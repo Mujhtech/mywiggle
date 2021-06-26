@@ -24,6 +24,7 @@
 								<tr>
 									<th scope="col">#</th>
 									<th scope="col">Url</th>
+									<th scope="col">Flier Url</th>
 									<th scope="col">Status</th>
 									<th scope="col">Action</th>
 								</tr>
@@ -36,7 +37,7 @@
 									<tr>
 										<th scope="row">{{ $sn }}</th>
 										<td><a href="{{ $ad->url }}" target="_blank">{{ $ad->url }}</a></td>
-										<td><a href="{{ asset('storage/'.$ad->ad_image_path) }}" target="_blank">View Flier</a></td>
+										<td><a href="{{ $ad->flier_url }}" target="_blank">View Flier</a></td>
 										<td>
 											<input type="hidden" name="ads[]" value="{{ $ad->id }}">
 	                                        <div class="checkbox checbox-switch switch-success">

@@ -26,6 +26,16 @@ class UserSeeder extends Seeder
                 "referred_by" => "1",
                 "referral_code" => "857878"
             ],
+            [
+                "fullname" => "Mr Doyin",
+                "email" => 'doyin@mywiggle.com',
+                "username" => "Adedoyin",
+                "role_id" => "1",
+                "phone_number" => "0707686576",
+                "password" => "12345678",
+                "referred_by" => "1",
+                "referral_code" => "657290"
+            ],
         ];
 
     	foreach ($users as $user) {

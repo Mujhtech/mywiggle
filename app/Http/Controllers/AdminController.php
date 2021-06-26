@@ -629,9 +629,9 @@ class AdminController extends Controller
         for ($i=0; $i < count($request->treads); $i++) { 
 
             $t = Tread::find($request->treads[$i]);
-            $t->is_ads = $request->ads[$i] == 'on' ? 1 : 0;
-            $t->is_sponsored = $request->sponsored[$i] == 'on' ? 1 : 0;
-            $t->is_trending = $request->trending[$i] == 'on' ? 1 : 0;
+            $t->is_ads = isset($request->ads[$i]) && $request->ads[$i] == 'on' ? 1 : 0;
+            $t->is_sponsored = isset($request->sponsored[$i]) && $request->sponsored[$i] == 'on' ? 1 : 0;
+            $t->is_trending = isset($request->trending[$i]) && $request->trending[$i] == 'on' ? 1 : 0;
             $t->save();
 
         }
@@ -710,7 +710,7 @@ class AdminController extends Controller
         for ($i=0; $i < count($request->ads); $i++) { 
 
             $ad = Ad::find($request->ads[$i]);
-            $ad->status = $request->status[$i] == 'on' ? 1 : 0;
+            $ad->status = isset($request->status[$i]) && $request->status[$i] == 'on' ? 1 : 0;
             $ad->save();
 
         }
