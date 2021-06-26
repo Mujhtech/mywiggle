@@ -159,7 +159,7 @@ class UserController extends Controller
         $tread->content = $request->content;
         $tread->user_id = $request->user()->id;
         $tread->slug = $slug;
-        $tread->status = 1;
+        //$tread->status = 1;
         $tread->featured_image = $request->file('featured_image')->storeAs(
             'public/uploads/images', $slug.'.jpg'
         );
