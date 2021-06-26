@@ -59,8 +59,9 @@
 								@endif
 							</tbody>
 						</table>
-
+						@if(count($ads) > 0)
 						<br><button type="submit" class="btn btn-primary">Make Changes</button>
+						@endif
 						{{ $ads->links('vendor.pagination.custom') }}
 					</div>
 				</form>

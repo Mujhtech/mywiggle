@@ -91,7 +91,9 @@
 								@endif
 							</tbody>
 						</table>
+						@if(count($treads) > 0)
 						<br><button type="submit" class="btn btn-primary">Make Changes</button>
+						@endif
 						{{ $treads->links('vendor.pagination.custom') }}
 					</div>
 				</form>
