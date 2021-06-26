@@ -15,6 +15,7 @@ use App\Models\TreadHistory;
 use App\Models\LoginHistory;
 use Storage;
 use Carbon\Carbon;
+use App\Models\Ad;
 
 class AdminController extends Controller
 {
