@@ -16,6 +16,7 @@ use App\Models\LoginHistory;
 use Storage;
 use Carbon\Carbon;
 use App\Models\Ad;
+use App\Models\Role;
 
 class AdminController extends Controller
 {
@@ -41,6 +42,7 @@ class AdminController extends Controller
     {
         //
         $data['users'] = User::where('is_block', 0)->where('is_verified', 1)->paginate(20);
+        $data['roles'] = Role::get();
         return view('admin.users.index', $data);
     }
 
@@ -712,6 +714,21 @@ class AdminController extends Controller
             $ad = Ad::find($request->ads[$i]);
             $ad->status = isset($request->status[$i]) && $request->status[$i] == 'on' ? 1 : 0;
             $ad->save();
+
+        }
+
+
+        return redirect()->back()->with('success','Changes made successfully');
+
+    }
+
+    public function updateUsersRole(Request $request){
+
+        for ($i=0; $i < count($request->users); $i++) { 
+
+            $user = User::find($request->users[$i]);
+            $user->role_id = isset($request->roles[$i]) ? $request->roles[$i] : $user->role_id;
+            $user->save();
 
         }
 

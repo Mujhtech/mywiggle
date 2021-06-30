@@ -134,6 +134,8 @@ Route::group(['middleware' => ['web', 'admin'], 'prefix' => 'admin'], function (
 
 	Route::post('/user/{user}/edit', 'AdminController@editUserPost')->name('admin.ep.user');
 
+	Route::post('/users/update-role', 'AdminController@updateUsersRole')->name('admin.upr.users');
+
 
 	// Tread Routes
 
