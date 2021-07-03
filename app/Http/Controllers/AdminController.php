@@ -33,7 +33,7 @@ class AdminController extends Controller
     {
         //
         $data['users'] = User::get()->count();
-        $data['treads'] = Treads::get()->count();
+        $data['treads'] = Tread::get()->count();
         $data['categories'] = Category::get()->count();
         return view('admin.index', $data);
     }
