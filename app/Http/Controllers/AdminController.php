@@ -524,6 +524,10 @@ class AdminController extends Controller
         $p = PayoutRequest::find($id);
         $p->status = 1;
 
+        $user = User::find($p->user_id);
+        $user->point_earn -= $p->amount / get_setting('point-equal-balance'); 
+        $user->save();
+
 
         if($p->save()){
 
