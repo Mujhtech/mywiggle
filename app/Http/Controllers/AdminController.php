@@ -524,6 +524,7 @@ class AdminController extends Controller
         $p = PayoutRequest::find($id);
         $p->status = 1;
 
+
         if($p->save()){
 
             return redirect()->back()->with('success', 'Payment approved successfully');
@@ -735,6 +736,50 @@ class AdminController extends Controller
 
 
         return redirect()->back()->with('success','Changes made successfully');
+
+    }
+
+    public function createTreadPost(Request $request){
+
+        $request->validate([
+            'title' => 'required|string|min:12|max:50',
+            'category' => 'required|integer',
+            'content' => 'required|string|min:20|max:200',
+            'attachment' => 'required',
+            'featured_image' => 'required'
+        ]);
+
+        if(!$request->hasFile('attachment') || !$request->hasFile('featured_image')){
+
+            return redirect()->back()->with('error','Please select a video and featured image attachment');
+
+        }
+
+        $slug = generate_slug($request->title);
+
+        $tread = new Tread;
+        $tread->title = $request->title;
+        $tread->category_id = $request->category;
+        $tread->content = $request->content;
+        $tread->user_id = $request->user()->id;
+        $tread->slug = $slug;
+        //$tread->status = 1;
+        $tread->featured_image = $request->file('featured_image')->storeAs(
+            'public/uploads/images', $slug.'.jpg'
+        );
+        $tread->save();
+
+        $video_path = new TreadVideoPath;
+        $video_path->tread_id = $tread->id;
+        $video_path->video_path = $request->file('attachment')->storeAs(
+            'public/uploads/videos', $slug.'.mp4'
+        );
+
+        if($video_path->save()){
+
+            return redirect()->back()->with('success','Video uploaded successfully');
+
+        }
 
     }
 

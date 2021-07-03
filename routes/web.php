@@ -141,6 +141,8 @@ Route::group(['middleware' => ['web', 'admin'], 'prefix' => 'admin'], function (
 
 	Route::get('/create-tread', 'AdminController@createTread')->name('admin.c.tread');
 
+	Route::post('/create-tread', 'AdminController@createTreadPost')->name('admin.cp.tread');
+
 	Route::get('/treads', 'AdminController@treads')->name('admin.treads');
 
 	Route::get('/publish-treads', 'AdminController@publishTreads')->name('admin.p.treads');

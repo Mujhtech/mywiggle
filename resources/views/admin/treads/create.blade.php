@@ -16,7 +16,7 @@
 				</div>
 			</div>
 			<div class="card-body">
-				<form method="POST" action="{{ route('admin.p.user') }}" enctype="multipart/form-data">
+				<form method="POST" action="{{ route('admin.cp.tread') }}" enctype="multipart/form-data">
 					@csrf
 					<div class="form-row">
 						<div class="col-md-6 mb-3">

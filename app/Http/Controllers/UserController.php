@@ -139,7 +139,7 @@ class UserController extends Controller
 
         $request->validate([
             'title' => 'required|string|min:12|max:50',
-            'category' => 'required',
+            'category' => 'required|integer',
             'content' => 'required|string|min:20|max:200',
             'attachment' => 'required',
             'featured_image' => 'required'
