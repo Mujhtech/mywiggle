@@ -446,7 +446,7 @@
     <div class="container">
         <div class="row">
             <div class="col-xl-6 col-lg-6 col-md-6">
-                <h4 class="gen-heading-title">Shot Films</h4>
+                <h4 class="gen-heading-title">Short Films</h4>
             </div>
             <div class="col-xl-6 col-lg-6 col-md-6 d-none d-md-inline-block">
                 <div class="gen-movie-action">
