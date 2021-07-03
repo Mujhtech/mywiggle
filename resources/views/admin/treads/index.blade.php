@@ -27,6 +27,7 @@
 									<th scope="col">Sponsored</th>
 									<th scope="col">Treading</th>
 									<th scope="col">Title</th>
+									<th scope="col">Category</th>
 									<th scope="col">Created on</th>
 									<th scope="col">Status</th>
 									<th scope="col">Action</th>
@@ -65,6 +66,7 @@
 			                                </div>
 										</th>
 										<td>{{ $tread->title }}</td>
+										<td>{{ $tread->category->name }}</td>
 										<td>{{ $tread->created_at->diffForHumans() }}</td>
 										<td>
 											@if($tread->status == 1)
@@ -86,7 +88,7 @@
 								@endforeach
 								@else
 									<tr>
-										<td colspan="5" style="text-align: center;">No data found</td>
+										<td colspan="9" style="text-align: center;">No data found</td>
 									</tr>
 								@endif
 							</tbody>

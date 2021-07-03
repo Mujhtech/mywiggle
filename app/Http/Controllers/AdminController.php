@@ -14,6 +14,7 @@ use App\Models\EarningHistory;
 use App\Models\TreadHistory;
 use App\Models\LoginHistory;
 use Storage;
+use App\Models\TreadVideoPath;
 use Carbon\Carbon;
 use App\Models\Ad;
 use App\Models\Role;
