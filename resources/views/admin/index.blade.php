@@ -14,7 +14,7 @@
 				<div class="col-xxl-3 col-lg-6">
 					<div class="p-20 border-lg-right border-bottom border-xxl-bottom-0">
 						<div class="d-flex m-b-10">
-							<p class="mb-0 font-regular text-muted font-weight-bold">Total Visits</p>
+							<p class="mb-0 font-regular text-muted font-weight-bold">Users</p>
 							<a class="mb-0 ml-auto font-weight-bold" href="#"><i class="ti ti-more-alt"></i> </a>
 						</div>
 						<div class="d-block d-sm-flex h-100 align-items-center">
@@ -22,8 +22,8 @@
 								<div id="analytics7"></div>
 							</div>
 							<div class="statistics mt-3 mt-sm-0 ml-sm-auto text-center text-sm-right">
-								<h3 class="mb-0"><i class="icon-arrow-up-circle"></i> 15,640</h3>
-								<p>Monthly visitor</p>
+								<h3 class="mb-0"><i class="icon-arrow-up-circle"></i>{{ $users }}</h3>
+								<p>Total Users</p>
 							</div>
 						</div>
 					</div>
@@ -31,7 +31,7 @@
 				<div class="col-xxl-3 col-lg-6">
 					<div class="p-20 border-xxl-right border-bottom border-xxl-bottom-0">
 						<div class="d-flex m-b-10">
-							<p class="mb-0 font-regular text-muted font-weight-bold">Total Cost</p>
+							<p class="mb-0 font-regular text-muted font-weight-bold">Treads</p>
 							<a class="mb-0 ml-auto font-weight-bold" href="#"><i class="ti ti-more-alt"></i> </a>
 						</div>
 						<div class="d-block d-sm-flex h-100 align-items-center">
@@ -39,8 +39,8 @@
 								<div id="analytics8"></div>
 							</div>
 							<div class="statistics mt-3 mt-sm-0 ml-sm-auto text-center text-sm-right">
-								<h3 class="mb-0"><i class="icon-arrow-up-circle"></i> 16,656</h3>
-								<p>This month</p>
+								<h3 class="mb-0"><i class="icon-arrow-up-circle"></i>{{ $treads }}</h3>
+								<p>Total Treads</p>
 							</div>
 						</div>
 					</div>
@@ -48,7 +48,7 @@
 				<div class="col-xxl-3 col-lg-6">
 					<div class="p-20 border-lg-right border-bottom border-lg-bottom-0">
 						<div class="d-flex m-b-10">
-							<p class="mb-0 font-regular text-muted font-weight-bold">Total Sales</p>
+							<p class="mb-0 font-regular text-muted font-weight-bold">Category</p>
 							<a class="mb-0 ml-auto font-weight-bold" href="#"><i class="ti ti-more-alt"></i> </a>
 						</div>
 						<div class="d-block d-sm-flex h-100 align-items-center">
@@ -56,8 +56,8 @@
 								<div id="analytics9"></div>
 							</div>
 							<div class="statistics mt-3 mt-sm-0 ml-sm-auto text-center text-sm-right">
-								<h3 class="mb-0"><i class="icon-arrow-up-circle"></i>569</h3>
-								<p>Avg. Sales per day</p>
+								<h3 class="mb-0"><i class="icon-arrow-up-circle"></i>{{ $categories }}</h3>
+								<p>Total Categories</p>
 							</div>
 						</div>
 					</div>

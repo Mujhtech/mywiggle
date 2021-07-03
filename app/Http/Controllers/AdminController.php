@@ -15,6 +15,9 @@ use App\Models\TreadHistory;
 use App\Models\LoginHistory;
 use Storage;
 use App\Models\TreadVideoPath;
+use App\Models\WatchList;
+use App\Models\TreadLike;
+use App\Models\WatchLater;
 use Carbon\Carbon;
 use App\Models\Ad;
 use App\Models\Role;
@@ -29,7 +32,10 @@ class AdminController extends Controller
     public function index()
     {
         //
-        return view('admin.index');
+        $data['users'] = User::get()->count();
+        $data['treads'] = Treads::get()->count();
+        $data['categories'] = Category::get()->count();
+        return view('admin.index', $data);
     }
 
     public function setting()
@@ -315,6 +321,47 @@ class AdminController extends Controller
         }
 
         $video_path->delete();
+
+        if(TreadHistory::where('tread_id', $id)->exists()){
+
+            $his = TreadHistory::where('tread_id', $id)->get();
+
+            $his->each(function ($hi, $key) {
+                $hi->delete();
+            });
+
+        }
+
+        if(TreadLike::where('tread_id', $id)->exists()){
+
+            $lk = TreadLike::where('tread_id', $id)->get();
+
+            $lk->each(function ($l, $key) {
+                $l->delete();
+            });
+
+        }
+
+        if(WatchList::where('tread_id', $id)->exists()){
+
+            $wl = WatchList::where('tread_id', $id)->get();
+
+            $wl->each(function ($w, $key) {
+                $w->delete();
+            });
+
+        }
+
+
+        if(WatchLater::where('tread_id', $id)->exists()){
+
+            $wl = WatchLater::where('tread_id', $id)->get();
+
+            $wl->each(function ($w, $key) {
+                $w->delete();
+            });
+
+        }
 
         $tread = Tread::find($id);
 
