@@ -55,7 +55,7 @@
 						</div>
 						<div class="col-md-6 mb-3">
 							<label for="">App Url</label>
-							<input type="text" class="form-control" name="app-url" placeholder="App Url" value="{{ get_setting('app-url') }}" readonly>
+							<input type="text" class="form-control" name="app-url" placeholder="App Url" value="{{ url('/') }}" readonly>
 						</div>
 					</div>
 					<div class="form-row">
