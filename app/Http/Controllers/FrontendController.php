@@ -21,7 +21,7 @@ class FrontendController extends Controller
         $data['short_skit'] = $tread->orderBy('id', 'DESC')->take(10)->get();
         $data['slider_video'] = $tread->orderBy('id', 'DESC')->take(5)->get();
         $data['sponsored'] = $tread->where('is_sponsored', 1)->orderBy('id', 'DESC')->take(10)->get();
-        $data['trending'] = $tread->orderBy('id', 'DESC')->take(10)->get();
+        $data['trending'] = $tread->where('is_trending', 1)->orderBy('id', 'DESC')->take(10)->get();
         $data['popular'] = $tread->orderBy('id', 'DESC')->take(10)->get();
         $data['ads'] = $tread->where('is_ads', 1)->orderBy('id', 'DESC')->take(3)->get();
 
