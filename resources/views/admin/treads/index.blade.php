@@ -23,9 +23,9 @@
 							<thead>
 								<tr>
 									<th scope="col">#</th>
-									<th scope="col">Ads</th>
-									<th scope="col">Sponsored</th>
-									<th scope="col">Treading</th>
+									<th style="width: 20%">Ads</th>
+									<th style="width: 20%">Sponsored</th>
+									<th style="width: 20%">Treading</th>
 									<th scope="col">Title</th>
 									<th scope="col">Category</th>
 									<th scope="col">Created on</th>
@@ -42,28 +42,22 @@
 									<tr>
 										<th scope="row">{{ $sn }}</th>
 										<th>
-											<div class="checkbox checbox-switch switch-success">
-			                                    <label>
-			                                        <input type="checkbox" name="ads[]" @if($tread->is_ads) checked @endif>
-			                                        <span></span>
-			                                    </label>
-			                                </div>
+			                                <select name="ads[]" class="form-control">
+												<option value="1" @if($tread->is_ads) selected @endif>Yes</option>
+												<option value="0" @if(!$tread->is_ads) selected @endif>No</option>
+											</select>
 										</th>
 										<th>
-											<div class="checkbox checbox-switch switch-success">
-			                                    <label>
-			                                        <input type="checkbox" name="sponsored[]" @if($tread->is_sponsored) checked @endif>
-			                                        <span></span>
-			                                    </label>
-			                                </div>
+											<select name="sponsored[]" class="form-control">
+												<option value="1" @if($tread->is_sponsored) selected @endif>Yes</option>
+												<option value="0" @if(!$tread->is_sponsored) selected @endif>No</option>
+											</select>
 										</th>
 										<th>
-											<div class="checkbox checbox-switch switch-success">
-			                                    <label>
-			                                        <input type="checkbox" name="trending[]" @if($tread->is_trending) checked @endif>
-			                                        <span></span>
-			                                    </label>
-			                                </div>
+											<select name="trending[]" class="form-control">
+												<option value="1" @if($tread->is_trending) selected @endif>Yes</option>
+												<option value="0" @if(!$tread->is_trending) selected @endif>No</option>
+											</select>
 										</th>
 										<td>{{ $tread->title }}</td>
 										<td>{{ $tread->category->name }}</td>

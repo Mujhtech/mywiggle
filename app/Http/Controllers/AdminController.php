@@ -681,20 +681,21 @@ class AdminController extends Controller
 
     public function editTreads(Request $request){
 
-        dd($request->all());
 
-        //for ($i=0; $i < count($request->treads); $i++) { 
+        for ($i=0; $i < count($request->treads); $i++) { 
 
-            //$t = Tread::find($request->treads[$i]);
-            //$t->is_ads = isset($request->ads[$i]) && $request->ads[$i] == 'on' ? 1 : 0;
-            //$t->is_sponsored = isset($request->sponsored[$i]) && $request->sponsored[$i] == 'on' ? 1 : 0;
-            //$t->is_trending = isset($request->trending[$i]) && $request->trending[$i] == 'on' ? 1 : 0;
-            //$t->save();
+            //dd($request->sponsored[$i]);
 
-        //}
+            $t = Tread::find($request->treads[$i]);
+            $t->is_ads = $request->ads[$i] == '1' ? 1 : 0;
+            $t->is_sponsored = $request->sponsored[$i] == '1' ? 1 : 0;
+            $t->is_trending = $request->trending[$i] == '1' ? 1 : 0;
+            $t->save();
+
+        }
 
 
-        //return redirect()->back()->with('success','Changes made successfully');
+        return redirect()->back()->with('success','Changes made successfully');
 
     }
 
