@@ -26,8 +26,9 @@
 									<th style="width: 20%">Ads</th>
 									<th style="width: 20%">Sponsored</th>
 									<th style="width: 20%">Treading</th>
+									<th style="width: 20%">Short Skit</th>
+									<th style="width: 20%">Popular</th>
 									<th scope="col">Title</th>
-									<th scope="col">Category</th>
 									<th scope="col">Created on</th>
 									<th scope="col">Status</th>
 									<th scope="col">Action</th>
@@ -59,8 +60,19 @@
 												<option value="0" @if(!$tread->is_trending) selected @endif>No</option>
 											</select>
 										</th>
+										<th>
+											<select name="popular[]" class="form-control">
+												<option value="1" @if($tread->is_popular) selected @endif>Yes</option>
+												<option value="0" @if(!$tread->is_popular) selected @endif>No</option>
+											</select>
+										</th>
+										<th>
+											<select name="shortskit[]" class="form-control">
+												<option value="1" @if($tread->is_short_skit) selected @endif>Yes</option>
+												<option value="0" @if(!$tread->is_short_skit) selected @endif>No</option>
+											</select>
+										</th>
 										<td>{{ $tread->title }}</td>
-										<td>{{ $tread->category->name }}</td>
 										<td>{{ $tread->created_at->diffForHumans() }}</td>
 										<td>
 											@if($tread->status == 1)

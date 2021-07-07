@@ -690,6 +690,8 @@ class AdminController extends Controller
             $t->is_ads = $request->ads[$i] == '1' ? 1 : 0;
             $t->is_sponsored = $request->sponsored[$i] == '1' ? 1 : 0;
             $t->is_trending = $request->trending[$i] == '1' ? 1 : 0;
+            $t->is_popular = $request->popular[$i] == '1' ? 1 : 0;
+            $t->is_short_skit = $request->shortskit[$i] == '1' ? 1 : 0;
             $t->save();
 
         }

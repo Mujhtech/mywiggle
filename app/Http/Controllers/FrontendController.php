@@ -17,11 +17,11 @@ class FrontendController extends Controller
     public function index()
     {
         //
-        $data['short_skit'] = Tread::where('status', 1)->orderBy('id', 'DESC')->take(10)->get();
+        $data['short_skit'] = Tread::where('status', 1)->where('is_short_skit', 1)->orderBy('id', 'DESC')->take(10)->get();
         $data['slider_video'] = Tread::where('status', 1)->orderBy('id', 'DESC')->take(5)->get();
         $data['sponsored'] = Tread::where('status', 1)->where('is_sponsored', 1)->orderBy('id', 'DESC')->take(10)->get();
         $data['trending'] = Tread::where('status', 1)->where('is_trending', 1)->orderBy('id', 'DESC')->take(10)->get();
-        $data['popular'] = Tread::where('status', 1)->orderBy('id', 'DESC')->take(10)->get();
+        $data['popular'] = Tread::where('status', 1)->where('is_popular', 1)->orderBy('id', 'DESC')->take(10)->get();
         $data['ads'] = Tread::where('status', 1)->where('is_ads', 1)->orderBy('id', 'DESC')->take(3)->get();
 
         return view('user.index', $data);
