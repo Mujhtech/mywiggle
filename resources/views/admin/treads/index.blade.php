@@ -23,11 +23,11 @@
 							<thead>
 								<tr>
 									<th scope="col">#</th>
-									<th style="width: 20%">Ads</th>
-									<th style="width: 20%">Sponsored</th>
-									<th style="width: 20%">Treading</th>
-									<th style="width: 20%">Short Skit</th>
-									<th style="width: 20%">Popular</th>
+									<th scope="col">Ads</th>
+									<th scope="col">Sponsored</th>
+									<th scope="col">Treading</th>
+									<th scope="col">Popular</th>
+									<th scope="col">Short Skit</th>
 									<th scope="col">Title</th>
 									<th scope="col">Created on</th>
 									<th scope="col">Status</th>
@@ -42,36 +42,36 @@
 		                        	<input type="hidden" name="treads[]" value="{{ $tread->id }}">
 									<tr>
 										<th scope="row">{{ $sn }}</th>
-										<th>
-			                                <select name="ads[]" class="form-control">
+										<td>
+			                                <select name="ads[]" class="form-control" style="width:80px">
 												<option value="1" @if($tread->is_ads) selected @endif>Yes</option>
 												<option value="0" @if(!$tread->is_ads) selected @endif>No</option>
 											</select>
-										</th>
-										<th>
-											<select name="sponsored[]" class="form-control">
+										</td>
+										<td>
+											<select name="sponsored[]" class="form-control" style="width:80px">
 												<option value="1" @if($tread->is_sponsored) selected @endif>Yes</option>
 												<option value="0" @if(!$tread->is_sponsored) selected @endif>No</option>
 											</select>
-										</th>
-										<th>
-											<select name="trending[]" class="form-control">
+										</td>
+										<td>
+											<select name="trending[]" class="form-control" style="width:80px">
 												<option value="1" @if($tread->is_trending) selected @endif>Yes</option>
 												<option value="0" @if(!$tread->is_trending) selected @endif>No</option>
 											</select>
-										</th>
-										<th>
-											<select name="popular[]" class="form-control">
+										</td>
+										<td>
+											<select name="popular[]" class="form-control" style="width:80px">
 												<option value="1" @if($tread->is_popular) selected @endif>Yes</option>
 												<option value="0" @if(!$tread->is_popular) selected @endif>No</option>
 											</select>
-										</th>
-										<th>
+										</td>
+										<td>
 											<select name="shortskit[]" class="form-control">
 												<option value="1" @if($tread->is_short_skit) selected @endif>Yes</option>
 												<option value="0" @if(!$tread->is_short_skit) selected @endif>No</option>
 											</select>
-										</th>
+										</td>
 										<td>{{ $tread->title }}</td>
 										<td>{{ $tread->created_at->diffForHumans() }}</td>
 										<td>
