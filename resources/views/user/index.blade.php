@@ -386,7 +386,6 @@
 </div>
 </section>
 <!-- owl-carousel Videos Section-2 End -->
-
 <!-- owl-carousel images Start -->
 <section class="pt-0 pb-0 gen-section-padding-2 home-singal-silder">
     <div class="container">
