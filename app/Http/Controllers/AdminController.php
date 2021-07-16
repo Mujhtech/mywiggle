@@ -770,7 +770,7 @@ class AdminController extends Controller
         for ($i=0; $i < count($request->ads); $i++) { 
 
             $ad = Ad::find($request->ads[$i]);
-            $ad->status = isset($request->status[$i]) && $request->status[$i] == 'on' ? 1 : 0;
+            $ad->status = $request->status[$i] == '1' ? 1 : 0;
             $ad->save();
 
         }

@@ -13,7 +13,7 @@
         <link rel="shortcut icon" href="https://ui-avatars.com/api/?name=MyWiggle&color=E50916&background=000000">
 
         <link href="{{ asset('assets/dashboard/css/themes/lite-purple.min.css') }}" rel="stylesheet" />
-        <link href="{{ asset('assets/css/plugins/perfect-scrollbar.min.css') }}" rel="stylesheet" />
+        <link href="{{ asset('assets/css/perfect-scrollbar.min.css') }}" rel="stylesheet" />
         <!-- Toastr -->
         <link href="{{ asset('assets/frontend/user/css/toast.min.css') }}" rel="stylesheet">
 

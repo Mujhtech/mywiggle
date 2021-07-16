@@ -14,6 +14,7 @@ use App\Models\WatchLater;
 use App\Models\TreadLike;
 use App\Models\TreadHistory;
 use App\Models\PayoutRequest;
+use App\Models\Ad;
 
 class UserController extends Controller
 {
@@ -29,6 +30,7 @@ class UserController extends Controller
         $data['point'] = $request->user()->point_earn;
         $data['video'] = Tread::where('user_id', $request->user()->id)->get()->count();
         $data['wl'] = WatchList::where('user_id', $request->user()->id)->get()->count();
+        $data['ads'] = Ad::where('status', 1)->inRandomOrder()->get();
 
         return view('user.logged.index', $data);
     }

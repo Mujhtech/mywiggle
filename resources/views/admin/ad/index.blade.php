@@ -40,12 +40,10 @@
 										<td><a href="{{ $ad->flier_url }}" target="_blank">View Flier</a></td>
 										<td>
 											<input type="hidden" name="ads[]" value="{{ $ad->id }}">
-	                                        <div class="checkbox checbox-switch switch-success">
-				                                <label>
-				                                    <input type="checkbox" name="status[]" @if($ad->status) checked @endif>
-				                                        <span></span>
-				                                </label>
-				                            </div>
+											<select name="status[]" class="form-control">
+												<option value="1" @if($ad->status) selected @endif>Activated</option>
+												<option value="0" @if(!$ad->status) selected @endif>Deactivated</option>
+											</select>
 										</td>
 										<td>
 	                                        <a href="{{ route('admin.d.ad', ['ad' => $ad->id]) }}" class="btn btn-icon btn-round btn-danger" title="Delete"><i class="fa fa-trash"></i></a>
