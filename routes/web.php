@@ -56,7 +56,7 @@ Route::group(['middleware' => ['web', 'guest'], 'prefix' => 'auth'], function ()
 	    return view('user.auth.recover');
 	})->name('auth.recover');
 
-	Route::get('/register/{code}', 'AuthController@referral');
+	Route::get('/view/{code}', 'AuthController@referral')->name('auth.referral');
 
 	Route::post('/login', 'AuthController@login')->name('auth.login.post');
 	Route::post('/register', 'AuthController@register')->name('auth.register.post');

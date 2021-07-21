@@ -15,6 +15,7 @@ use App\Models\TreadLike;
 use App\Models\TreadHistory;
 use App\Models\PayoutRequest;
 use App\Models\Ad;
+use App\Models\User;
 
 class UserController extends Controller
 {
@@ -31,6 +32,7 @@ class UserController extends Controller
         $data['video'] = Tread::where('user_id', $request->user()->id)->get()->count();
         $data['wl'] = WatchList::where('user_id', $request->user()->id)->get()->count();
         $data['ads'] = Ad::where('status', 1)->inRandomOrder()->get();
+        $data['referrals'] = User::where('referred_by', $request->user()->id)->get()->count();
 
         return view('user.logged.index', $data);
     }
