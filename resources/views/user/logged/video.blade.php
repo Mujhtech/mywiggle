@@ -14,8 +14,6 @@
                     <button class="btn btn-success float-right" type="button" data-toggle="modal" data-target="#exampleModal">Add new video</button>
                     <h4 class="card-title mb-3">My Videos</h4>
                     <div class="table-responsive">
-
-
                     <div class="row gx-3 p-3">
 
                         @if(count($treads) > 0)
@@ -42,9 +40,10 @@
                                 <div class="projects__content--manager">
                                     <ul class="request-manager">
                                         <li><a href="#">
-                                            <img src="{{ $tread->user->profile_photo_url }}" alt="">
+                                            <img src="{{ $tread->user->profile_photo_url }}" width="100" alt="">
                                             <span>{{ $tread->user->username }}</span></a></li>
                                             <li>
+                                                <p class="time"><i class="far fa-eyes"></i> {{ $tread->views }} Views</p>
                                                 <p class="time"><i class="far fa-clock"></i> {{ $tread->created_at->diffForHumans() }}</p>
                                             </li>
                                         </ul>

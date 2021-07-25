@@ -9,16 +9,6 @@
     @include('partials.breadcrumb')
     <div class="separator-breadcrumb border-top"></div>
     <div class="row mb-4">
-        <div class="col-lg-12 col-md-12 col-sm-6">
-            <div class="card card-icon-bg card-icon-bg-primary o-hidden mb-4">
-                <div class="card-body text-center">
-                    <div class="content">
-                        <p class="text-muted">My Link</p>
-                        <p class="text-primary text-24 line-height-1"><a href="{{ route('auth.referral', auth()->user()->referral_code ) }}" target="_blank">{{ route('auth.referral', auth()->user()->referral_code ) }}</a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
         <div class="col-lg-4 col-md-4 col-sm-6">
             <div class="card card-icon-bg card-icon-bg-primary o-hidden mb-4">
                 <div class="card-body text-center"><i class="i-Money-2"></i>
