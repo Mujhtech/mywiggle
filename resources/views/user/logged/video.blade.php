@@ -13,7 +13,6 @@
                 <div class="card-body">
                     <button class="btn btn-success float-right" type="button" data-toggle="modal" data-target="#exampleModal">Add new video</button>
                     <h4 class="card-title mb-3">My Videos</h4>
-                    <div class="table-responsive">
                     <div class="row gx-3 p-3">
 
                         @if(count($treads) > 0)
@@ -22,7 +21,7 @@
                         @php $sn++ @endphp
 
                         <div class="card mb-3 col-xl-6 col-lg-6 col-md-6">
-                            <div class="row requests white-bg  wow fadeInUp2  animated" data-wow-delay=".1s" style="visibility: visible; animation-delay: 0.1s; animation-name: fadeInUp2;">
+                                <div class="row requests white-bg  wow fadeInUp2  animated" data-wow-delay=".1s" style="visibility: visible; animation-delay: 0.1s; animation-name: fadeInUp2;">
                                 <div class="col-md-4 projects__thumb" style="background: url('{{ $tread->featured_image_url }}');  background-repeat: no-repeat; background-size: cover;">
                                 </div>
                                 <div class="col-md-8 projects__content">
@@ -36,15 +35,15 @@
                                         @elseif($tread->status == 0)
                                         <span class="badge badge-success">Pending</span>
                                         @endif </span></p>
-                                </div>
-                                <div class="projects__content--manager">
-                                    <ul class="request-manager">
-                                        <li><a href="#">
+                                    </div>
+                                    <div class="projects__content--manager">
+                                        <ul class="request-manager">
+                                            <li><a href="#">
                                             <img src="{{ $tread->user->profile_photo_url }}" width="100" alt="">
                                             <span>{{ $tread->user->username }}</span></a></li>
                                             <li>
-                                                <p class="time"><i class="far fa-eyes"></i> {{ $tread->views }} Views</p>
                                                 <p class="time"><i class="far fa-clock"></i> {{ $tread->created_at->diffForHumans() }}</p>
+
                                             </li>
                                         </ul>
                                     </div>
@@ -56,21 +55,21 @@
                         </div>
 
                         <div class="modal fade" id="exampleModal{{$tread->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                    <div class="modal-dialog" role="document">
-                                        <div class="modal-content">
-                                            <form action="{{ route('user.v.edit', $tread->id) }}" method="POST" enctype="multipart/form-data">
-                                                @csrf
-                                                <div class="modal-header">
-                                                    <h5 class="modal-title" id="exampleModalLabel">Edit a tread</h5>
-                                                    <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <form action="{{ route('user.v.edit', $tread->id) }}" method="POST" enctype="multipart/form-data">
+                                        @csrf
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">Edit a tread</h5>
+                                            <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <p class="font-weight-400 mb-2">Title</p>
+                                                    <input class="form-control" type="text" name="title" placeholder="Title" value="{{ $tread->title }}" readonly />
                                                 </div>
-                                                <div class="modal-body">
-                                                    <div class="row">
-                                                        <div class="col-md-12">
-                                                            <p class="font-weight-400 mb-2">Title</p>
-                                                            <input class="form-control" type="text" name="title" placeholder="Title" value="{{ $tread->title }}" readonly />
-                                                        </div>
-                                                    </div>
+                                            </div>
                                                     <div class="row">
                                                         <div class="col-md-12">
                                                             <p class="font-weight-400 mb-2">Category</p>
@@ -109,6 +108,7 @@
                                         </form>
                                     </div>
                                 </div>
+                            </div>
 
                     @endforeach
                     @else
@@ -126,7 +126,6 @@
 </div>
 <!-- end of row-->
 <!-- end of main-content -->
-</div>
 
 
 @endSection
