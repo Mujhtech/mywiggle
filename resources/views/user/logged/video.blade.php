@@ -42,6 +42,7 @@
                                             <img src="{{ $tread->user->profile_photo_url }}" width="100" alt="">
                                             <span>{{ $tread->user->username }}</span></a></li>
                                             <li>
+                                                <p class="time"><i class="far fa-eyes"></i> {{ $tread->views }} Views</p>
                                                 <p class="time"><i class="far fa-clock"></i> {{ $tread->created_at->diffForHumans() }}</p>
 
                                             </li>
