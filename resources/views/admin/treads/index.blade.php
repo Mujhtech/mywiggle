@@ -29,6 +29,7 @@
 									<th scope="col">Popular</th>
 									<th scope="col">Short Skit</th>
 									<th scope="col">Title</th>
+									<th scope="col">Views</th>
 									<th scope="col">Created on</th>
 									<th scope="col">Status</th>
 									<th scope="col">Action</th>
@@ -73,6 +74,7 @@
 											</select>
 										</td>
 										<td>{{ $tread->title }}</td>
+										<td>{{ $tread->views }}</td>
 										<td>{{ $tread->created_at->diffForHumans() }}</td>
 										<td>
 											@if($tread->status == 1)

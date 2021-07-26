@@ -39,7 +39,7 @@
                                     <div class="projects__content--manager">
                                         <ul class="request-manager">
                                             <li><a href="#">
-                                            <img src="{{ $tread->user->profile_photo_url }}" width="100" alt="">
+                                            <img src="{{ $tread->featured_image_url }}" width="80" alt="">
                                             <span>{{ $tread->user->username }}</span></a></li>
                                             <li>
                                                 <p class="time"><i class="far fa-eyes"></i> {{ $tread->views }} Views</p>
