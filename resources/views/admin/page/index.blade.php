@@ -45,10 +45,10 @@
 									</td>
 									<td>
                                         <a href="{{ route('web.page', ['slug' => $page->slug]) }}" class="btn btn-icon btn-round btn-info" title="View {{ $page->title }}" target="_blank"><i class="fa fa-file-movie-o"></i></a>
-                                        <a href="{{ route('admin.p.page', ['id' => $page->title]) }}" class="btn btn-icon btn-round btn-primary" title="Publish {{ $page->title }}"><i class="fa fa-check"></i></a>
-                                        <a href="{{ route('admin.unp.page', ['id' => $page->title]) }}" class="btn btn-icon btn-round btn-warning" title="Unpublish {{ $page->title }}"><i class="fa fa-close"></i></a>
+                                        <a href="{{ route('admin.p.page', ['id' => $page->id]) }}" class="btn btn-icon btn-round btn-primary" title="Publish {{ $page->title }}"><i class="fa fa-check"></i></a>
+                                        <a href="{{ route('admin.unp.page', ['id' => $page->id]) }}" class="btn btn-icon btn-round btn-warning" title="Unpublish {{ $page->title }}"><i class="fa fa-close"></i></a>
                                         <a href="{{ route('admin.e.page', ['id' => $page->id]) }}" class="btn btn-icon btn-round btn-success" title="Edit {{ $page->title }}"><i class="fa fa-edit"></i></a>
-                                        <a href="{{ route('admin.d.page', ['id' => $page->title]) }}" class="btn btn-icon btn-round btn-danger" title="Delete {{ $page->title }}"><i class="fa fa-trash"></i></a>
+                                        <a href="{{ route('admin.d.page', ['id' => $page->id]) }}" class="btn btn-icon btn-round btn-danger" title="Delete {{ $page->title }}"><i class="fa fa-trash"></i></a>
 									</td>
 								</tr>
 							@endforeach

@@ -1,8 +1,8 @@
 @extends('layout.admin')
 
-@section('title', 'Create edit page')
+@section('title', 'Edit page')
 
-@section('breadcrum', 'Create edit page')
+@section('breadcrum', 'Edit page')
 
 @section('content')
 
@@ -12,11 +12,11 @@
 		<div class="card card-statistics">
 			<div class="card-header">
 				<div class="card-heading">
-					<h4 class="card-title">Create edit page</h4>
+					<h4 class="card-title">Edit page</h4>
 				</div>
 			</div>
 			<div class="card-body">
-				<form method="POST" action="{{ route('admin.ep.page', ['id', $page->id]) }}">
+				<form method="POST" action="{{ route('admin.ep.page', ['page' => $page->id]) }}">
 					@csrf
 					<div class="form-row">
 						<div class="col-md-6 mb-3">

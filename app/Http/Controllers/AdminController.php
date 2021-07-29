@@ -508,16 +508,14 @@ class AdminController extends Controller
     }
 
 
-    public function editPagePost(Request $request, $id){
+    public function editPagePost(Request $request, Page $page){
 
 
         $request->validate([
-            'title' => 'required|string|min:12|max:50',
+            'title' => 'required|string',
             'content' => 'required|string',
         ]);
 
-
-        $page = Page::find($id);
         $page->title = $request->title;
         $page->slug = str_replace(' ', '-', strtolower($request->title));
         $page->content = $request->content;

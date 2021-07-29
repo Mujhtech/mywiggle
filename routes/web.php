@@ -192,13 +192,13 @@ Route::group(['middleware' => ['web', 'admin'], 'prefix' => 'admin'], function (
 
 	Route::get('/page/{id}/delete', 'AdminController@deletePage')->name('admin.d.page');
 
-	Route::get('/page/{id}/publish', 'AdminController@deletePage')->name('admin.p.page');
+	Route::get('/page/{id}/publish', 'AdminController@publishPage')->name('admin.p.page');
 
-	Route::get('/page/{id}/unpublish', 'AdminController@deletePage')->name('admin.unp.page');
+	Route::get('/page/{id}/unpublish', 'AdminController@unpublishPage')->name('admin.unp.page');
 
 	Route::post('/create-page', 'AdminController@createPagePost')->name('admin.cp.page');
 
-	Route::post('/page/{id}/edit', 'AdminController@editPagePost')->name('admin.ep.page');
+	Route::post('/page/{page}/edit', 'AdminController@editPagePost')->name('admin.ep.page');
 
 	// History Routes
 
