@@ -404,12 +404,14 @@ class AdminController extends Controller
 
                 }
 
-                $set->value = $request->file('app-icon')->storeAs(
+                $logo = Setting::where('name', 'app-logo')->first();
+                $logo->value = 'public/uploads/favicon/favicon.png';
+                $logo->save();
+
+                $request->file('app-logo')->storeAs(
                     'public/uploads/favicon', 'favicon.png'
                 );
-
-                $set->save();
-
+                
             }
 
             $set->value = $request->input($set->name);
