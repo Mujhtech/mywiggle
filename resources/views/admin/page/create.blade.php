@@ -21,7 +21,7 @@
 					<div class="form-row">
 						<div class="col-md-6 mb-3">
 							<label for="">Title</label>
-							<input type="text" class="form-control" name="title" placeholder="Full Name">
+							<input type="text" class="form-control" name="title" placeholder="Title">
 							@if($errors->has('title'))
 							<small>{!!  $errors->get('title')[0] !!}</small>
 							@endif
