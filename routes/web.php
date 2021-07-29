@@ -198,6 +198,8 @@ Route::group(['middleware' => ['web', 'admin'], 'prefix' => 'admin'], function (
 
 	Route::post('/create-page', 'AdminController@createPagePost')->name('admin.cp.page');
 
+	Route::post('/page/enable-frontend', 'AdminController@enablePageFrontend')->name('admin.ef.page');
+
 	Route::post('/page/{page}/edit', 'AdminController@editPagePost')->name('admin.ep.page');
 
 	// History Routes

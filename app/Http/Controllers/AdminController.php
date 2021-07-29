@@ -432,6 +432,24 @@ class AdminController extends Controller
 
     }
 
+    public function enablePageFrontend(Request $request){
+
+
+        for ($i=0; $i < count($request->pages); $i++) { 
+
+            //dd($request->sponsored[$i]);
+
+            $p = Page::find($request->pages[$i]);
+            $p->is_frontend = $request->frontend[$i] == '1' ? 1 : 0;
+            $p->save();
+
+        }
+
+
+        return redirect()->back()->with('success','Changes made successfully');
+
+    }
+
 
     public function createPage(){
 
