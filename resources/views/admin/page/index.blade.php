@@ -40,8 +40,8 @@
 										<th scope="row">{{ $sn }}</th>
 										<td>
 			                                <select name="frontend[]" class="form-control" style="width:80px">
-												<option value="1" @if($tread->is_frontend) selected @endif>Yes</option>
-												<option value="0" @if(!$tread->is_frontend) selected @endif>No</option>
+												<option value="1" @if($page->is_frontend) selected @endif>Yes</option>
+												<option value="0" @if(!$page->is_frontend) selected @endif>No</option>
 											</select>
 										</td>
 										<td>{{ $page->title }}</td>
