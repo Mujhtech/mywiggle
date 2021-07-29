@@ -6,6 +6,7 @@ use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\View;
 use App\Models\Category;
 use App\Models\Ad;
+use App\Models\Page;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -29,6 +30,7 @@ class AppServiceProvider extends ServiceProvider
         //
         $data['cat'] = Category::get();
         $data['ads'] = Ad::get();
+        $data['pages'] = Page::where('is_frontend', 1)->get();
 
         view::share($data);
     }

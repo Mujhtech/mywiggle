@@ -63,12 +63,11 @@
                                         <li class="menu-item active">
                                             <a href="{{ url('/') }}">Home</a>
                                         </li>
+                                        @foreach($pages as $page)
                                         <li class="menu-item">
-                                            <a href="{{ route('web.page', 'about-us') }}">About Us</a>
+                                            <a href="{{ route('web.page', $page->slug) }}">{{ $page->title }}</a>
                                         </li>
-                                        <li class="menu-item">
-                                            <a href="{{ route('web.page', 'terms-and-condition') }}">Terms & Condition</a>
-                                        </li>
+                                        @endforeach
                                         <li class="menu-item">
                                             <a href="#">Categories</a>
                                             <i class="fa fa-chevron-down gen-submenu-icon"></i>
