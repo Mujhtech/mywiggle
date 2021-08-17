@@ -93,10 +93,20 @@ class FrontendController extends Controller
     }
 
 
-    public function allvideo()
+    public function allvideo($type)
     {
         //
-        $data['all'] = Tread::paginate(20);
+        if($type == "sponsored"){
+            $data['all'] = Tread::where('is_sponsored', 1)->paginate(20);
+        } elseif($type == "popular"){
+            $data['all'] = Tread::where('is_popular', 1)->paginate(20);
+        } elseif($type == "short"){
+            $data['all'] = Tread::where('is_short_skit', 1)->paginate(20);
+        } elseif($type == "trending"){
+            $data['all'] = Tread::where('is_trending', 1)->paginate(20);
+        } else {
+            $data['all'] = Tread::paginate(20);
+        }
 
         return view('user.all', $data);
 

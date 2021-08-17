@@ -5,13 +5,16 @@
             <li class="nav-item {{  Route::is('user.dashboard') ? 'active' : ''  }}"><a class="nav-item-hold" href="{{ route('user.dashboard') }}" title="Overview"><i class="nav-icon i-Bar-Chart"></i><span class="nav-text">Overview</span></a>
                 <div class="triangle"></div>
             </li>
-            <li class="nav-item {{  Route::is('user.video') ? 'active' : ''  }}"><a class="nav-item-hold" href="{{ route('user.video') }}" title="Fund Requests"><i class="nav-icon i-Computer-Secure"></i><span class="nav-text">My Video</span></a>
+            <li class="nav-item {{  Route::is('user.video') ? 'active' : ''  }}"><a class="nav-item-hold" href="{{ route('user.video') }}" title=""><i class="nav-icon i-Computer-Secure"></i><span class="nav-text">My Video</span></a>
                 <div class="triangle"></div>
             </li>
-            <li class="nav-item {{  Route::is('user.watchlist') ? 'active' : ''  }}"><a class="nav-item-hold" href="{{ route('user.watchlist') }}" title="Fund Requests"><i class="nav-icon i-Computer-Secure"></i><span class="nav-text">My Watch List</span></a>
+            <li class="nav-item {{  Route::is('user.watchlist') ? 'active' : ''  }}"><a class="nav-item-hold" href="{{ route('user.watchlist') }}" title=""><i class="nav-icon i-Computer-Secure"></i><span class="nav-text">My Watch List</span></a>
                 <div class="triangle"></div>
             </li>
-            <li class="nav-item {{  Route::is('user.withdraw') ? 'active' : ''  }}"><a class="nav-item-hold" href="{{ route('user.withdraw') }}" title="Fund Requests"><i class="nav-icon i-Money-2"></i><span class="nav-text">Withdraw</span></a>
+            <li class="nav-item {{  Route::is('user.earning') ? 'active' : ''  }}"><a class="nav-item-hold" href="{{ route('user.earning') }}" title=""><i class="nav-icon i-Money-2"></i><span class="nav-text">My Earning</span></a>
+                <div class="triangle"></div>
+            </li>
+            <li class="nav-item {{  Route::is('user.withdraw') ? 'active' : ''  }}"><a class="nav-item-hold" href="{{ route('user.withdraw') }}" title=""><i class="nav-icon i-Money-2"></i><span class="nav-text">Withdraw</span></a>
                 <div class="triangle"></div>
             </li>
             <li class="nav-item {{  Route::is('user.profile') ? 'active' : ''  }}"><a class="nav-item-hold" href="{{ route('user.profile') }}" title="Profile"><i class="nav-icon i-Administrator"></i><span class="nav-text">Profile</span></a>

@@ -23,9 +23,7 @@
 								<th scope="col">#</th>
 								<th scope="col">Username</th>
 								<th scope="col">Amount (Naira)</th>
-								<th scope="col">Account Number</th>
-								<th scope="col">Account Name</th>
-								<th scope="col">Bank Name</th>
+								<th scope="col">PayPal</th>
 								<th scope="col">Created At</th>
 								<th scope="col">Status</th>
 								<th scope="col">Action</th>
@@ -40,9 +38,7 @@
 									<th scope="row">{{ $sn }}</th>
 									<td>{{ $payment->user->username }}</td>
 									<td>{{ $payment->amount }}</td>
-									<td>{{ $payment->account_number }}</td>
-									<td>{{ $payment->account_name }}</td>
-									<td>{{ $payment->bank_name }}</td>
+									<td>{{ $payment->paypal }}</td>
 									<td>{{ $payment->created_at->diffForHumans() }}</td>
 									<td>
 										@if($payment->status == 1)
@@ -61,7 +57,7 @@
 							@endforeach
 							@else
 								<tr>
-									<td colspan="9" style="text-align: center;">No data found</td>
+									<td colspan="7" style="text-align: center;">No data found</td>
 								</tr>
 							@endif
 						</tbody>

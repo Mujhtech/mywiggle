@@ -25,6 +25,7 @@
 									<th scope="col">#</th>
 									<th scope="col">Role</th>
 									<th scope="col">Username</th>
+									<th scope="col">Toal Points Earned</th>
 									<th scope="col">Joined on</th>
 									<th scope="col">Last Login</th>
 									<th scope="col">Action</th>
@@ -47,6 +48,7 @@
 											</select>
 										</td>
 										<td>{{ $user->username }}</td>
+										<td>{{ $user->points->sum('amount') }}</td>
 										<td>{{ $user->created_at->diffForHumans() }}</td>
 										<td>{{ $user->last_login }}</td>
 										<td>

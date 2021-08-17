@@ -27,6 +27,16 @@
 
                         <div class="row">
                             <div class="col-md-12">
+                                <p class="font-weight-400 mb-2">PayPal Account</p>
+                                <input class="form-control" type="text" name="paypal" placeholder="Paypal Account" value="{{ old('paypal') }}" required />
+                                @if($errors->has('paypal'))
+                                <small>{!!  $errors->get('paypal')[0] !!}</small>
+                                @endif
+                            </div>
+                        </div>
+
+                        <!--<div class="row">
+                            <div class="col-md-12">
                                 <p class="font-weight-400 mb-2">Account Number</p>
                                 <input class="form-control" type="text" name="account_number" placeholder="Account Number" value="{{ old('account_number') }}" required />
                                 @if($errors->has('account_number'))
@@ -53,7 +63,7 @@
                                 <small>{!!  $errors->get('bank_name')[0] !!}</small>
                                 @endif
                             </div>
-                        </div>
+                        </div>-->
                     
                         <button class="btn btn-primary ml-2" type="submit">Create</button>
                     </form>
@@ -75,9 +85,7 @@
                                 <tr>
                                     <th scope="col">#</th>
                                     <th scope="col">Amount</th>
-                                    <th scope="col">Account Number</th>
-                                    <th scope="col">Account Name</th>
-                                    <th scope="col">Bank Name</th>
+                                    <th scope="col">PayPal Account</th>
                                     <th scope="col">Status</th>
                                 </tr>
                             </thead>
@@ -90,9 +98,7 @@
                                 <tr>
                                     <th scope="row">{{ $sn }}</th>
                                     <td>#{{$ww->amount}}</td>
-                                    <td>{{$ww->account_number}}</td>
-                                    <td>{{$ww->account_name}}</td>
-                                    <td>{{$ww->bank_name}}</td>
+                                    <td>{{$ww->paypal}}</td>
                                     <td>
                                         @if($ww->status == 1)
                                         <span class="badge badge-success">Publish</span>
@@ -104,7 +110,7 @@
                             </div>
                             @endforeach
                             @else
-                            <tr><td colspan="6" style="text-align: center;">No data found</td></tr>
+                            <tr><td colspan="4" style="text-align: center;">No data found</td></tr>
                             @endif
                         </tbody>
                     </table>

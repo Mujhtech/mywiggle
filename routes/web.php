@@ -25,7 +25,7 @@ Route::group(['middleware' => ['web']], function () {
     
 	Route::get('/', 'FrontendController@index')->name('web.index');
 
-	Route::get('/all-video', 'FrontendController@allvideo')->name('web.all');
+	Route::get('/all-video/{type}', 'FrontendController@allvideo')->name('web.all');
 
 	Route::get('/video/{slug}', 'FrontendController@single')->name('web.single');
 
@@ -74,6 +74,8 @@ Route::group(['prefix' => 'user', 'middleware' => ['auth']], function () {
 	Route::get('/profile', 'UserController@profile')->name('user.profile');
 
 	Route::get('/videos', 'UserController@video')->name('user.video');
+
+	Route::get('/earnings', 'UserController@earning')->name('user.earning');
 
 	Route::post('/change-profile-picture', 'UserController@updateProfilePicture')->name('user.u.ppicture');
 

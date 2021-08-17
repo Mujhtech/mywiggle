@@ -16,6 +16,7 @@ use App\Models\TreadHistory;
 use App\Models\PayoutRequest;
 use App\Models\Ad;
 use App\Models\User;
+use App\Models\EarningHistory;
 
 class UserController extends Controller
 {
@@ -35,6 +36,15 @@ class UserController extends Controller
         $data['referrals'] = User::where('referred_by', $request->user()->id)->get()->count();
 
         return view('user.logged.index', $data);
+    }
+
+    public function earning(Request $request)
+    {
+        //
+        $data['title'] = "My Earning";
+        $data['earnings'] = EarningHistory::where('user_id', $request->user()->id)->get();
+
+        return view('user.logged.earning', $data);
     }
 
     public function video(Request $request)
@@ -337,9 +347,7 @@ class UserController extends Controller
 
         $request->validate([
             'amount' => 'required',
-            'bank_name' => 'required',
-            'account_name' => 'required',
-            'account_number' => 'required'
+            'paypal' => 'required',
         ]);
 
         $u_amount = $request->user()->point_earn * get_setting('point-equal-balance');
@@ -361,9 +369,7 @@ class UserController extends Controller
         $wd = new PayoutRequest;
         $wd->user_id = $request->user()->id;
         $wd->amount = $request->amount;
-        $wd->bank_name = $request->bank_name;
-        $wd->account_number = $request->account_number;
-        $wd->account_name = $request->account_name;
+        $wd->paypal = $request->paypal;
 
         if($wd->save()){
 

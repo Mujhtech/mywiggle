@@ -47,6 +47,12 @@ class User extends Authenticatable
     }
 
 
+    public function points()
+    {
+        return $this->hasMany(EarningHistory::class, 'user_id', 'id');
+    }
+
+
     public function getProfilePhotoUrlAttribute()
     {
         return $this->avatar ? Storage::url($this->avatar) : 'https://ui-avatars.com/api/?name='.urlencode($this->fullname).'&color=7F9CF5&background=EBF4FF';
