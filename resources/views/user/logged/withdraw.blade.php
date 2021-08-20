@@ -66,6 +66,7 @@
                         </div>-->
                     
                         <button class="btn btn-primary ml-2" type="submit">Create</button>
+                        <img src="{{ asset('assets/img/paypal.jpg') }}" />
                     </form>
                     @else
                     <h4>Withdrawal form has been closed</h4>
@@ -97,11 +98,11 @@
                                 @php $sn++ @endphp
                                 <tr>
                                     <th scope="row">{{ $sn }}</th>
-                                    <td>#{{$ww->amount}}</td>
+                                    <td>${{$ww->amount}}</td>
                                     <td>{{$ww->paypal}}</td>
                                     <td>
                                         @if($ww->status == 1)
-                                        <span class="badge badge-success">Publish</span>
+                                        <span class="badge badge-success">Approved</span>
                                         @elseif($ww->status == 0)
                                         <span class="badge badge-success">Pending</span>
                                         @endif
