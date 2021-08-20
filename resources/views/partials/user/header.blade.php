@@ -47,10 +47,10 @@
                 <div class="row">
                     @if(get_setting('enable-ads'))
                     @if(\App\Models\Ad::where('status', 1)->exists())
-                    <?php $ad = \App\Models\Ad::where('status', 1)->first(); ?>
+                    <?php $ad = \App\Models\Ad::where('status', 1)->inRandomOrder()->first(); ?>
                     <div class="col-lg-12 col-md-12 col-xs-12 offset-lg-2 offset-md-3">
                         <a href="{{ $ad->url }}">
-                            <img src="{{ $ad->flier_url }}" alt="Ads">
+                            <img src="{{ $ad->flier_url }}" style="width:200px" alt="Ads">
                         </a>
                     </div>
                     @else
