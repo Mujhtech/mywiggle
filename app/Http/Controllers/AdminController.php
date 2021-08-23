@@ -789,6 +789,7 @@ class AdminController extends Controller
 
             $ad = Ad::find($request->ads[$i]);
             $ad->status = $request->status[$i] == '1' ? 1 : 0;
+            $ad->is_front = $request->front[$i] == '1' ? 1 : 0;
             $ad->save();
 
         }

@@ -26,6 +26,7 @@
 									<th scope="col">Url</th>
 									<th scope="col">Flier Url</th>
 									<th scope="col">Status</th>
+									<th scope="col">Make For Front</th>
 									<th scope="col">Action</th>
 								</tr>
 							</thead>
@@ -43,6 +44,12 @@
 											<select name="status[]" class="form-control">
 												<option value="1" @if($ad->status) selected @endif>Activated</option>
 												<option value="0" @if(!$ad->status) selected @endif>Deactivated</option>
+											</select>
+										</td>
+										<td>
+											<select name="front[]" class="form-control">
+												<option value="1" @if($ad->is_front) selected @endif>Yes</option>
+												<option value="0" @if(!$ad->is_front) selected @endif>No</option>
 											</select>
 										</td>
 										<td>

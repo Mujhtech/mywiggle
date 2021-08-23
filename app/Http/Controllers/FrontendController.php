@@ -126,7 +126,7 @@ class FrontendController extends Controller
             $eh = new EarningHistory;
             $eh->user_id = Auth::user()->id;
             $eh->amount = get_setting('share-post-point');
-            $eh->description = "You earned ".get_setting('share-post-point')." for sharing";
+            $eh->description = "You earned ".get_setting('share-post-point')." for sharing ".$tread->title;
             $eh->save();
 
             $user = Auth::user();
