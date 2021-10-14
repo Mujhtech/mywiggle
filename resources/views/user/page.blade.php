@@ -94,14 +94,14 @@
                             <button type="submit" class="search-submit"></button>
                         </form>
                     </div>
-                    <div class="widget widget_recent_entries">
+                    <!--<div class="widget widget_recent_entries">
                         <h2 class="widget-title">Recent Posts</h2>
                         <ul>
                             <li>
                                 <a href="#">Stream like a pro with (free) live encoding software</a>
                             </li>
                         </ul>
-                    </div>
+                    </div>-->
                 </div>
             </div>
         </div>
