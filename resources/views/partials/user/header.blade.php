@@ -78,14 +78,13 @@
                                         </li>
                                         @endforeach
                                         <li class="menu-item">
-                                            <a href="#">Categories</a>
+                                            <a href="#">My Earnings</a>
                                             <i class="fa fa-chevron-down gen-submenu-icon"></i>
                                             <ul class="sub-menu">
-                                                @foreach($cat as $cc)
                                                 <li class="menu-item">
-                                                    <a href="{{ route('web.category', $cc->slug) }}">{{ $cc->name}}</a>
+                                                    <a href="{{ url('/social-media-marketer') }}">Social Media Marketer</a>
+                                                    <a href="{{ url('/content-creator') }}">Content Creator</a>
                                                 </li>
-                                                @endforeach
                                             </ul>
                                         </li>
                                     </ul>

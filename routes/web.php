@@ -25,6 +25,16 @@ Route::group(['middleware' => ['web']], function () {
     
 	Route::get('/', 'FrontendController@index')->name('web.index');
 
+	Route::get('/social-media-marketer', function(){
+		$data['title'] = 'Social Media Marketer';
+		return view('user.social-media', $data);
+	});
+
+	Route::get('/content-creator', function(){
+		$data['title'] = 'Content Creator';
+		return view('user.content-creator', $data);
+	});
+
 	Route::get('/all-video/{type}', 'FrontendController@allvideo')->name('web.all');
 
 	Route::get('/video/{slug}', 'FrontendController@single')->name('web.single');
