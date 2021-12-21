@@ -710,6 +710,7 @@ class AdminController extends Controller
             $t->is_trending = $request->trending[$i] == '1' ? 1 : 0;
             $t->is_popular = $request->popular[$i] == '1' ? 1 : 0;
             $t->is_short_skit = $request->shortskit[$i] == '1' ? 1 : 0;
+            $t->is_social_media = $request->socialmedia[$i] == '1' ? 1 : 0;
             $t->save();
 
         }

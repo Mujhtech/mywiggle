@@ -28,6 +28,7 @@
 									<th scope="col">Treading</th>
 									<th scope="col">Popular</th>
 									<th scope="col">Short Skit</th>
+									<th scope="col">Social Media</th>
 									<th scope="col">Title</th>
 									<th scope="col">Views</th>
 									<th scope="col">Created on</th>
@@ -71,6 +72,12 @@
 											<select name="shortskit[]" class="form-control">
 												<option value="1" @if($tread->is_short_skit) selected @endif>Yes</option>
 												<option value="0" @if(!$tread->is_short_skit) selected @endif>No</option>
+											</select>
+										</td>
+										<td>
+											<select name="socialmedia[]" class="form-control">
+												<option value="1" @if($tread->is_social_media) selected @endif>Yes</option>
+												<option value="0" @if(!$tread->is_social_media) selected @endif>No</option>
 											</select>
 										</td>
 										<td>{{ $tread->title }}</td>

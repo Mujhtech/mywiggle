@@ -15,9 +15,9 @@ class UpdatePayoutRequestsTable extends Migration
     {
         //
         Schema::table('payout_requests', function (Blueprint $table) {
-            $table->string('account_number')->nullable()->change();;
-            $table->string('account_name')->nullable()->change();;
-            $table->string('bank_name')->nullable()->change();;
+            $table->string('account_number')->nullable()->change();
+            $table->string('account_name')->nullable()->change();
+            $table->string('bank_name')->nullable()->change();
             $table->string('paypal')->nullable();
         });
     }

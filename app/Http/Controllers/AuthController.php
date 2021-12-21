@@ -77,6 +77,7 @@ class AuthController extends Controller
         $user->password = $request->pass1;
         $user->role_id = 1;
         $user->is_verified = 1;
+        $user->account_type = $request->account_type;
         $user->last_login = Carbon::now();
         $user->email_verified_at = Carbon::now();
         $user->referral_code = substr(time(), 0, 2).substr(time(), 4, 6).substr(time(), 7, 9);

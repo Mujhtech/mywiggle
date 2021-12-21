@@ -22,6 +22,7 @@ class FrontendController extends Controller
         $data['sponsored'] = Tread::where('status', 1)->where('is_sponsored', 1)->orderBy('id', 'DESC')->take(10)->get();
         $data['trending'] = Tread::where('status', 1)->where('is_trending', 1)->orderBy('id', 'DESC')->take(10)->get();
         $data['popular'] = Tread::where('status', 1)->where('is_popular', 1)->orderBy('id', 'DESC')->take(10)->get();
+        $data['social_media'] = Tread::where('status', 1)->where('is_social_media', 1)->orderBy('id', 'DESC')->take(10)->get(); 
         $data['ads'] = Tread::where('status', 1)->where('is_ads', 1)->orderBy('id', 'DESC')->take(3)->get();
 
         return view('user.index', $data);
