@@ -39,6 +39,10 @@ class PointController extends Controller
     public function store(Request $request)
     {
         //
+        $request->validate([
+            'user_id' => 'required'
+        ]);
+
         $ph = new PointHistory;
         $ph->user_id = $request->user_id;
         $ph->point = $request->point;
