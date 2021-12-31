@@ -128,6 +128,10 @@ Route::group(['middleware' => ['web', 'admin'], 'prefix' => 'admin'], function (
 
 	Route::get('/blocked-users', 'AdminController@usersBlocked')->name('admin.b.users');
 
+	Route::get('/add-user-history', 'PointController@create')->name('admin.h.create');
+
+	Route::post('/add-user-history', 'PointController@store')->name('admin.h.store');
+
 	Route::get('/user/{id}/block', 'AdminController@blockUser')->name('admin.b.user');
 
 	Route::get('/user/{id}/unblock', 'AdminController@unblockUser')->name('admin.unb.user');

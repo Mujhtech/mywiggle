@@ -805,6 +805,7 @@ class AdminController extends Controller
         for ($i=0; $i < count($request->users); $i++) { 
 
             $user = User::find($request->users[$i]);
+            $user->account_type = isset($request->accttype[$i]) ? $request->accttype[$i] : $user->account_type;
             $user->role_id = isset($request->roles[$i]) ? $request->roles[$i] : $user->role_id;
             $user->save();
 

@@ -21,7 +21,7 @@
                 </ul>
             </li>
             <li class="nav-static-title">Users</li>
-            <li class="{{  Route::is('admin.users') || Route::is('admin.unv.users') || Route::is('admin.b.users') || Route::is('admin.c.user') ? 'active' : ''  }}">
+            <li class="{{  Route::is('admin.users') || Route::is('admin.unv.users') || Route::is('admin.b.users') || Route::is('admin.c.user') ? 'active' : ''  }} || Route::is('admin.h.create') ? 'active' : ''  }}">
                 <a class="has-arrow" href="javascript:void(0)" aria-expanded="false">
                     <i class="nav-icon ti ti-rocket"></i>
                     <span class="nav-title">Manage Users</span>
@@ -31,6 +31,7 @@
                     <li class="{{  Route::is('admin.users') ? 'active' : ''  }}"> <a href='{{ route("admin.users") }}'>Active Users</a> </li>
                     <li class="{{  Route::is('admin.unv.users') ? 'active' : ''  }}"> <a href='{{ route("admin.unv.users") }}'>Unverified Users</a> </li>
                     <li class="{{  Route::is('admin.b.users') ? 'active' : ''  }}"> <a href='{{ route("admin.b.users") }}'>Blocked Users</a> </li>
+                    <li class="{{  Route::is('admin.h.create') ? 'active' : ''  }}"> <a href='{{ route("admin.h.create") }}'>Add History</a> </li>
                 </ul>
             </li>
             <li class="nav-static-title">Categories</li>
