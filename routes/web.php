@@ -11,239 +11,245 @@ use Illuminate\Support\Facades\Route;
 | routes are loaded by the RouteServiceProvider within a group which
 | contains the "web" middleware group. Now create something great!
 |
-*/
+ */
 
-/* 
+/*
 
-
-	Route::get('/', function () {
-    	return view('index');
-	});
-*/
+Route::get('/', function () {
+return view('index');
+});
+ */
 
 Route::group(['middleware' => ['web']], function () {
-    
-	Route::get('/', 'FrontendController@index')->name('web.index');
 
-	Route::get('/social-media-marketer', function(){
-		$data['title'] = 'Social Media Marketer';
-		return view('user.social-media', $data);
-	});
+    Route::get('/', 'FrontendController@index')->name('web.index');
 
-	Route::get('/content-creator', function(){
-		$data['title'] = 'Content Creator';
-		return view('user.content-creator', $data);
-	});
+    Route::get('/social-media-marketer', function () {
+		
+        if (!auth()->check()) {
+            return redirect()->route('auth.login');
 
-	Route::get('/all-video/{type}', 'FrontendController@allvideo')->name('web.all');
+        }
 
-	Route::get('/video/{slug}', 'FrontendController@single')->name('web.single');
+        if (auth()->user()->account_type != 'smm') {
+            abort(404);
+        }
 
-	Route::get('/page/{slug}', 'FrontendController@page')->name('web.page');
+        $data['title'] = 'Social Media Marketer';
+        return view('user.social-media', $data);
+    });
 
-	Route::get('/category/{slug}', 'FrontendController@category')->name('web.category');
+    Route::get('/content-creator', function () {
 
-	Route::get('/search', 'FrontendController@search')->name('web.search');
+        if (!auth()->check()) {
+            return redirect()->route('auth.login');
 
-	Route::get('/share/{platform}/{slug}', 'FrontendController@share')->name('web.share');
+        }
 
-	Route::get('/add-to-watch-list/{slug}', 'FrontendController@addToWatchList')->name('web.addwl');
+        if (auth()->user()->account_type != 'content_creator') {
+            abort(404);
+        }
+
+        $data['title'] = 'Content Creator';
+        return view('user.content-creator', $data);
+    });
+
+    Route::get('/all-video/{type}', 'FrontendController@allvideo')->name('web.all');
+
+    Route::get('/video/{slug}', 'FrontendController@single')->name('web.single');
+
+    Route::get('/page/{slug}', 'FrontendController@page')->name('web.page');
+
+    Route::get('/category/{slug}', 'FrontendController@category')->name('web.category');
+
+    Route::get('/search', 'FrontendController@search')->name('web.search');
+
+    Route::get('/share/{platform}/{slug}', 'FrontendController@share')->name('web.share');
+
+    Route::get('/add-to-watch-list/{slug}', 'FrontendController@addToWatchList')->name('web.addwl');
 
 });
 
-
 Route::group(['middleware' => ['web', 'guest'], 'prefix' => 'auth'], function () {
-    
-	Route::get('/login', function () {
-	    return view('user.auth.login');
-	})->name('auth.login');
 
-	Route::get('/register', function () {
-	    return view('user.auth.register');
-	})->name('auth.register');
+    Route::get('/login', function () {
+        return view('user.auth.login');
+    })->name('auth.login');
 
-	Route::get('/forgot-password', function () {
-	    return view('user.auth.recover');
-	})->name('auth.recover');
+    Route::get('/register', function () {
+        return view('user.auth.register');
+    })->name('auth.register');
 
-	Route::get('/view/{code}', 'AuthController@referral')->name('auth.referral');
+    Route::get('/forgot-password', function () {
+        return view('user.auth.recover');
+    })->name('auth.recover');
 
-	Route::post('/login', 'AuthController@login')->name('auth.login.post');
-	Route::post('/register', 'AuthController@register')->name('auth.register.post');
-	Route::post('/forgot-password', 'AuthController@recover')->name('auth.recover.post');
+    Route::get('/view/{code}', 'AuthController@referral')->name('auth.referral');
+
+    Route::post('/login', 'AuthController@login')->name('auth.login.post');
+    Route::post('/register', 'AuthController@register')->name('auth.register.post');
+    Route::post('/forgot-password', 'AuthController@recover')->name('auth.recover.post');
 
 });
 
 Route::get('/logout', 'AuthController@logout')->name('auth.logout');
 
-
 Route::group(['prefix' => 'user', 'middleware' => ['auth']], function () {
-    
-	Route::get('/dashboard', 'UserController@index')->name('user.dashboard');
 
-	Route::get('/profile', 'UserController@profile')->name('user.profile');
+    Route::get('/dashboard', 'UserController@index')->name('user.dashboard');
 
-	Route::get('/videos', 'UserController@video')->name('user.video');
+    Route::get('/profile', 'UserController@profile')->name('user.profile');
 
-	Route::get('/earnings', 'UserController@earning')->name('user.earning');
+    Route::get('/videos', 'UserController@video')->name('user.video');
 
-	Route::post('/change-profile-picture', 'UserController@updateProfilePicture')->name('user.u.ppicture');
+    Route::get('/earnings', 'UserController@earning')->name('user.earning');
 
-	Route::post('/update-profile', 'UserController@updateProfile')->name('user.u.profile');
+    Route::post('/change-profile-picture', 'UserController@updateProfilePicture')->name('user.u.ppicture');
 
-	Route::post('/change-password', 'UserController@updatePassword')->name('user.u.password');
+    Route::post('/update-profile', 'UserController@updateProfile')->name('user.u.profile');
 
-	Route::post('/create-video', 'UserController@createVideo')->name('user.v.create');
+    Route::post('/change-password', 'UserController@updatePassword')->name('user.u.password');
 
-	Route::get('/delete-video/{id}', 'UserController@deleteVideo')->name('user.v.delete');
+    Route::post('/create-video', 'UserController@createVideo')->name('user.v.create');
 
-	Route::post('/edit-video/{id}', 'UserController@editVideo')->name('user.v.edit');
+    Route::get('/delete-video/{id}', 'UserController@deleteVideo')->name('user.v.delete');
 
-	Route::get('/watch-list', 'UserController@myWatchList')->name('user.watchlist');
+    Route::post('/edit-video/{id}', 'UserController@editVideo')->name('user.v.edit');
 
-	Route::get('/remove-watch-list/{id}', 'UserController@removeFromWatchList')->name('user.rwatchlist');
+    Route::get('/watch-list', 'UserController@myWatchList')->name('user.watchlist');
 
-	Route::get('/withdraw', 'UserController@withdraw')->name('user.withdraw');
+    Route::get('/remove-watch-list/{id}', 'UserController@removeFromWatchList')->name('user.rwatchlist');
 
-	Route::post('/withdraw', 'UserController@createWithdraw')->name('user.c.withdraw');
+    Route::get('/withdraw', 'UserController@withdraw')->name('user.withdraw');
 
+    Route::post('/withdraw', 'UserController@createWithdraw')->name('user.c.withdraw');
 
 });
 
-
 Route::group(['middleware' => ['web', 'admin'], 'prefix' => 'admin'], function () {
 
+    // Index Route
 
-	// Index Route
-    
-	Route::get('/', 'AdminController@index')->name('admin.index');
+    Route::get('/', 'AdminController@index')->name('admin.index');
 
-	// User Routes
+    // User Routes
 
-	Route::get('/users', 'AdminController@users')->name('admin.users');
+    Route::get('/users', 'AdminController@users')->name('admin.users');
 
-	Route::get('/unverified-users', 'AdminController@usersUnverified')->name('admin.unv.users');
+    Route::get('/unverified-users', 'AdminController@usersUnverified')->name('admin.unv.users');
 
-	Route::get('/create-user', 'AdminController@usersCreate')->name('admin.c.user');
+    Route::get('/create-user', 'AdminController@usersCreate')->name('admin.c.user');
 
-	Route::get('/blocked-users', 'AdminController@usersBlocked')->name('admin.b.users');
+    Route::get('/blocked-users', 'AdminController@usersBlocked')->name('admin.b.users');
 
-	Route::get('/add-user-history', 'PointController@create')->name('admin.h.create');
+    Route::get('/add-user-history', 'PointController@create')->name('admin.h.create');
 
-	Route::post('/add-user-history', 'PointController@store')->name('admin.h.store');
+    Route::post('/add-user-history', 'PointController@store')->name('admin.h.store');
 
-	Route::get('/user/{id}/block', 'AdminController@blockUser')->name('admin.b.user');
+    Route::get('/user/{id}/block', 'AdminController@blockUser')->name('admin.b.user');
 
-	Route::get('/user/{id}/unblock', 'AdminController@unblockUser')->name('admin.unb.user');
+    Route::get('/user/{id}/unblock', 'AdminController@unblockUser')->name('admin.unb.user');
 
-	Route::get('/user/{id}/verify', 'AdminController@verifyUser')->name('admin.v.user');
+    Route::get('/user/{id}/verify', 'AdminController@verifyUser')->name('admin.v.user');
 
-	Route::get('/user/{id}/unverify', 'AdminController@unverifyUser')->name('admin.unv.user');
+    Route::get('/user/{id}/unverify', 'AdminController@unverifyUser')->name('admin.unv.user');
 
-	Route::get('/user/{id}/view', 'AdminController@singleUser')->name('admin.vw.user');
+    Route::get('/user/{id}/view', 'AdminController@singleUser')->name('admin.vw.user');
 
-	Route::get('/user/{user}/edit', 'AdminController@editUser')->name('admin.e.user');
+    Route::get('/user/{user}/edit', 'AdminController@editUser')->name('admin.e.user');
 
-	Route::get('/user/{id}/delete', 'AdminController@deleteUser')->name('admin.d.user');
+    Route::get('/user/{id}/delete', 'AdminController@deleteUser')->name('admin.d.user');
 
-	Route::post('/create-user', 'AdminController@createUserPost')->name('admin.p.user');
+    Route::post('/create-user', 'AdminController@createUserPost')->name('admin.p.user');
 
-	Route::post('/user/{user}/edit', 'AdminController@editUserPost')->name('admin.ep.user');
+    Route::post('/user/{user}/edit', 'AdminController@editUserPost')->name('admin.ep.user');
 
-	Route::post('/users/update-role', 'AdminController@updateUsersRole')->name('admin.upr.users');
+    Route::post('/users/update-role', 'AdminController@updateUsersRole')->name('admin.upr.users');
 
+    // Tread Routes
 
-	// Tread Routes
+    Route::get('/create-tread', 'AdminController@createTread')->name('admin.c.tread');
 
-	Route::get('/create-tread', 'AdminController@createTread')->name('admin.c.tread');
+    Route::post('/create-tread', 'AdminController@createTreadPost')->name('admin.cp.tread');
 
-	Route::post('/create-tread', 'AdminController@createTreadPost')->name('admin.cp.tread');
+    Route::get('/treads', 'AdminController@treads')->name('admin.treads');
 
-	Route::get('/treads', 'AdminController@treads')->name('admin.treads');
+    Route::get('/publish-treads', 'AdminController@publishTreads')->name('admin.p.treads');
 
-	Route::get('/publish-treads', 'AdminController@publishTreads')->name('admin.p.treads');
+    Route::get('/unpublish-treads', 'AdminController@unPublishtreads')->name('admin.unp.treads');
 
-	Route::get('/unpublish-treads', 'AdminController@unPublishtreads')->name('admin.unp.treads');
+    Route::get('/tread/{id}/delete', 'AdminController@deleteTread')->name('admin.d.tread');
 
-	Route::get('/tread/{id}/delete', 'AdminController@deleteTread')->name('admin.d.tread');
+    Route::get('/tread/{id}/edit', 'AdminController@editTread')->name('admin.e.tread');
 
-	Route::get('/tread/{id}/edit', 'AdminController@editTread')->name('admin.e.tread');
+    Route::post('/treads/edit', 'AdminController@editTreads')->name('admin.e.treads');
 
-	Route::post('/treads/edit', 'AdminController@editTreads')->name('admin.e.treads');
+    Route::post('/tread/{tread}/edit', 'AdminController@editTreadPost')->name('admin.ep.tread');
 
-	Route::post('/tread/{tread}/edit', 'AdminController@editTreadPost')->name('admin.ep.tread');
+    Route::get('/tread/{id}/publish', 'AdminController@publishTread')->name('admin.p.tread');
 
-	Route::get('/tread/{id}/publish', 'AdminController@publishTread')->name('admin.p.tread');
+    Route::get('/tread/{id}/unpublish', 'AdminController@unpublishTread')->name('admin.unp.tread');
 
-	Route::get('/tread/{id}/unpublish', 'AdminController@unpublishTread')->name('admin.unp.tread');
+    // Category Routes
 
+    Route::get('/categories', 'AdminController@categories')->name('admin.categories');
 
-	// Category Routes
+    Route::get('/create-category', 'AdminController@createCategory')->name('admin.c.category');
 
-	Route::get('/categories', 'AdminController@categories')->name('admin.categories');
+    Route::post('/create-category', 'AdminController@createCategoryPost')->name('admin.p.category');
 
-	Route::get('/create-category', 'AdminController@createCategory')->name('admin.c.category');
+    Route::get('/category/{id}/delete', 'AdminController@categoyDelete')->name('admin.d.category');
 
-	Route::post('/create-category', 'AdminController@createCategoryPost')->name('admin.p.category');
+    // Setting Routes
 
-	Route::get('/category/{id}/delete', 'AdminController@categoyDelete')->name('admin.d.category');
+    Route::get('/setting', 'AdminController@setting')->name('admin.setting');
 
+    Route::post('/setting', 'AdminController@editSetting')->name('admin.p.setting');
 
-	// Setting Routes
+    // Page Routes
 
+    Route::get('/create-page', 'AdminController@createPage')->name('admin.c.page');
 
-	Route::get('/setting', 'AdminController@setting')->name('admin.setting');
+    Route::get('/pages', 'AdminController@pages')->name('admin.pages');
 
-	Route::post('/setting', 'AdminController@editSetting')->name('admin.p.setting');
+    Route::get('/page/{id}/edit', 'AdminController@editPage')->name('admin.e.page');
 
+    Route::get('/page/{id}/delete', 'AdminController@deletePage')->name('admin.d.page');
 
+    Route::get('/page/{id}/publish', 'AdminController@publishPage')->name('admin.p.page');
 
-	// Page Routes
+    Route::get('/page/{id}/unpublish', 'AdminController@unpublishPage')->name('admin.unp.page');
 
-	Route::get('/create-page', 'AdminController@createPage')->name('admin.c.page');
+    Route::post('/create-page', 'AdminController@createPagePost')->name('admin.cp.page');
 
-	Route::get('/pages', 'AdminController@pages')->name('admin.pages');
+    Route::post('/page/enable-frontend', 'AdminController@enablePageFrontend')->name('admin.ef.page');
 
-	Route::get('/page/{id}/edit', 'AdminController@editPage')->name('admin.e.page');
+    Route::post('/page/{page}/edit', 'AdminController@editPagePost')->name('admin.ep.page');
 
-	Route::get('/page/{id}/delete', 'AdminController@deletePage')->name('admin.d.page');
+    // History Routes
 
-	Route::get('/page/{id}/publish', 'AdminController@publishPage')->name('admin.p.page');
+    Route::get('/payments', 'AdminController@payments')->name('admin.payments');
 
-	Route::get('/page/{id}/unpublish', 'AdminController@unpublishPage')->name('admin.unp.page');
+    Route::get('/earnings', 'AdminController@earnings')->name('admin.earnings');
 
-	Route::post('/create-page', 'AdminController@createPagePost')->name('admin.cp.page');
+    Route::get('/tread-history', 'AdminController@tHistory')->name('admin.t.history');
 
-	Route::post('/page/enable-frontend', 'AdminController@enablePageFrontend')->name('admin.ef.page');
+    Route::get('/login-history', 'AdminController@lHistory')->name('admin.l.history');
 
-	Route::post('/page/{page}/edit', 'AdminController@editPagePost')->name('admin.ep.page');
+    Route::get('/payment/{id}/approve', 'AdminController@approvePayment')->name('admin.app.payment');
 
-	// History Routes
+    Route::get('/payment/{id}/delete', 'AdminController@deletePayment')->name('admin.d.payment');
 
-	Route::get('/payments', 'AdminController@payments')->name('admin.payments');
+    // Ads Routes
 
-	Route::get('/earnings', 'AdminController@earnings')->name('admin.earnings');
+    Route::get('/ads', 'AdminController@ads')->name('admin.ads');
 
-	Route::get('/tread-history', 'AdminController@tHistory')->name('admin.t.history');
+    Route::get('/create-ad', 'AdminController@createAd')->name('admin.c.ad');
 
-	Route::get('/login-history', 'AdminController@lHistory')->name('admin.l.history');
+    Route::post('/create-ad', 'AdminController@createAdPost')->name('admin.cp.ad');
 
-	Route::get('/payment/{id}/approve', 'AdminController@approvePayment')->name('admin.app.payment');
+    Route::get('/ad/{ad}/delete', 'AdminController@deleteAd')->name('admin.d.ad');
 
-	Route::get('/payment/{id}/delete', 'AdminController@deletePayment')->name('admin.d.payment');
-
-
-	// Ads Routes
-
-	Route::get('/ads', 'AdminController@ads')->name('admin.ads');
-
-	Route::get('/create-ad', 'AdminController@createAd')->name('admin.c.ad');
-
-	Route::post('/create-ad', 'AdminController@createAdPost')->name('admin.cp.ad');
-
-	Route::get('/ad/{ad}/delete', 'AdminController@deleteAd')->name('admin.d.ad');
-
-	Route::post('/ad/status', 'AdminController@statusAd')->name('admin.s.ads');
-
+    Route::post('/ad/status', 'AdminController@statusAd')->name('admin.s.ads');
 
 });

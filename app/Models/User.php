@@ -57,4 +57,9 @@ class User extends Authenticatable
     {
         return $this->avatar ? Storage::url($this->avatar) : 'https://ui-avatars.com/api/?name='.urlencode($this->fullname).'&color=7F9CF5&background=EBF4FF';
     }
+
+    public function myhistories()
+    {
+        return $this->hasMany(PointHistory::class, 'user_id', 'id');
+    }
 }

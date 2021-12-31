@@ -1,7 +1,7 @@
 @extends('layout.user')
 @section('content')
 
-<!-- breadcrumb -->
+    <!-- breadcrumb -->
     <div class="gen-breadcrumb" style="background-image: url('{{ asset('assets/img/background/asset-54.jpg') }}');">
         <div class="container">
             <div class="row align-items-center">
@@ -34,25 +34,40 @@
                     <div class="gen-blog-post">
                         <div class="gen-blog-contain">
                             <h4 class="card-title mb-3">{{ $title }}</h4>
-                            <div class="table-responsive">
-                                <table>
-                                    <thead>
-                                        <tr>
-                                            <th>Social Media Number</th>
-                                            <th>Content</th>
-                                            <th>Facebook Links</th>
-                                            <th>Facebook Community</th>
-                                            <th>Facebook Share</th>
-                                            <th>Points</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td colspan="6" style="text-align: center">No data available</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
+                            @if (auth()->check())
+                                <div class="table-responsive">
+                                    <table>
+                                        <thead>
+                                            <tr>
+                                                <th>Video Content</th>
+                                                <th>Total Comments</th>
+                                                <th>Total Likes</th>
+                                                <th>Point</th>
+                                                <th>Amount Earned</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @if (auth()->user()->myhistories->count() > 0)
+                                                @foreach (auth()->user()->myhistories as $history)
+                                                    <tr>
+                                                        <td>{{ $history->video_content }}</td>
+                                                        <td>{{ $history->total_comments }}</td>
+                                                        <td>{{ $history->total_likes }}</td>
+                                                        <td>{{ $history->point }}</td>
+                                                        <td>{{ $history->amount }}</td>
+                                                    </tr>
+                                                @endforeach
+                                            @else
+                                                <tr>
+                                                    <td colspan="5" style="text-align: center">No data available</td>
+                                                </tr>
+                                            @endif
+                                        </tbody>
+                                    </table>
+                                </div>
+                            @else
+                                <h1>Login to check your history</h1>
+                            @endif
                         </div>
                     </div>
 
