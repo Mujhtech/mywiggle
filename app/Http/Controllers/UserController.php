@@ -347,14 +347,16 @@ class UserController extends Controller
 
         $request->validate([
             'amount' => 'required',
-            'paypal' => 'required',
+            'account_number' => 'required',
+            'account_name' => 'required',
+            'bank_name' => 'required',
         ]);
 
         $u_amount = $request->user()->point_earn * get_setting('point-equal-balance');
 
-        if($request->amount > $u_amount){
+        if(get_setting('minimum-withdrawal') < $u_amount){
 
-            return redirect()->back()->with('error','You dont have enough points to withdraw such amount');
+            return redirect()->back()->with('error','You dont have enough balance to withdraw, Minimum withdrawal is N'.get_setting('minimum-withdrawal'));
 
         }
 
@@ -369,7 +371,9 @@ class UserController extends Controller
         $wd = new PayoutRequest;
         $wd->user_id = $request->user()->id;
         $wd->amount = $request->amount;
-        $wd->paypal = $request->paypal;
+        $wd->account_number = $request->account_number;
+        $wd->account_name = $request->account_name;
+        $wd->bank_name = $request->bank_name;
 
         if($wd->save()){
 

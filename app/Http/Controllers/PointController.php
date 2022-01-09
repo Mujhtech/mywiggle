@@ -55,6 +55,10 @@ class PointController extends Controller
         $ph->total_likes = $request->total_likes;
         $ph->total_comments = $request->total_comments;
 
+        $user = User::find($request->user_id);
+        $user->point_earn = $user->point_earn + $request->point;
+        $user->save();
+
         if ($ph->save()) {
             return redirect()->back()->with('success', 'Added successfully');
         }

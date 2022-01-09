@@ -25,7 +25,7 @@
                             </div>
                         </div>
 
-                        <div class="row">
+                        {{-- <div class="row">
                             <div class="col-md-12">
                                 <p class="font-weight-400 mb-2">PayPal Account</p>
                                 <input class="form-control" type="text" name="paypal" placeholder="Paypal Account" value="{{ old('paypal') }}" required />
@@ -33,9 +33,9 @@
                                 <small>{!!  $errors->get('paypal')[0] !!}</small>
                                 @endif
                             </div>
-                        </div>
+                        </div> --}}
 
-                        <!--<div class="row">
+                        <div class="row">
                             <div class="col-md-12">
                                 <p class="font-weight-400 mb-2">Account Number</p>
                                 <input class="form-control" type="text" name="account_number" placeholder="Account Number" value="{{ old('account_number') }}" required />
@@ -63,7 +63,7 @@
                                 <small>{!!  $errors->get('bank_name')[0] !!}</small>
                                 @endif
                             </div>
-                        </div>-->
+                        </div>
                     
                         <button class="btn btn-primary ml-2" type="submit">Create</button>
                         <img src="{{ asset('assets/img/paypal.jpg') }}" />
