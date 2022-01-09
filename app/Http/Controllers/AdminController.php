@@ -394,6 +394,16 @@ class AdminController extends Controller
         //
         $setting = Setting::get();
 
+        if(!Setting::where('name', 'minimum-withdrawal')->exists()){
+
+            $setting = new Setting;
+            $setting->name = 'minimum-withdrawal';
+            $name = 'minimum-withdrawal';
+            $setting->value = $request->$name;
+            $setting->save();
+
+        }
+
         foreach ($setting as $set) {
 
             if($set->name == "app-logo" && $request->hasFile('app-logo')){

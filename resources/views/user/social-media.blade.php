@@ -32,8 +32,8 @@
             <div class="row">
                 <div class="col-lg-9 col-md-12">
                     <div class="gen-blog-post">
-                        <div class="gen-blog-contain">
-                            <h4 class="card-title mb-3">{{ $title }}</h4>
+                        <div class="gen-blog-contain" style="background:#fff;color: #000;">
+                            <h4 class="card-title mb-3"  style="color:#000">{{ $title }}</h4>
                             @if (auth()->check())
                                 <div class="table-responsive">
                                     <table>

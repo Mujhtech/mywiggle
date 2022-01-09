@@ -124,6 +124,12 @@
 					</div>
 					<div class="form-row">
 						<div class="col-md-6 mb-3">
+							<label for="">Minimum Withdrawal</label>
+							<input type="text" class="form-control" name="minimum-withdrawal" placeholder="Minimum Withdrawal" value="{{ get_setting('minimum-withdrawal') }}">
+						</div>
+					</div>
+					<div class="form-row">
+						<div class="col-md-6 mb-3">
 							<label for="">Header Code Snippet</label>
 							<textarea class="form-control" name="header-code" placeholder="Header Code Snippet">{{ get_setting('header-code') }}</textarea>
 						</div>
@@ -132,6 +138,8 @@
 							<textarea class="form-control" name="footer-code" placeholder="Footer Code Snippet">{{ get_setting('footer-code') }}</textarea>
 						</div>
 					</div>
+
+
 
 					<button class="btn btn-primary" type="submit">Submit</button>
 				</form>
